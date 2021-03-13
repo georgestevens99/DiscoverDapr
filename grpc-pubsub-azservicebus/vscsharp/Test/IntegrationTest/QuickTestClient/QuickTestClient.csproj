@@ -1,0 +1,25 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Google.Protobuf" Version="3.14.0" />
+    <PackageReference Include="Grpc.Net.Client" Version="2.35.0" />
+    <PackageReference Include="Grpc.Tools" Version="2.35.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Common\SharedConstantsNStrings\SharedConstantsNStrings.csproj" />
+    <ProjectReference Include="..\..\..\Services\ServiceA\ServiceA.csproj" />
+    <ProjectReference Include="..\..\..\Support\ConfigHelpers\ConfigHelpers.csproj" />
+    <ProjectReference Include="..\..\..\Support\ServiceHelpers\ServiceHelpers.csproj" />
+  </ItemGroup>
+
+</Project>
