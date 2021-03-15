@@ -53,6 +53,7 @@ namespace QuickTestClient
                     string resultsMsg = "No results returned from the service!  Error?";
                     switch (cmdNArgs.Cmd)
                     {
+                        // Run a "Basic Functional Test" to verify ServiceA is operational.
                         case "a-bft":
                             SvcABftRequest svcABftRequest =
                                 new SvcABftRequest
@@ -66,11 +67,14 @@ namespace QuickTestClient
                             Console.WriteLine(resultsMsg);
                             break;
 
+                        // Publish a single event.
                         case "a-pubevent": // Usage: a-pubevent  pubsubkind  pubsubname  topicname  somepayloadstring
 
                             // Example:   a-pubevent netcodeconnstr pubsub svcADemoEvents1 payload=tttttt
 
-                            // PubSubKind can be netcodeconnstr, netcodeclicred, netcodeclicert, or daprpubsub
+                            // The only pubsubkind supported in this sample is daprpubsub
+                            // The only pubsubname supported in this sample is svs-pubsub-asbtopic, although it is easy
+                            // for YOU to add the code to ServiceB to support the default dapr redis pubsubname = pubsub.
                             
                             request = new SvcAPublishEventRequest();
                             request.PubSubKind = cmdNArgs.Arg1;
@@ -85,39 +89,8 @@ namespace QuickTestClient
                             resultsMsg = $"Service response =\n  {pubEventReply.Message}\n";
                             Console.WriteLine(resultsMsg);
                             break;
-
-                        //case "a-pubevent": // Usage: a-pubevent pubsubname topicname somepayloadstring
-                        //    SvcAPublishEventRequest request = new SvcAPublishEventRequest();
-                        //    request.PubSubName = cmdNArgs.Arg1;
-                        //    request.TopicName = cmdNArgs.Arg2;
-
-                        //    // The EventPayload string needs first be converted into a PubSubTest object, a DTO that is
-                        //    // passed between services.  Then the PubSubTest object needs to be serialized into a json string.
-                        //    // Json is required since the SvcAPublishEventRequest is defined via Protobuf which does not
-                        //    // support generic types or inheritance (Marc Gravell).
-                        //    // TODO Above is a huge limitation. What will I do about it?  Compensate with use of json.
-                        //    // The SvcAPublishEventRequest.EventPayload should be a generic type T, but since that is not
-                        //    // available I use// a .NET object (PubSubTestData) that is serialized into a json string.
-                        //    // This approach will handle all .NET types.
-                        //    PubSubTestData psTestData = new PubSubTestData {Msg1 = cmdNArgs.Arg3};
-
-                        //    // One MUST use the [JsonProperty("camelCasePropertyName")] attribute on each property
-                        //    // of each object (DTO) that is serialized and deserialized since the SERVICE CODE EXPECTS
-                        //    // camelCase due to its use of that naming policy in its JsonSerializerOptions.
-                        //    request.EventPayload = JsonConvert.SerializeObject(psTestData);
-
-                        //    // TODO Can I make the EventPayload field a struct (i.e. object) and use T in
-                        //    // the service call?  NO since the serviceProxy (below) is GENERATED CODE.
-
-                        //    // TODO -- ALWAYS USE the ASYNC version of serviceAProxy.PublishEventViaDapr as shown below.
-                        //    // TODO -- Using the non-async version results in GetAwaiter() error.
-                        //    SvcAStringReply pubEventReply = await serviceAProxy.PublishEventViaDaprAsync(request);
-
-                        //    resultsMsg = $"AllSvcsRequestCount = {allSvcsRequestCount++}, SvcARequestCount = {svcARequestCount++}," +
-                        //                 $"Service response =\n  {pubEventReply.Message}\n";
-                        //    Console.WriteLine(resultsMsg);
-                        //    break;
-
+                            
+                        // Publish a stream of multiple events
                         case "a-pubeventmulti": 
                             
                             // Usage: a-pubeventmulti  pubsubkind  pubsubname  topicname  somepayloadstring nevents delaymsec
