@@ -33,9 +33,10 @@ namespace ServiceB.Services
         public override Task<ListTopicSubscriptionsResponse> ListTopicSubscriptions(Empty request, ServerCallContext context)
         {
             var result = new ListTopicSubscriptionsResponse();
-
             try
             {
+                // Supports Redis pubsub component.  Also needs event processing code in OnTopicEvent() below.
+
                 //result.Subscriptions.Add(new TopicSubscription
                 //{
                 //    // Used with supplied default Redis pubsub component.
@@ -48,12 +49,6 @@ namespace ServiceB.Services
                     PubsubName = NamesOfQueuesNPubSubs.PubSubAzServiceBusComponent,
                     Topic = NamesOfQueuesNPubSubs.ServiceADemoEvents1Topic
                 });
-
-                //result.Subscriptions.Add(new TopicSubscription
-                //{
-                //    PubsubName = NamesOfQueuesNPubSubs.PubSubAzServiceBusEnvVarSecretsComponent,
-                //    Topic = NamesOfQueuesNPubSubs.ServiceADemoEvents1Topic
-                //});
             }
             catch (Exception ex)
             {
@@ -61,7 +56,7 @@ namespace ServiceB.Services
                 throw;
             }
 
-            // TODO  Add subscriptions for NamesOfQueuesNPubSubs.ServiceADemoEvents2Topic
+            // TODO If required, add subscription for NamesOfQueuesNPubSubs.ServiceADemoEvents2Topic
 
             return Task.FromResult(result);
         }
@@ -77,8 +72,6 @@ namespace ServiceB.Services
                     {
                         string payloadString = request.Data.ToStringUtf8();
                         m_Logger.LogInformation($" ** ServiceB: {NamesOfQueuesNPubSubs.ServiceADemoEvents1Topic} subscr dispatching event. Payload = {payloadString}.");
-                        // Does not display on console.
-                        //Console.WriteLine($" ** ServiceB: {NamesOfQueuesNPubSubs.ServiceADemoEvents1Topic} subscr dispatching event.");
                     }
                     catch (Exception ex)
                     {
@@ -87,14 +80,12 @@ namespace ServiceB.Services
                     }
                     break;
 
-                // TODO  Add subscriptions for NamesOfQueuesNPubSubs.ServiceADemoEvents2Topic
+                // TODO If required, add subscription for NamesOfQueuesNPubSubs.ServiceADemoEvents2Topic
                 case NamesOfQueuesNPubSubs.ServiceADemoEvents2Topic:
                     try
                     {
                         string payloadString = request.Data.ToStringUtf8();
                         m_Logger.LogInformation($" ** ServiceB: {NamesOfQueuesNPubSubs.ServiceADemoEvents2Topic} subscr dispatching event.subscr dispatching event. Payload = {payloadString}.");
-                        // Does not display on console
-                        //Console.WriteLine($" ** ServiceB: {NamesOfQueuesNPubSubs.ServiceADemoEvents2Topic} subscr dispatching event.");
                     }
                     catch (Exception ex)
                     {
@@ -108,82 +99,15 @@ namespace ServiceB.Services
                     break;
             }
 
-            // TODO Use a switch statement.
-            //if (request.PubsubName == NamesOfQueuesNPubSubs.PubSubDefaultDaprComponent)
-            //{
-            //    m_Logger.LogInformation($" ** ServiceB: PubsubName={request.PubsubName} event handler entered.");
-
-            //    if (request.Topic == NamesOfQueuesNPubSubs.ServiceADemoEvents1Topic)
-            //    {
-            //        try
-            //        {
-            //            m_Logger.LogInformation($" ** ServiceB: {NamesOfQueuesNPubSubs.ServiceADemoEvents1Topic} subscr received event.");
-            //        }
-            //        catch (Exception ex)
-            //        {
-            //            m_Logger.LogError($" ** ServiceB exception while processing for {NamesOfQueuesNPubSubs.PubSubDefaultDaprComponent} threw ex = {ex}");
-            //            throw;
-            //        }
-            //    }
-            //    else
-            //    { 
-            //        m_Logger.LogError($" ** ServiceB: Unrecognized Topic encountered = {request.Topic}");
-            //    }
-            //}
-            //else if (request.PubsubName == NamesOfQueuesNPubSubs.PubSubAzServiceBusComponent)
-            //{
-            //    m_Logger.LogInformation($" ** ServiceB: PubsubName={request.PubsubName} event handler entered.");
-
-            //    if (request.Topic == NamesOfQueuesNPubSubs.ServiceADemoEvents1Topic)
-            //    {
-            //        try
-            //        {
-            //            m_Logger.LogInformation($" ** ServiceB: {NamesOfQueuesNPubSubs.ServiceADemoEvents1Topic} subscr received event.");
-            //        }
-            //        catch (Exception ex)
-            //        {
-            //            m_Logger.LogInformation($" ** ServiceB exception while processing for {NamesOfQueuesNPubSubs.PubSubAzServiceBusComponent} threw ex = {ex}");
-            //            throw;
-            //        }
-            //    }
-            //    else
-            //    {
-            //        m_Logger.LogError($" ** ServiceB: Unrecognized Topic encountered = {request.Topic}");
-            //    }
-            //}
-            //else if (request.PubsubName == NamesOfQueuesNPubSubs.PubSubAzServiceBusEnvVarSecretsComponent)
-            //{
-            //    m_Logger.LogInformation($" ** ServiceB: PubsubName={request.PubsubName} event handler entered.");
-
-            //    if (request.Topic == NamesOfQueuesNPubSubs.ServiceADemoEvents1Topic)
-            //    {
-            //        try
-            //        {
-            //            m_Logger.LogInformation($" ** ServiceB: {NamesOfQueuesNPubSubs.ServiceADemoEvents1Topic} subscr received event.");
-            //        }
-            //        catch (Exception ex)
-            //        {
-            //            m_Logger.LogError($" ** ServiceB exception while processing for {NamesOfQueuesNPubSubs.PubSubAzServiceBusEnvVarSecretsComponent} threw ex = {ex}");
-            //            throw;
-            //        }
-            //    }
-            //    else
-            //    {
-            //        m_Logger.LogError($" ** ServiceB: Unrecognized Topic encountered = {request.Topic}");
-            //    }
-            //}
-
-
-            // TODO Determine the circumstances to return Retry and Drop.  Do like I did in MethodInAfDf.
+            // TODO Determine the circumstances to return Retry or Drop.
             TopicEventResponse topicResponse = new TopicEventResponse();
-            topicResponse.Status = TopicEventResponse.Types.TopicEventResponseStatus.Success; // Other enum members are Retry, Drop.
+            topicResponse.Status = TopicEventResponse.Types.TopicEventResponseStatus.Success; 
+            // Other enum members are Retry, Drop.
             
             return await Task.FromResult(topicResponse);
 
-            // INFO Below is original code from sample. The default value of TopicEventResponse is Success.
-            //return await Task.FromResult(default(TopicEventResponse));
-
-            //From appcallback.proto
+            // INFO 
+            //From Dapr SDK appcallback.proto
             /*
              // TopicEventResponse is response from app on published message
             message TopicEventResponse {

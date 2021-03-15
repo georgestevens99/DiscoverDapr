@@ -122,11 +122,13 @@ namespace QuickTestClient
                             
                             // Usage: a-pubeventmulti  pubsubkind  pubsubname  topicname  somepayloadstring nevents delaymsec
 
-                            // Example:   a-pubevent netcodeconnstr pubsub svcADemoEvents1 payload=tttttt 100 20
+                            // Example:   a-pubeventmulti daprpubsub svs-pubsub-asbtopic svcADemoEvents1 payload=tttttt 100 20
                             // Above example will send 100 events (nevents = 100) with a time delay of 20 millisec between
                             // each send (delaymsec = 20);
 
-                            // PubSubKind can be netcodeconnstr, netcodeclicred, netcodeclicert, or daprpubsub
+                            // The only pubsubkind supported in this sample is daprpubsub
+                            // The only pubsubname supported in this sample is svs-pubsub-asbtopic, although it is easy
+                            // for YOU to add the code to ServiceB to support the default dapr redis pubsubname = pubsub.
                             
                             request = new SvcAPublishEventRequest();
                             request.PubSubKind = cmdNArgs.Arg1;
@@ -147,17 +149,16 @@ namespace QuickTestClient
                             {
                                 // TODO -- ALWAYS USE the ASYNC version of serviceAProxy.PublishEventViaDapr as shown below.
                                 // TODO -- Using the non-async version results in GetAwaiter() error.
-                                
-                                string adjustedEventPayload = request.EventPayload + "-" + i.ToString();
+                                string senderSequenceNumber = i.ToString("D9");
+                                string adjustedEventPayload = senderSequenceNumber + ", " + request.EventPayload;
                                 pubEventReply = await serviceADemoProxy.PublishEventAsync(request);
 
-                                Console.WriteLine($"Sent Message number {i} of {nEvents} messages to send. Payload={adjustedEventPayload}");
+                                Console.WriteLine($"Sent Message number {i} of {nEvents} messages to send.\n\t\t\t\t\tMsg = {adjustedEventPayload}");
                                 resultsMsg = $"Service response =\n  {pubEventReply.Message}\n";
                                 Console.WriteLine(resultsMsg);
 
                                 await Task.Delay(delayMsec);
                             }
-
                             break;
 
                         default:

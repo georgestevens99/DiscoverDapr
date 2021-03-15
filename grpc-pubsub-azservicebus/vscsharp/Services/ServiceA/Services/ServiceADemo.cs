@@ -56,7 +56,7 @@ namespace ServiceA.Services
 
                 default:
                     reply = new SvcAStringReply();
-                    reply.Message = $"** ServiceADemo.PublishEvent(): Cannot publish. Unknown request.PubSubKind = {request.PubSubKind}";
+                    reply.Message = $"** ServiceADemo.PublishEvent(): Cannot publish. Unknown request. PubSubKind = {request.PubSubKind}";
                     break;
             }
             return reply;
@@ -74,9 +74,7 @@ namespace ServiceA.Services
             {
                 m_Logger.LogInformation(
                     $"** ServiceADemo.PublishEventViaDapr(): PubsubName={request.PubSubName}, TopicName={request.TopicName}, Payload={request.EventPayload}");
-                // Does not display on console.
-                //Console.WriteLine($"** ServiceADemo.PublishEventViaDapr(): PubsubName={request.PubSubName}, TopicName={request.TopicName}");
-                
+
                 await m_DaprProxy.PublishEventAsync<string>(request.PubSubName, request.TopicName, request.EventPayload);
             }
             catch (System.Exception ex)
