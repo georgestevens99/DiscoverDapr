@@ -108,7 +108,7 @@ namespace QuickTestClient
                             request.PubSubKind = cmdNArgs.Arg1;
                             request.PubSubName = cmdNArgs.Arg2;
                             request.TopicName = cmdNArgs.Arg3;
-                            request.EventPayload = cmdNArgs.Arg4;
+                            //request.EventPayload = cmdNArgs.Arg4;
 
                             int nEvents;
                             bool isParsed = Int32.TryParse(cmdNArgs.Arg5, out nEvents);
@@ -124,10 +124,12 @@ namespace QuickTestClient
                                 // TODO -- ALWAYS USE the ASYNC version of serviceAProxy.PublishEventViaDapr as shown below.
                                 // TODO -- Using the non-async version results in GetAwaiter() error.
                                 string senderSequenceNumber = i.ToString("D9");
-                                string adjustedEventPayload = senderSequenceNumber + ", " + request.EventPayload;
+                                string adjustedEventPayload = senderSequenceNumber + ", " + cmdNArgs.Arg4;
+                                request.EventPayload = adjustedEventPayload;
+
                                 pubEventReply = await serviceADemoProxy.PublishEventAsync(request);
 
-                                Console.WriteLine($"Sent Message number {i} of {nEvents} messages to send.\n\t\t\t\t\tMsg = {adjustedEventPayload}");
+                                Console.WriteLine($"Sent Message number {i} of {nEvents} messages to send.\n\t\t\t\t\tMsg = {request.EventPayload}");
                                 
                                 // Don't clutter up the display unless there are errors.
                                 if (pubEventReply.Message.Contains("Error"))

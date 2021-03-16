@@ -65,6 +65,7 @@ namespace ServiceA.Services
         
 
         #region Publish to Topic using Dapr
+
         private async Task<SvcAStringReply> PublishEventViaDapr(SvcAPublishEventRequest request)
         {
             SvcAStringReply reply = new SvcAStringReply();
@@ -75,6 +76,10 @@ namespace ServiceA.Services
                 m_Logger.LogInformation(
                     $"** ServiceADemo.PublishEventViaDapr(): PubsubName={request.PubSubName}, TopicName={request.TopicName}, Payload={request.EventPayload}");
 
+                // For display in a running demo.
+                Console.WriteLine(
+                    $"** ServiceADemo publish to Topic={request.TopicName}:  {request.EventPayload}");
+
                 await m_DaprProxy.PublishEventAsync<string>(request.PubSubName, request.TopicName, request.EventPayload);
             }
             catch (System.Exception ex)
@@ -82,7 +87,11 @@ namespace ServiceA.Services
                 reply.Message = $"** ServiceADemo.PublishEventViaDapr() Error -- Caught exception = {ex}";
             }
 
-            Console.WriteLine(reply.Message);
+            // For error detection in a running  demo.
+            if (reply.Message.Contains("Error"))
+            {
+                Console.WriteLine(reply.Message);
+            }
             return reply;
         }
 
