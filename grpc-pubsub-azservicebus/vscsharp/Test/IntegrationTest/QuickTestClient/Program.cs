@@ -48,9 +48,10 @@ namespace QuickTestClient
                 if (keepRunning)
                 {
                     SvcAPublishEventRequest request;
-                    SvcAStringReply pubEventReply;
+                    SvcAStringReply pubEventReply = new SvcAStringReply();
+                    pubEventReply.Message = "No results returned from the service!  Input Error?";
                     ParsedUserInput cmdNArgs = ParseUserInput(userInput);
-                    string resultsMsg = "No results returned from the service!  Error?";
+                    string resultsMsg;
                     switch (cmdNArgs.Cmd)
                     {
                         // Run a "Basic Functional Test" to verify ServiceA is operational.
@@ -127,9 +128,13 @@ namespace QuickTestClient
                                 pubEventReply = await serviceADemoProxy.PublishEventAsync(request);
 
                                 Console.WriteLine($"Sent Message number {i} of {nEvents} messages to send.\n\t\t\t\t\tMsg = {adjustedEventPayload}");
-                                resultsMsg = $"Service response =\n  {pubEventReply.Message}\n";
-                                Console.WriteLine(resultsMsg);
-
+                                
+                                // Don't clutter up the display unless there are errors.
+                                if (pubEventReply.Message.Contains("Error"))
+                                {
+                                    resultsMsg = $"Service response = {pubEventReply.Message}\n";
+                                    Console.WriteLine(resultsMsg);
+                                }
                                 await Task.Delay(delayMsec);
                             }
                             break;

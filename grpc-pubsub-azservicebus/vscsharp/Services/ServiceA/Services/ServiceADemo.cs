@@ -56,7 +56,7 @@ namespace ServiceA.Services
 
                 default:
                     reply = new SvcAStringReply();
-                    reply.Message = $"** ServiceADemo.PublishEvent(): Cannot publish. Unknown request. PubSubKind = {request.PubSubKind}";
+                    reply.Message = $"** ServiceADemo.PublishEvent(): Error -- Cannot publish. Unknown request. PubSubKind = {request.PubSubKind}";
                     break;
             }
             return reply;
@@ -79,7 +79,7 @@ namespace ServiceA.Services
             }
             catch (System.Exception ex)
             {
-                reply.Message = $"** ServiceADemo.PublishEventViaDapr() Caught exception = {ex}";
+                reply.Message = $"** ServiceADemo.PublishEventViaDapr() Error -- Caught exception = {ex}";
             }
 
             Console.WriteLine(reply.Message);
