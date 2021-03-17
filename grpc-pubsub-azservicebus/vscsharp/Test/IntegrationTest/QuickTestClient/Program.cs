@@ -35,8 +35,7 @@ namespace QuickTestClient
             while (keepRunning)
             {
                 Console.WriteLine("Input a-bft arg1 arg2 ENTER to execute ServiceA.DoBasicFunctionalTestAsync(message).");
-                //Console.WriteLine("Input b-bft arg1 arg2 ENTER to execute ServiceB.PerformBftAsync(message).");
-                Console.WriteLine("Or cmds = a-pubevent,...");
+                Console.WriteLine("Or the following cmds: a-pubevent, a-pubeventmulti, others TBD.");
                 Console.WriteLine("     OR Press ENTER to quit.");
 
                 string userInput = Console.ReadLine();
@@ -108,7 +107,6 @@ namespace QuickTestClient
                             request.PubSubKind = cmdNArgs.Arg1;
                             request.PubSubName = cmdNArgs.Arg2;
                             request.TopicName = cmdNArgs.Arg3;
-                            //request.EventPayload = cmdNArgs.Arg4;
 
                             int nEvents;
                             bool isParsed = Int32.TryParse(cmdNArgs.Arg5, out nEvents);
@@ -121,12 +119,8 @@ namespace QuickTestClient
 
                             for (int i = 1; i < nEvents+1; i++)
                             {
-                                // TODO -- ALWAYS USE the ASYNC version of serviceAProxy.PublishEventViaDapr as shown below.
-                                // TODO -- Using the non-async version results in GetAwaiter() error.
-                                string senderSequenceNumber = i.ToString("D9");
-                                string adjustedEventPayload = senderSequenceNumber + ", " + cmdNArgs.Arg4;
-                                request.EventPayload = adjustedEventPayload;
-
+                                request.EventPayload = ComposeEventPayload(i, cmdNArgs.Arg4);
+                                
                                 pubEventReply = await serviceADemoProxy.PublishEventAsync(request);
 
                                 Console.WriteLine($"Sent Message number {i} of {nEvents} messages to send.\n\t\t\t\t\tMsg = {request.EventPayload}");
@@ -154,6 +148,14 @@ namespace QuickTestClient
             Console.WriteLine("QuickTestClient EXITING!");
             await Task.Delay(1000);
         }
+
+        private static string ComposeEventPayload(int i, string uiEventPayload)
+        {
+            string senderSequenceNumber = i.ToString("D9");
+            string adjustedEventPayload = senderSequenceNumber + ", " + uiEventPayload;
+            return adjustedEventPayload;
+        }
+
         private class ParsedUserInput
         {
             public string Cmd { get; set; } = string.Empty;

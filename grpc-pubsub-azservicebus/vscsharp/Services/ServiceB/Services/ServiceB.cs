@@ -35,20 +35,27 @@ namespace ServiceB.Services
             var result = new ListTopicSubscriptionsResponse();
             try
             {
-                // Supports Redis pubsub component.  Also needs event processing code in OnTopicEvent() below.
+                TopicSubscription topicSubscr;
 
-                //result.Subscriptions.Add(new TopicSubscription
-                //{
-                //    // Used with supplied default Redis pubsub component.
-                //    PubsubName = NamesOfQueuesNPubSubs.PubSubDefaultDaprComponent,
-                //    Topic = NamesOfQueuesNPubSubs.ServiceADemoEvents1Topic
-                //});
-
-                result.Subscriptions.Add(new TopicSubscription
+                topicSubscr = new TopicSubscription
                 {
                     PubsubName = NamesOfQueuesNPubSubs.PubSubAzServiceBusComponent,
                     Topic = NamesOfQueuesNPubSubs.ServiceADemoEvents1Topic
-                });
+                };
+                result.Subscriptions.Add(topicSubscr);
+                // For display in a running demo.
+                Console.WriteLine($" ** ServiceB: Subscribed to Topic={topicSubscr.Topic} for PubsubName={topicSubscr.PubsubName}");
+
+
+                // For Dapr default Redis pubsub component.  Also needs event processing code in OnTopicEvent() below.
+                topicSubscr = new TopicSubscription()  
+                {
+                    PubsubName = NamesOfQueuesNPubSubs.PubSubDefaultDaprComponent,
+                    Topic = NamesOfQueuesNPubSubs.ServiceADemoEvents1Topic
+                };
+                result.Subscriptions.Add(topicSubscr);
+                // For display in a running demo.
+                Console.WriteLine($" ** ServiceB: Subscribed to Topic={topicSubscr.Topic} for PubsubName={topicSubscr.PubsubName}");
             }
             catch (Exception ex)
             {
@@ -71,7 +78,14 @@ namespace ServiceB.Services
                     try
                     {
                         string payloadString = request.Data.ToStringUtf8();
-                        m_Logger.LogInformation($" ** ServiceB: {NamesOfQueuesNPubSubs.ServiceADemoEvents1Topic} subscr dispatching event. Payload = {payloadString}.");
+                        m_Logger.LogInformation($" ** ServiceB: {request.Topic} subscr. Dispatching event containing: {payloadString}.");
+                        
+                        // For display in a running demo.
+                        Console.WriteLine($" ** ServiceB: {request.Topic} subscr. Dispatching event containing: {payloadString}");
+
+                        // TODO Here, in comments, put example of how this code would dispatch the event to
+                        // TODO a Service Operation of some service in the ServiceB Dapr-Mesh using
+                        // TODO Service Invocation.
                     }
                     catch (Exception ex)
                     {
@@ -85,7 +99,10 @@ namespace ServiceB.Services
                     try
                     {
                         string payloadString = request.Data.ToStringUtf8();
-                        m_Logger.LogInformation($" ** ServiceB: {NamesOfQueuesNPubSubs.ServiceADemoEvents2Topic} subscr dispatching event.subscr dispatching event. Payload = {payloadString}.");
+                        m_Logger.LogInformation($" ** ServiceB: {request.Topic} subscr. Dispatching event containing: {payloadString}.");
+
+                        // For display in a running demo.
+                        Console.WriteLine($" ** ServiceB: {request.Topic} subscr. Dispatching event containing: {payloadString}");
                     }
                     catch (Exception ex)
                     {
@@ -95,19 +112,18 @@ namespace ServiceB.Services
                     break;
 
                 default:
-                    m_Logger.LogError($" ** ServiceB: ERROR Received event for unsupported Topic={request.Topic}.");
+                    m_Logger.LogError($" ** ServiceB: ERROR. Received event for unsupported Topic={request.Topic}.");
                     break;
             }
 
             // TODO Determine the circumstances to return Retry or Drop.
             TopicEventResponse topicResponse = new TopicEventResponse();
-            topicResponse.Status = TopicEventResponse.Types.TopicEventResponseStatus.Success; 
-            // Other enum members are Retry, Drop.
-            
+            // The other enum members are Retry, Drop.
+            topicResponse.Status = TopicEventResponse.Types.TopicEventResponseStatus.Success;
+
             return await Task.FromResult(topicResponse);
 
-            // INFO 
-            //From Dapr SDK appcallback.proto
+            // More Info -- From Dapr SDK appcallback.proto
             /*
              // TopicEventResponse is response from app on published message
             message TopicEventResponse {
