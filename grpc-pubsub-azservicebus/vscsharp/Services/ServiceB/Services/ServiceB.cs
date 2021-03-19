@@ -11,23 +11,28 @@
 // Copyright © 2021 Solid Value Software, LLC
 
 using Dapr.AppCallback.Autogen.Grpc.v1;
+using Dapr.Client;
 using Dapr.Client.Autogen.Grpc.v1;
 using Google.Protobuf.WellKnownTypes;
 using Grpc.Core;
 using Microsoft.Extensions.Logging;
+using ServiceHelpers;
 using SharedConstantsNStrings;
 using System;
 using System.Threading.Tasks;
+using Google.Protobuf;
 
 namespace ServiceB.Services
 {
     public class ServiceB : AppCallback.AppCallbackBase
     {
         private readonly ILogger<ServiceB> m_Logger;
+        private readonly DaprClient m_DaprProxy;
 
         public ServiceB(ILogger<ServiceB> logger)
         {
             m_Logger = logger;
+            m_DaprProxy = DaprClientProxyFactory.MakeDaprProxy();
         }
 
         public override Task<ListTopicSubscriptionsResponse> ListTopicSubscriptions(Empty request, ServerCallContext context)
@@ -35,27 +40,27 @@ namespace ServiceB.Services
             var result = new ListTopicSubscriptionsResponse();
             try
             {
-                TopicSubscription topicSubscr;
+                TopicSubscription subscr;
 
-                topicSubscr = new TopicSubscription
+                subscr = new TopicSubscription
                 {
                     PubsubName = NamesOfQueuesNPubSubs.PubSubAzServiceBusComponent,
-                    Topic = NamesOfQueuesNPubSubs.ServiceADemoEvents1Topic
+                    Topic = NamesOfQueuesNPubSubs.ServiceADemoEvent1Topic
                 };
-                result.Subscriptions.Add(topicSubscr);
+                result.Subscriptions.Add(subscr);
                 // For display in a running demo.
-                Console.WriteLine($" ** ServiceB: Subscribed to Topic={topicSubscr.Topic} for PubsubName={topicSubscr.PubsubName}");
+                Console.WriteLine($" ** ServiceB: Subscribed to Topic={subscr.Topic} for PubsubName={subscr.PubsubName}");
 
 
                 // For Dapr default Redis pubsub component.  Also needs event processing code in OnTopicEvent() below.
-                topicSubscr = new TopicSubscription()  
+                subscr = new TopicSubscription()  
                 {
                     PubsubName = NamesOfQueuesNPubSubs.PubSubDefaultDaprComponent,
-                    Topic = NamesOfQueuesNPubSubs.ServiceADemoEvents1Topic
+                    Topic = NamesOfQueuesNPubSubs.ServiceADemoEvent1Topic
                 };
-                result.Subscriptions.Add(topicSubscr);
+                result.Subscriptions.Add(subscr);
                 // For display in a running demo.
-                Console.WriteLine($" ** ServiceB: Subscribed to Topic={topicSubscr.Topic} for PubsubName={topicSubscr.PubsubName}");
+                Console.WriteLine($" ** ServiceB: Subscribed to Topic={subscr.Topic} for PubsubName={subscr.PubsubName}");
             }
             catch (Exception ex)
             {
@@ -74,7 +79,7 @@ namespace ServiceB.Services
 
             switch (request.Topic)
             {
-                case NamesOfQueuesNPubSubs.ServiceADemoEvents1Topic:
+                case NamesOfQueuesNPubSubs.ServiceADemoEvent1Topic:
                     try
                     {
                         string payloadString = request.Data.ToStringUtf8();
@@ -82,10 +87,18 @@ namespace ServiceB.Services
                         
                         // For display in a running demo.
                         Console.WriteLine($" ** ServiceB: {request.Topic} subscr. Dispatching event containing: {payloadString}");
+                        
+                        // Below, ServiceB processes the event locally here in ServiceB.
+                        bool isSuccess = await ProcessServiceADemoEvent1(payloadString);
 
-                        // TODO Here, in comments, put example of how this code would dispatch the event to
-                        // TODO a Service Operation of some service in the ServiceB Dapr-Mesh using
-                        // TODO Service Invocation.
+                        
+                        // ANOTHER OPTION -- ServiceB could also use Dapr ServiceInvocation to call some other
+                        // service in this Dapr-Mesh to process this event.  This is sketched below but NOT IMPLEMENTED
+                        // so as to keep the code minimal.
+
+                        //HelloRequest helloRequest = new HelloRequest();
+                        //await m_DaprProxy.InvokeMethodGrpcAsync<HelloRequest>("SomeService", "SomeServiceOp", helloRequest);
+
                     }
                     catch (Exception ex)
                     {
@@ -95,7 +108,7 @@ namespace ServiceB.Services
                     break;
 
                 // TODO If required, add subscription for NamesOfQueuesNPubSubs.ServiceADemoEvents2Topic
-                case NamesOfQueuesNPubSubs.ServiceADemoEvents2Topic:
+                case NamesOfQueuesNPubSubs.ServiceADemoEvent2Topic:
                     try
                     {
                         string payloadString = request.Data.ToStringUtf8();
@@ -138,6 +151,16 @@ namespace ServiceB.Services
               //  }
              */
             //return base.OnTopicEvent(request, context);
+        }
+
+        private async Task<bool> ProcessServiceADemoEvent1(string eventPayload)
+        {
+            // NOTE -- One can use a longer delay here to cause the number of items in the Topic to increase
+            // by making the delay here longer than the delay between sending messages in the Quick Test Client
+            const int DelayMillisec = 10;
+            await Task.Delay(DelayMillisec);
+
+            return true;
         }
 
         public override Task<InvokeResponse> OnInvoke(InvokeRequest request, ServerCallContext context)

@@ -18,8 +18,8 @@ namespace SharedConstantsNStrings
         public const string DaprPubSubKind = "daprpubsub";
        
         // Topic Names
-        public const string ServiceADemoEvents1Topic = "svcADemoEvents1";
-        public const string ServiceADemoEvents2Topic = "svcADemoEvents2";
+        public const string ServiceADemoEvent1Topic = "svcADemoEvent1";
+        public const string ServiceADemoEvent2Topic = "svcADemoEvent2";
 
         // PubSub Building Block components.
         

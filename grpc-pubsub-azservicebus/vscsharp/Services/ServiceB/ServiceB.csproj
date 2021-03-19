@@ -16,6 +16,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\Common\SharedConstantsNStrings\SharedConstantsNStrings.csproj" />
+    <ProjectReference Include="..\..\Support\ServiceHelpers\ServiceHelpers.csproj" />
   </ItemGroup>
 
 </Project>
