@@ -35,7 +35,7 @@ namespace QuickTestClient
             while (keepRunning)
             {
                 Console.WriteLine("Input a-bft arg1 arg2 ENTER to execute ServiceA.DoBasicFunctionalTestAsync(message).");
-                Console.WriteLine("Or the following cmds: a-pubevent, a-pubeventmulti, others TBD.");
+                Console.WriteLine("OR the following cmds: a-pubevent, a-pubeventmulti, others TBD.");
                 Console.WriteLine("     OR Press ENTER to quit.");
 
                 string userInput = Console.ReadLine();
@@ -49,8 +49,10 @@ namespace QuickTestClient
                     SvcAPublishEventRequest request;
                     SvcAStringReply pubEventReply = new SvcAStringReply();
                     pubEventReply.Message = "No results returned from the service!  Input Error?";
-                    ParsedUserInput cmdNArgs = ParseUserInput(userInput);
                     string resultsMsg;
+
+                    ParsedUserInput cmdNArgs = ParseUserInput(userInput);
+                    
                     switch (cmdNArgs.Cmd)
                     {
                         // Run a "Basic Functional Test" to verify ServiceA is operational.
@@ -70,7 +72,7 @@ namespace QuickTestClient
                         // Publish a single event.
                         case "a-pubevent": // Usage: a-pubevent  pubsubkind  pubsubname  topicname  somepayloadstring
 
-                            // Example:   a-pubevent netcodeconnstr pubsub svcADemoEvents1 payload=tttttt
+                            // Example:   a-pubevent daprpubsub svs-pubsub-asbtopic svcADemoEvent1 payload=tttttt
 
                             // The only pubsubkind supported in this sample is daprpubsub
                             // The only pubsubname supported in this sample is svs-pubsub-asbtopic, although it is easy
@@ -95,7 +97,7 @@ namespace QuickTestClient
                             
                             // Usage: a-pubeventmulti  pubsubkind  pubsubname  topicname  somepayloadstring nevents delaymsec
 
-                            // Example:   a-pubeventmulti daprpubsub svs-pubsub-asbtopic svcADemoEvents1 payload=tttttt 100 20
+                            // Example:   a-pubeventmulti daprpubsub svs-pubsub-asbtopic svcADemoEvent1 payload=tttttt 100 20
                             // Above example will send 100 events (nevents = 100) with a time delay of 20 millisec between
                             // each send (delaymsec = 20);
 
@@ -145,6 +147,7 @@ namespace QuickTestClient
                     Console.WriteLine($"QuickTestClient quitting on user pressing Enter with no other input.");
                 }
             } // End while keep running.
+
             Console.WriteLine("QuickTestClient EXITING!");
             await Task.Delay(1000);
         }

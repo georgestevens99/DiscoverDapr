@@ -35,6 +35,7 @@ namespace ServiceA.Services
         public override Task<SvcABftReply> DoBasicFunctionalTest(SvcABftRequest request, ServerCallContext context)
         {
             m_Logger.LogInformation("** ServiceADemo.DoBasicFunctionalTest() entered.");
+
             SvcABftReply reply =
                 new SvcABftReply
                 {
@@ -48,6 +49,7 @@ namespace ServiceA.Services
         public override async Task<SvcAStringReply> PublishEvent(SvcAPublishEventRequest request, ServerCallContext context)
         {
             SvcAStringReply reply;
+
             switch (request.PubSubKind)
             {
                 case NamesOfQueuesNPubSubs.DaprPubSubKind:

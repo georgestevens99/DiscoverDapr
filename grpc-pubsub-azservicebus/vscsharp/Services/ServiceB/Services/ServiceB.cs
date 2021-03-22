@@ -35,6 +35,7 @@ namespace ServiceB.Services
             m_DaprProxy = DaprClientProxyFactory.MakeDaprProxy();
         }
 
+        // FYI Here where ServiceB tells Dapr which Pubsub subscriptions it can handle.
         public override Task<ListTopicSubscriptionsResponse> ListTopicSubscriptions(Empty request, ServerCallContext context)
         {
             var result = new ListTopicSubscriptionsResponse();
@@ -92,9 +93,9 @@ namespace ServiceB.Services
                         bool isSuccess = await ProcessServiceADemoEvent1(payloadString);
 
                         
-                        // ANOTHER OPTION -- ServiceB could also use Dapr ServiceInvocation to call some other
-                        // service in this Dapr-Mesh to process this event.  This is sketched below but NOT IMPLEMENTED
-                        // so as to keep the code minimal.
+                        // ANOTHER OPTION -- ServiceB could also use Dapr SERVICE INVOCATION to call some other
+                        // service within this Dapr-Mesh to process this event, rather than process the event in
+                        // THIS ServiceB.  This is sketched below but NOT IMPLEMENTED so as to keep the code minimal.
 
                         //HelloRequest helloRequest = new HelloRequest();
                         //await m_DaprProxy.InvokeMethodGrpcAsync<HelloRequest>("SomeService", "SomeServiceOp", helloRequest);
@@ -107,7 +108,8 @@ namespace ServiceB.Services
                     }
                     break;
 
-                // TODO If required, add subscription for NamesOfQueuesNPubSubs.ServiceADemoEvents2Topic
+                // TODO If required, add subscription for NamesOfQueuesNPubSubs.ServiceADemoEvents2Topic and
+                // process the events below.
                 case NamesOfQueuesNPubSubs.ServiceADemoEvent2Topic:
                     try
                     {
@@ -129,7 +131,7 @@ namespace ServiceB.Services
                     break;
             }
 
-            // TODO Determine the circumstances to return Retry or Drop.
+            // TODO Determine the circumstances required to return Retry or Drop.
             TopicEventResponse topicResponse = new TopicEventResponse();
             // The other enum members are Retry, Drop.
             topicResponse.Status = TopicEventResponse.Types.TopicEventResponseStatus.Success;
@@ -153,6 +155,8 @@ namespace ServiceB.Services
             //return base.OnTopicEvent(request, context);
         }
 
+        // The ServiceB handler for the ServiceADemoEvent1.  Note this code could be in a separate
+        // ServiceBImplementation class (but with a nicer name).
         private async Task<bool> ProcessServiceADemoEvent1(string eventPayload)
         {
             // NOTE -- One can use a longer delay here to cause the number of items in the Topic to increase
@@ -163,16 +167,18 @@ namespace ServiceB.Services
             return true;
         }
 
+        // FYI Here is the top level handler for incoming Service Invocation requests.
         public override Task<InvokeResponse> OnInvoke(InvokeRequest request, ServerCallContext context)
         {
             return base.OnInvoke(request, context);
         }
 
+        // FYI Here where ServiceB tells Dapr which Binding Events it can handle.
         public override Task<ListInputBindingsResponse> ListInputBindings(Empty request, ServerCallContext context)
         {
             return base.ListInputBindings(request, context);
         }
-
+        // FYI Here is the top level handler for incoming Binding Events from Dapr Binding and Trigger Components.
         public override Task<BindingEventResponse> OnBindingEvent(BindingEventRequest request, ServerCallContext context)
         {
             return base.OnBindingEvent(request, context);

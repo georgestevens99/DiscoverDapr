@@ -24,9 +24,6 @@ service SvcADemo {
   // Sends a Basic Functional Test (BFT) request msg
   rpc DoBasicFunctionalTest (SvcABftRequest) returns (SvcABftReply);
 
-  // Publish an event via Dapr
-  //rpc PublishEventViaDapr(SvcAPublishEventRequest) returns (SvcAStringReply); 
-
   // Publish an event via any means appropriate to ServiceA.
   rpc PublishEvent(SvcAPublishEventRequest) returns (SvcAStringReply); 
 

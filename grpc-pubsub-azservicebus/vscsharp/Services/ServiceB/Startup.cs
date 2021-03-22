@@ -43,7 +43,7 @@ namespace ServiceB
 
             app.UseEndpoints(endpoints =>
             {
-                // Added ServiceB endpoint.  This shows that a gRPC service can also use a regular HTTP controller endpoint.
+                // Added ServiceB endpoint.  
                 endpoints.MapGrpcService<GreeterService>();
                 endpoints.MapGrpcService<Services.ServiceB>();
 
