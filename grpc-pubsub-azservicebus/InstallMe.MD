@@ -1,2 +1,2 @@
-# grpc-pubsub-azservicebus folder InstallMe
+# grpc-pubsub-azservicebus Installation Instructions
 Testing.
