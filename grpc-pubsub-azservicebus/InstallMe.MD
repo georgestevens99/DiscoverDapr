@@ -27,4 +27,13 @@ Three prerequisites need to be fulfilled to use this code sample.
     * Initialize Dapr for use WITH Docker (the normal configuration):  https://docs.dapr.io/getting-started/install-dapr-selfhost/  
       * If you are using Windows for your development system I recommend installing WSL2 Backend (from Microsoft) that really smooths the process of using Docker.  WSL means Windows System for Linux.  It emulates a Linux machine to make Docker work smoother.  See the Docker Desktop for Windows documentation at https://docs.docker.com/docker-for-windows/install/ for links on how to install WSL2. 
 
+##Deploy Assets
+Now that you have all the prerequisites installed you need to obtain and setup the code and scripts for the grpc-pubsub-azservicebus code.
+1. Clone this repo to the machine (your "test" machine) upon which you intend to run this code sample.
+  a. Start Visual Studio Community on your "test" machine.
+  b. ttt
+3. Deploy files to required places outside the repo
+
+##Run the Code
+
 
