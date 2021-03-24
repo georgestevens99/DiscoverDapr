@@ -29,10 +29,10 @@ Three prerequisites need to be fulfilled to use this code sample.
 
 ## Deploy Assets
 Now that you have all the prerequisites installed you need to obtain and setup the code and scripts for the grpc-pubsub-azservicebus code.
-1. Clone this repo to the machine (your "test" machine) upon which you intend to run this code sample.
- * Start Visual Studio Community on your "test" machine.
-  *  ttt
-  *  ttt
+1. Clone this repo (https://github.com/georgestevens99/DiscoverDapr) to the machine (your "test" machine) upon which you intend to run this code sample.
+  * Start Visual Studio Community on your "test" machine.
+   * ttt
+   * ttt
 2. Deploy files to required places outside the repo
 
 ## Run the Code
