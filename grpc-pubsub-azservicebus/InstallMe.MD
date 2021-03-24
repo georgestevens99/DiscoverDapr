@@ -17,5 +17,14 @@ Three prerequisites need to be fulfilled to use this code sample.
 2. For general use: https://azure.microsoft.com/en-us/free/ 
 3. For Students -- This subscription does NOT require a credit card, unlike the 2 above.  But you must prove you are a student: https://azure.microsoft.com/en-us/free/students/
 
-**Dapr** -- Install Dapr on each machine that runs one of the services in the code sample by following the instructions at this link:
+**Dapr** -- Install Dapr on *each machine* that runs one of the services in the code sample by following the instructions at this link: https://docs.dapr.io/getting-started/
+* You will only need to do the first 2 steps, i.e. 1. Install the Cli and 2. Initialize Dapr. 
+ 
+* The code sample does NOT require that Docker be installed.  Therefore you can use the command **dapr init --slim** rather than the standard **dapr init** command.
+* However, if you want to explore the full features of Dapr beyond just this code sample, go ahead and follow the instructions for initializing for use with Docker.
+* Install the Cli:  https://docs.dapr.io/getting-started/install-dapr-cli/
+* Initialize Dapr for use WITHOUT Docker:  https://docs.dapr.io/operations/hosting/self-hosted/self-hosted-no-docker/
+* Initialize Dapr for use with Docker (the normal configuration):  https://docs.dapr.io/getting-started/install-dapr-selfhost/  
+  *  If you are using Windows for your development system I recommend installing WSL2 Backend (from Microsoft) that really smooths the process of using Docker.  WSL means Windows System for Linux that emulates a Linux machine to make Docker work smoother.  See the Docker Desktop for Windows documentation at https://docs.docker.com/docker-for-windows/install/ for links on how to install WSL2. 
+
 
