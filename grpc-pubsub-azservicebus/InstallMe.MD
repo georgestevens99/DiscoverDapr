@@ -36,11 +36,14 @@ Now that you have all the prerequisites installed you need to obtain and setup t
       * It may take a few minutes for the GitHub repo to be downloaded to your machine.
     * Open the solution and build it.
       * When the download is complete, in Visual Studio (VS) open the grpc-pubsub-azservicebus.sln.  Double clicking on it usually works.
-      * Once the solution is open then build the solution by clicking on Rebuild in the Build menu in the menubar at the top of the VS display.
+      * Once the solution is open then build the solution by opening the Build menu in the menu bar at the top of the display and clicking on Rebuild.
       * The build should work, and if it does then you can proceed with the remainder of these installation instructions.
         * If the build has errors then you must fix them before proceeding.  Try asking on Dapr Discord at https://discord.com/invite/ptHhX6jc34
-        *  
-2. Deploy repo files to required places outside the repo
+       
+2. Deploy repo files to required places outside the repo.
+    * Copy the Azure Service Bus Pub/Sub component .yaml file from the solution to .dapr\components.
+      * In your copy of the DiscoverDapr repo, copy DiscoverDapr\grpc-pubsub-azservicebus\components\svs-pubsub-asbtopic.yaml to your DaprRuntimePath\.dapr\components.
+        * DaprRuntimePath is the directory on your machine where your dapr init command placed the Dapr runtime executables and components when you installed Dapr above. 
 
   
 ## Create Azure Assets
