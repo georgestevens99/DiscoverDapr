@@ -21,7 +21,7 @@ Three prerequisites need to be fulfilled to use this code sample.
 * You will only need to do the first 2 steps, i.e. 1. Install the Cli and 2. Initialize Dapr.  
 * The code sample does NOT require that Docker be installed.  Therefore you can use the command **dapr init --slim** rather than the standard **dapr init** command.  However, if you want to explore the full features of Dapr beyond just this code sample, go ahead and follow the instructions for initializing for use WITH Docker.
 1. Install the Cli:  https://docs.dapr.io/getting-started/install-dapr-cli/
-2. Install Dapr with or without Docker: 
+2. Install Dapr with or without Docker as follows.  Please make a note of the full pathname of the directory on your local machine where Dapr is installed.  This is known as the DaprRuntimePath and is used later. 
     * Initialize Dapr for use WITHOUT Docker:  https://docs.dapr.io/operations/hosting/self-hosted/self-hosted-no-docker/
     * OR
     * Initialize Dapr for use WITH Docker (the normal configuration):  https://docs.dapr.io/getting-started/install-dapr-selfhost/  
@@ -44,7 +44,7 @@ Now that you have all the prerequisites installed you need to obtain and setup t
     * Copy the Azure Service Bus Pub/Sub component .yaml file from the solution to .dapr\components.
       * In your copy of the DiscoverDapr repo, copy DiscoverDapr\grpc-pubsub-azservicebus\components\svs-pubsub-asbtopic.yaml to your DaprRuntimePath\.dapr\components.
         * DaprRuntimePath is the directory on your machine where your dapr init command placed the Dapr runtime executables and components when you installed Dapr above. 
-
+    * TODO put a file containing commands to setupdemo, start dapr run and UI commands in the solution.  Then deploy the setupdemo file to where Dapr Cli is deployed.  
   
 ## Create Azure Assets
 ## Run the Code
