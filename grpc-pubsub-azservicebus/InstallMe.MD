@@ -27,17 +27,21 @@ Three prerequisites need to be fulfilled to use this code sample.
     * Initialize Dapr for use WITH Docker (the normal configuration):  https://docs.dapr.io/getting-started/install-dapr-selfhost/  
       * If you are using Windows for your development system I recommend installing WSL2 Backend (from Microsoft) that really smooths the process of using Docker.  WSL means Windows System for Linux.  It emulates a Linux machine to make Docker work smoother.  See the Docker Desktop for Windows documentation at https://docs.docker.com/docker-for-windows/install/ for links on how to install WSL2. 
 
-## Deploy Assets and Create Azure Assets
+## Deploy Assets
 Now that you have all the prerequisites installed you need to obtain and setup the code and scripts for the grpc-pubsub-azservicebus code.
 1. Clone this repo (https://github.com/georgestevens99/DiscoverDapr) to the machine (your "test" machine) upon which you intend to run this code sample.
     * Start Visual Studio Community on your "test" machine.
       * In the Visual Studio start up menu click on the "Clone a repository" selection.  Then fill out the input boxes on the screen.  Use https://github.com/georgestevens99/DiscoverDapr for the "repository location" input box.
       * It may take a few minutes for the GitHub repo to be downloaded to your machine.
-      * When the download is complete, in Visual Studio open the grpc-pubsub-azservicebus.sln.  Double clicking on it usually works.
+      * When the download is complete, in Visual Studio (VS) open the grpc-pubsub-azservicebus.sln.  Double clicking on it usually works.
+      * Once the solution is open then build the solution by clicking on Rebuild in the Build menu in the menubar at the top of the VS display.
+      * The build should work, and if it does then you can proceed with the remainder of these installation instructions.
+        * If the build has errors then you must fix them before proceeding.  Try asking on Dapr Discord at https://discord.com/invite/ptHhX6jc34
+        *  
 2. Deploy repo files to required places outside the repo
-3. Create Azure Assets
-  
 
+  
+## Create Azure Assets
 ## Run the Code
 
 
