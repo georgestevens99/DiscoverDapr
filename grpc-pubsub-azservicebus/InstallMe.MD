@@ -12,7 +12,9 @@ Three prerequisites need to be fulfilled to use this code sample.
 **Visual Studio Community** -- Get the free Visual Studio Community IDE at this link:  https://visualstudio.microsoft.com/free-developer-offers/
 * Note that you must **get Visual Studio Community and NOT Visual Studio Code**.  It takes a substantial amount of work to get the code sample to run using Visual Studio Code.  Don't bother!
   
-**Azure subscription** -- Get a free Azure subscription at this link:
+**Azure subscription** -- Get a free Azure subscription at one of these links:
+1. For Developers -- This subscription has some extra developer oriented freebies: https://visualstudio.microsoft.com/dev-essentials/
+2. For general use: https://azure.microsoft.com/en-us/free/ 
 
 **Dapr** -- Install Dapr on each machine that runs one of the services in the code sample by following the instructions at this link:
 
