@@ -1,5 +1,5 @@
 # grpc-pubsub-azservicebus Installation Instructions
-This will be written on Wed - Th 3/24/21 - 3/25/21.
+UNDER CONSTRUCTION! This will be written on Wed - Th 3/24/21 - 3/25/21.
 
 ## Prerequisites
 Three prerequisites need to be fulfilled to use this code sample.
@@ -47,6 +47,17 @@ Now that you have all the prerequisites installed you need to obtain and setup t
     * TODO put a file containing commands to setupdemo, start dapr run and UI commands in the solution.  Then deploy the setupdemo file to where Dapr Cli is deployed.  
   
 ## Create Azure Assets
+Creating the Azure Assets required by the grpc-pubsub-azservicebus solution is fairly easy.  There is only a single Azure Asset required -- An Azure Service Bus Topic with one Subscription.  The Topic and Subscription must be part of an Azure Service Bus Namespace, a "logical container" for Queues and Topics.  And the Azure Service Bus Namespace must be within an Azure Resource Group, another "logical container" used to organize Azure Assets of all kinds.
+
+Follow the instructions in the following link to Azure Documentation to create all the above Azure Assets.  Make sure you follow the instructions step by step and create all the necessary assets with the names as specified below.  If you do not do this, the code sample will not work. https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-quickstart-topics-subscriptions-portal
+
+Required Naming for the Azure Assets
+* Use any name for the Resource Group and Service Bus Namespace.
+* The Topic must be named "svcADemoEvent1"
+* The Subscription must be named "serviceB"
+* The above 2 names are "hard coded" in the solution.  You'll find them in the "NamesOfQueuesNPubSubs.cs" file located in Common.SharedConstantsNStrings
+
+
 ## Run the Code
 
 
