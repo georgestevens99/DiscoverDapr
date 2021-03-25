@@ -6,6 +6,7 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionItems", "SolutionItems", "{0F21C68E-20C6-41A8-AC0C-61AEDA2AB455}"
 	ProjectSection(SolutionItems) = preProject
 		Apache 2.0 License.docx = Apache 2.0 License.docx
+		StartRunServicesAndUI.txt = StartRunServicesAndUI.txt
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{4EFBE31F-59A1-46ED-AA90-C231D17E1983}"
