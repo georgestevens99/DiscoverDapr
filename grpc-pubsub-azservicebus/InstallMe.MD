@@ -22,7 +22,7 @@ Three prerequisites need to be fulfilled to use this code sample.
 * The code sample does NOT require that Docker be installed.  Therefore you can use the command **dapr init --slim** rather than the standard **dapr init** command.  
     * However, if you want to explore the full features of Dapr beyond just this code sample, go ahead and follow the instructions for initializing for use WITH Docker.
 1. Install the Dapr Cli (command language interface):  https://docs.dapr.io/getting-started/install-dapr-cli/
-2. Install Dapr (the executable) with or without Docker as follows.  Please make a **note of the full pathname of the directory** on your local machine where Dapr is installed.  This is known as the **DaprRuntimePath** in this document and is used later. 
+2. Install Dapr (the executable) with or without Docker as follows.  Please **make a note of the full pathname of the directory** on your local machine where Dapr is installed.  This is known as the **DaprRuntimePath** in this document and is used later. 
 
     * Initialize Dapr for use WITHOUT Docker:  https://docs.dapr.io/operations/hosting/self-hosted/self-hosted-no-docker/
     * OR
@@ -53,11 +53,11 @@ Creating the Azure Assets required by the grpc-pubsub-azservicebus solution is f
 
 Follow the instructions in the following link to Azure Documentation to create all the above Azure Assets.  Make sure you follow the instructions step by step and create all the necessary assets with the names as specified below.  If you do not do this, the code sample will not work. https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-quickstart-topics-subscriptions-portal
 
-Required Naming for the Azure Assets
+Required Naming for the Azure Assets, including the required case:
 * Use any name for the Resource Group and Service Bus Namespace.
-* The Topic must be named "svcADemoEvent1"
-* The Subscription must be named "serviceB"
-* The above 2 names are "hard coded" in the solution.  You'll find them in the "NamesOfQueuesNPubSubs.cs" file located in Common.SharedConstantsNStrings
+* The Topic must be named "**svcADemoEvent1**"
+* The Subscription must be named "**serviceB**"
+* The above 2 names are "hard coded" in the solution's code.  You'll find them in the "NamesOfQueuesNPubSubs.cs" file located in Common.SharedConstantsNStrings
 
 
 ## Run the Code
