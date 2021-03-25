@@ -3,11 +3,11 @@ UNDER CONSTRUCTION! This will be written on Wed - Th 3/24/21 - 3/25/21.
 
 ## Prerequisites
 Three prerequisites need to be fulfilled to use this code sample.
-1. The free Microsoft Visual Studio Community IDE (integrated development environment) needs to be installed on *each machine* that will run one of the services in the code sample.
+1. The free Microsoft **Visual Studio Community** IDE (integrated development environment) needs to be installed on *each machine* that will run one of the services in the code sample.
 
-2. You need to have a Microsoft Azure cloud subscription.  Free introductory subscriptions are available.
+2. You need to have a Microsoft **Azure cloud subscription**.  Free introductory subscriptions are available.
 
-3. Dapr needs to be installed on *each machine* that will run one of the services in the code sample. The code sample will work with any version of Dapr that is compatible with v1.0
+3. **Dapr** needs to be installed on *each machine* that will run one of the services in the code sample. The code sample will work with any version of Dapr that is compatible with v1.0
 
 **Visual Studio Community** -- Get the free Visual Studio Community IDE at this link:  https://visualstudio.microsoft.com/free-developer-offers/
 * Note that you must **get Visual Studio Community and NOT Visual Studio Code**.  It takes a substantial amount of work to get the code sample to run using Visual Studio Code.  Don't bother!
@@ -19,7 +19,8 @@ Three prerequisites need to be fulfilled to use this code sample.
 
 **Dapr** -- Install Dapr on *each machine* that runs one of the services in the code sample by following the instructions at this link: https://docs.dapr.io/getting-started/
 * You will only need to do the first 2 steps, i.e. 1. Install the Cli and 2. Initialize Dapr.  
-* The code sample does NOT require that Docker be installed.  Therefore you can use the command **dapr init --slim** rather than the standard **dapr init** command.  However, if you want to explore the full features of Dapr beyond just this code sample, go ahead and follow the instructions for initializing for use WITH Docker.
+* The code sample does NOT require that Docker be installed.  Therefore you can use the command **dapr init --slim** rather than the standard **dapr init** command.  
+    * However, if you want to explore the full features of Dapr beyond just this code sample, go ahead and follow the instructions for initializing for use WITH Docker.
 1. Install the Cli:  https://docs.dapr.io/getting-started/install-dapr-cli/
 2. Install Dapr with or without Docker as follows.  Please make a note of the full pathname of the directory on your local machine where Dapr is installed.  This is known as the DaprRuntimePath and is used later. 
     * Initialize Dapr for use WITHOUT Docker:  https://docs.dapr.io/operations/hosting/self-hosted/self-hosted-no-docker/
