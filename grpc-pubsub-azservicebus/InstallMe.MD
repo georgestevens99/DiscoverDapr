@@ -20,7 +20,7 @@ Three prerequisites need to be fulfilled to use this code sample.
 **Dapr** -- Install Dapr on *each machine* that runs one of the services in the code sample by following the instructions at this link: https://docs.dapr.io/getting-started/
 * You will only need to do the first 2 steps, i.e. 1. Install the Cli and 2. Initialize Dapr.  
 * The code sample does NOT require that Docker be installed.  Therefore you can use the command **dapr init --slim** rather than the standard **dapr init** command.  
-    * However, if you want to explore the full features of Dapr beyond just this code sample, go ahead and follow the instructions for initializing for use WITH Docker and use dapr init.
+    * However, if you want to explore the full features of Dapr beyond just this code sample, go ahead and follow the instructions for initializing for use WITH Docker and use **dapr init**.
 1. Install the Dapr Cli (command language interface):  https://docs.dapr.io/getting-started/install-dapr-cli/
 2. Install Dapr (the executable) with or without Docker as follows.  Please **make a note of the full pathname of the directory** on your local machine where Dapr is installed.  This is known as the **DaprRuntimePath** in this document and is used later. 
 
