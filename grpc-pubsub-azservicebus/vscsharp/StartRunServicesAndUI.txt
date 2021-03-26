@@ -2,20 +2,32 @@ Actions to start and run serviceA and its Dapr sidecar
 
 Open a Windows Terminal Command Prompt window or Windows Command Prompt window.  Input the following commands.
 
-cd <RepoPrefix>\DiscoverDapr\grpc-pubsub-azservicebus\Services\ServiceA
+cd LocalRepoPathPrefix\DiscoverDapr\grpc-pubsub-azservicebus\Services\ServiceA
 dapr run --app-id serviceA dotnet run
 
 
+
+
 Actions to start and run serviceB and its Dapr sidecar
+
 Open a 2nd separate Windows Terminal Command Prompt window or Windows Command Prompt window.  Input the following commands.
 
-cd <RepoPrefix>\DiscoverDapr\grpc-pubsub-azservicebus\Services\ServiceB
+cd LocalRepoPathPrefix\DiscoverDapr\grpc-pubsub-azservicebus\Services\ServiceB
 dapr run --app-id serviceB --app-port 5050 --app-protocol grpc dotnet run
 
+
+
+
 Actions to start and run the Quick Test Client
+
 In the Visual Studio grpc-pubsub-azservicebus\vscsharp folder, open the solution (double click on the solution item).
 Find the QuickTestClient project and hover your mouse cursor on it.
-Right click this project symbol to make a context menu pop up.  Hover your mouse cursor over the Debug context menu item.  Click on Start New Instance and the Quick Test Client will start and display its own Command Prompt window.
+	Right click this project symbol to make a context menu pop up.  
+	Hover your mouse cursor over the Debug context menu item.  
+	Click on Start New Instance and the Quick Test Client will start and display its own Command Prompt window.
+
+
+
 
 Actions to input commands into the Quick Test Client command window that will cause it to send a message to ServiceA which will enqueue one or more items into your Azure Service Bus svcADemoEvent1 Topic.
 
