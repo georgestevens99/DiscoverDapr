@@ -22,7 +22,7 @@ Three prerequisites need to be fulfilled to use this code sample.
 * The code sample does NOT require that Docker be installed.  Therefore you can use the command **dapr init --slim** rather than the standard **dapr init** command.  
     * However, if you want to explore the full features of Dapr beyond just this code sample, go ahead and follow the instructions for initializing for use WITH Docker and use **dapr init**.
 1. Install the Dapr Cli (command language interface):  https://docs.dapr.io/getting-started/install-dapr-cli/
-2. Install Dapr (the executable) with or without Docker as follows.  Please **make a note of the full pathname of the directory** on your local machine where Dapr is installed.  This is known as the **DaprRuntimePath** in this document and is used later. 
+2. Install Dapr (the executable) with or without Docker as follows.  Please **make a note of the full pathname of the directory** on your local machine where Dapr is installed.  This is known as the **DaprRuntimePathPrefix** in this document and is used later. 
 
     * Initialize Dapr for use WITHOUT Docker:  https://docs.dapr.io/operations/hosting/self-hosted/self-hosted-no-docker/
     * OR
@@ -36,7 +36,7 @@ Now that you have all the prerequisites installed you need to obtain and setup t
     * Down load the repo.
       * In the Visual Studio start up menu click on the "Clone a repository" selection.  Then fill out the input boxes on the screen.
         * Use https://github.com/georgestevens99/DiscoverDapr for the "Repository location" input box.
-        * For the "Path" input box insert the file path on your machine where you want the DiscoverDapr repo to reside. This path is know as the **LocalRepoPath** in this document so record it somewhere.
+        * For the "Path" input box insert the file path on your machine where you want the DiscoverDapr repo to reside. This path is know as the **LocalRepoPathPrefix** in this document so record it somewhere.
       * It may take a few minutes for the GitHub repo to be downloaded to your machine.
     * Open the solution and build it.
       * When the download is complete, in Visual Studio (VS) open the grpc-pubsub-azservicebus.sln.  Double clicking on it usually works.
@@ -46,8 +46,8 @@ Now that you have all the prerequisites installed you need to obtain and setup t
        
 2. **Deploy repo files** to required places outside the repo.
     * Copy the Azure Service Bus Pub/Sub Dapr component .yaml file from the locat solution to .dapr\components.
-      * In your local copy of the DiscoverDapr repo at **LocalRepoPath**, copy LocalRepoPath\DiscoverDapr\grpc-pubsub-azservicebus\components\svs-pubsub-asbtopic.yaml to your DaprRuntimePath\.dapr\components.
-        * **DaprRuntimePath** is the directory on your machine where your **dapr init** command placed the Dapr runtime executables and components when you installed Dapr above. 
+      * In your local copy of the DiscoverDapr repo at **LocalRepoPathPrefix**, copy LocalRepoPath\DiscoverDapr\grpc-pubsub-azservicebus\components\svs-pubsub-asbtopic.yaml to your DaprRuntimePath\.dapr\components.
+        * **DaprRuntimePathPrefix** is the directory on your machine where your **dapr init** command placed the Dapr runtime executables and components when you installed Dapr above. 
         
     * TODO put a file containing commands to setupdemo, start dapr run and UI commands in the solution.  Then deploy the setupdemo file to where Dapr Cli is deployed.  
   
