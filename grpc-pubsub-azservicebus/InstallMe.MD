@@ -54,7 +54,7 @@ Now that you have all the prerequisites installed you need to obtain and setup t
 ## Create Azure Assets
 Creating the Azure Assets required by the grpc-pubsub-azservicebus solution is fairly easy.  There is only a single Azure Asset required -- An Azure Service Bus Topic with one Subscription.  The Topic and Subscription must be part of an Azure Service Bus Namespace, a "logical container" for Queues and Topics.  And the Azure Service Bus Namespace must be within an Azure Resource Group, another "logical container" used to organize Azure Assets of all kinds.
 
-Follow the instructions in the following link to Azure Documentation to create all the above Azure Assets.  Make sure you follow the instructions step by step and create all the necessary assets with the names as specified below.  If you do not do this, the code sample will not work. https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-quickstart-topics-subscriptions-portal
+1. Follow the instructions in the following link to Azure Documentation to create all the above Azure Assets.  Make sure you follow the instructions step by step and create all the necessary assets with the names as specified below.  If you do not do this, the code sample will not work. https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-quickstart-topics-subscriptions-portal
 
 Required Naming for the Azure Assets, including the required case:
 * Use any name for the Resource Group and Service Bus Namespace.
@@ -62,6 +62,17 @@ Required Naming for the Azure Assets, including the required case:
 * The Subscription MUST be named "**serviceB**"
 * The above 2 names are "hard coded" in the solution's code.  You'll find them in the "NamesOfQueuesNPubSubs.cs" file located in Common.SharedConstantsNStrings
 
+2. Copy the Azure Service Bus Namespace "connection string" from the Azure Portal and paste it into the svs-pubsub-asbtopic.yaml that resides in  DaprRuntimePathPrefix\.dapr\components.  Here is how to do that:
+* In the Azure Portal navigate to your Azure Service Bus Namespace.
+* Then click on Settings/Shared Access Policies
+* Then click on RootNamageSharedAccessKey which will display the Primary and Secondary Key and Primary and Secondary Connection Strings
+* Click on the Copy icon of the Primary Connection String.  Then paste it into some temporary local text file (NoteBook works well for this) on your local dev system.
+* Open DaprRuntimePathPrefix\.dapr\components\svs-pubsub-asbtopic.yaml in a text editor.  You can right click on the file and choose Edit.
+* Paste the Primary Connection String that you copied from the Azure Portal into the field labeled that resides in  DaprRuntimePathPrefix\.dapr\components as follows:
+*   metadata:
+  - name: connectionString 
+    value: Endpoint=sb://ttttttt.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=ttttttt 
+  * Replace the above value with your connection string.
 
 ## Run the Code
 
