@@ -1,5 +1,5 @@
 # grpc-pubsub-azservicebus Installation Instructions
-UNDER CONSTRUCTION! This will be written on Wed - F 3/24/21 - 3/26/21.
+UNDER CONSTRUCTION! This will be written on Wed - Sa 3/24/21 - 3/27/21.
 
 ## Prerequisites
 Three prerequisites need to be fulfilled to use this code sample.
@@ -83,6 +83,4 @@ Required Naming for the Azure Assets, including the required case:
 * Save the DaprRuntimePathPrefix\.dapr\components\svs-pubsub-asbtopic.yaml file.
 * Done.
 
-## Run the Code
-
-
+**All done with InstallMe.  To run the code see RunMe.MD**
