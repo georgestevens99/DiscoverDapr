@@ -76,9 +76,9 @@ Required Naming for the Azure Assets, including the required case:
   
    \- name: connectionString 
    
-    value: Endpoint=sb://YourNamespace.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=YourSharedAccessKey  
+   \ value: Endpoint=sb://YourNamespace.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=YourSharedAccessKey  
   
-  * Above, paste so as to replace all to the right of "value:" with your connection string.
+  * Above, paste so as to replace all to the right of "value: " with your connection string, leaving >=1 space between ':" and the conncetion string.
   
 * Save the DaprRuntimePathPrefix\.dapr\components\svs-pubsub-asbtopic.yaml file.
 * Done.
