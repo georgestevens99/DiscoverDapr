@@ -73,6 +73,7 @@ Required Naming for the Azure Assets, including the required case:
   * Replace the contents of the field labeled "value" as shown below:
 
   metadata:
+  
    \- name: connectionString 
     value: Endpoint=sb://YourNamespace.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=YourSharedAccessKey  
   
