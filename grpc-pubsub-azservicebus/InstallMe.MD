@@ -34,7 +34,9 @@ Now that you have all the prerequisites installed you need to obtain and setup t
 1. **Copy the VS solution from GitHub to your machine** -- Clone this repo (https://github.com/georgestevens99/DiscoverDapr) to the machine (your "test" machine) upon which you intend to run this code sample.
     * Start Visual Studio Community on your "test" machine.
     * Down load the repo.
-      * In the Visual Studio start up menu click on the "Clone a repository" selection.  Then fill out the input boxes on the screen.  Use https://github.com/georgestevens99/DiscoverDapr for the "Repository location" input box.
+      * In the Visual Studio start up menu click on the "Clone a repository" selection.  Then fill out the input boxes on the screen.
+        * Use https://github.com/georgestevens99/DiscoverDapr for the "Repository location" input box.
+        * For the "Path" input box insert the file path on your machine where you want the DiscoverDapr repo to reside. This path is know as the **LocalRepoPath** in this document so record it somewhere.
       * It may take a few minutes for the GitHub repo to be downloaded to your machine.
     * Open the solution and build it.
       * When the download is complete, in Visual Studio (VS) open the grpc-pubsub-azservicebus.sln.  Double clicking on it usually works.
@@ -43,9 +45,9 @@ Now that you have all the prerequisites installed you need to obtain and setup t
         * If the build has errors then you must fix them before proceeding.  Try asking on Dapr Discord at https://discord.com/invite/ptHhX6jc34
        
 2. **Deploy repo files** to required places outside the repo.
-    * Copy the Azure Service Bus Pub/Sub component .yaml file from the solution to .dapr\components.
-      * In your copy of the DiscoverDapr repo, copy DiscoverDapr\grpc-pubsub-azservicebus\components\svs-pubsub-asbtopic.yaml to your DaprRuntimePath\.dapr\components.
-        * DaprRuntimePath is the directory on your machine where your dapr init command placed the Dapr runtime executables and components when you installed Dapr above. 
+    * Copy the Azure Service Bus Pub/Sub Dapr component .yaml file from the locat solution to .dapr\components.
+      * In your local copy of the DiscoverDapr repo at **LocalRepoPath**, copy LocalRepoPath\DiscoverDapr\grpc-pubsub-azservicebus\components\svs-pubsub-asbtopic.yaml to your DaprRuntimePath\.dapr\components.
+        * **DaprRuntimePath** is the directory on your machine where your **dapr init** command placed the Dapr runtime executables and components when you installed Dapr above. 
         
     * TODO put a file containing commands to setupdemo, start dapr run and UI commands in the solution.  Then deploy the setupdemo file to where Dapr Cli is deployed.  
   
