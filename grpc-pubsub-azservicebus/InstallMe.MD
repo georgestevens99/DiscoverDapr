@@ -45,7 +45,7 @@ Now that you have all the prerequisites installed you need to obtain and setup t
         * If the build has errors then you must fix them before proceeding.  Try asking on Dapr Discord at https://discord.com/invite/ptHhX6jc34
        
 2. **Deploy repo files** to required places outside the repo.
-    * Copy the Azure Service Bus Pub/Sub Dapr component .yaml file from the locat solution to .dapr\components.
+    * Copy the Azure Service Bus Pub/Sub Dapr component .yaml file from the local solution to .dapr\components.
       * In your local copy of the DiscoverDapr repo at **LocalRepoPathPrefix**, copy LocalRepoPathPrefix\DiscoverDapr\grpc-pubsub-azservicebus\components\svs-pubsub-asbtopic.yaml to your DaprRuntimePathPrefix\.dapr\components.
         * **DaprRuntimePathPrefix** is the directory on your machine where your **dapr init** command placed the Dapr runtime executables and components when you installed Dapr above. 
         
@@ -58,8 +58,8 @@ Follow the instructions in the following link to Azure Documentation to create a
 
 Required Naming for the Azure Assets, including the required case:
 * Use any name for the Resource Group and Service Bus Namespace.
-* The Topic must be named "**svcADemoEvent1**"
-* The Subscription must be named "**serviceB**"
+* The Topic MUST be named "**svcADemoEvent1**"
+* The Subscription MUST be named "**serviceB**"
 * The above 2 names are "hard coded" in the solution's code.  You'll find them in the "NamesOfQueuesNPubSubs.cs" file located in Common.SharedConstantsNStrings
 
 
