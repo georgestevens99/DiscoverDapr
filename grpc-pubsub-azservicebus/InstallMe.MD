@@ -31,7 +31,7 @@ Three prerequisites need to be fulfilled to use this code sample.
 
 ## Deploy Repo Assets
 Now that you have all the prerequisites installed you need to obtain and setup the assets (the code and scripts) for the grpc-pubsub-azservicebus VS solution from the GitHub repository.
-1. Clone this repo (https://github.com/georgestevens99/DiscoverDapr) to the machine (your "test" machine) upon which you intend to run this code sample.
+1. **Copy the VS solution from GitHub to your machine** -- Clone this repo (https://github.com/georgestevens99/DiscoverDapr) to the machine (your "test" machine) upon which you intend to run this code sample.
     * Start Visual Studio Community on your "test" machine.
     * Down load the repo.
       * In the Visual Studio start up menu click on the "Clone a repository" selection.  Then fill out the input boxes on the screen.  Use https://github.com/georgestevens99/DiscoverDapr for the "Repository location" input box.
@@ -42,10 +42,11 @@ Now that you have all the prerequisites installed you need to obtain and setup t
       * The build should work, and if it does then you can proceed with the remainder of these installation instructions.
         * If the build has errors then you must fix them before proceeding.  Try asking on Dapr Discord at https://discord.com/invite/ptHhX6jc34
        
-2. Deploy repo files to required places outside the repo.
+2. **Deploy repo files** to required places outside the repo.
     * Copy the Azure Service Bus Pub/Sub component .yaml file from the solution to .dapr\components.
       * In your copy of the DiscoverDapr repo, copy DiscoverDapr\grpc-pubsub-azservicebus\components\svs-pubsub-asbtopic.yaml to your DaprRuntimePath\.dapr\components.
         * DaprRuntimePath is the directory on your machine where your dapr init command placed the Dapr runtime executables and components when you installed Dapr above. 
+        
     * TODO put a file containing commands to setupdemo, start dapr run and UI commands in the solution.  Then deploy the setupdemo file to where Dapr Cli is deployed.  
   
 ## Create Azure Assets
