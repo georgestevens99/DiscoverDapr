@@ -10,14 +10,19 @@ It is also beneficial while running serviceA and serviceB to have your Azure Ser
 
 Note:
 1. the QuickTestClient has a command that publishes multiple events, plus a separate command that publishes a single event.
-2. Only local hosting of a service and its Dapr side car in processes (no containers) is used in the below scenarios.  Kubernetes is NOT used, although it could be if you want to do the work required for Kubernetes hosting and putting the services in containers as well.
+2. Only local hosting of a service and its Dapr side car in processes (no containers) is used in the below scenarios.  Kubernetes is NOT used, although it could be if you want to do the work required for Kubernetes hosting and putting each service in a container as well.
 
-The typical usage scenario is to host serviceA, serviceB, and the QuickTestClient on the same machine, and run all 3 processes at once for each testing session.  Here, both serviceA and serviceB will reside in the SAME Dapr-Mesh, i.e. each will have its own private Dapr sidecar, which are interconnected by gRPC connections using
+The **typical usage scenario** is to host serviceA, serviceB, and the QuickTestClient on the *same machine*, and run all 3 processes at once for each testing session.  Here, both serviceA and serviceB will reside in the SAME *Dapr-Mesh*, i.e. each will have its own private Dapr sidecar, which are interconnected by gRPC connections.
 
-However, one does not have to run all three services at once.  Running only serviceA and the QuickTestClient is an excellent way to test the capability of publishing events that will be stored in the Azure Service Bus Topic until a subscriber process is started.  This gives one the ability to use the Azure Service Bus Explorer in the Azure Portal to examine the content of messages published.  In this scenario you can exit serviceA and the QuickTestClient, then later start serviceB running all by itself.  Here, serviceB will immediately read all the messages from the Topic since the code is set up to subscribe to that Topic.  The items processed are visible on the serviceB console UI.
+However, **one does not have to run all three services at once**.  Running only serviceA and the QuickTestClient is an excellent way to test the capability of publishing events that will be stored in the Azure Service Bus Topic until a subscriber process is started.  This gives one the ability to use the Azure Service Bus Explorer in the Azure Portal to examine the content of messages published.  In this scenario you can exit serviceA and the QuickTestClient, then later start serviceB running all by itself.  Here, serviceB will immediately read all the messages from the Topic since the code is set up to subscribe to that Topic.  The items processed are visible on the serviceB console UI.
 
-Another quite interesting hosting scenario has serviceA and the QuickTestClient running on separate machines, as follows:
-1. Use InstallMe.MD to install ALL the software on 2 machines!  Machine A and Machine B. This will simulate 2 geographically separate systems, each of which will host a separate Dapr-Mesh.
+Another quite interesting hosting scenario has **the 2 services running on separate machines**.  This creates *2 separate Dapr-Meshes*, one on each machine. serviceA and the QuickTestClient run on one machine, with serviceA in Dapr-MeshA while serviceB runs on another machine in Dapr-MeshB.  Please erfer to the PowerPoint presentation "Thinking Outside the Dapr-Mesh" that is part of the DiscoverDapr\grpc-pubsub-azservicebus repo you cloned.  In Visual Studio switch to the folder view.  Then open the grpc-pubsub-azservicebus and you will see this PowerPoint slide deck.  Look through the slides so that you understand what a Dapr-Mesh is, and what a Mesh-of-Dapr-Meshes is because that is what is happening in this hosting scenario.  Set up this hosting scenario as follows:
+1. Use InstallMe.MD to install ALL the software on 2 machines!  Machine A and Machine B. This will simulate 2 geographically separate systems, each of which will host a separate Dapr-Mesh.  
+2. Then on Machine A start serviceA and the QuickTestClient.  Then on MachineB start serviceB.
+3. Then issue commands to the QuickTestClient UI and you will see the results displayed in the serviceB debug console on Machine B.
+4. Note that Machine A and Machine B can be anywhere, so long as they both can successfully connect to the same Azure Service Bus Topic!
+
+So, now that you have an overview of where the services are hosted and a general understanding of what is going on, here are a few more details.
 
 ## Actions to prepare the Visual Studio solution for running serviceA, serviceB, and the QuickTestClient
 
