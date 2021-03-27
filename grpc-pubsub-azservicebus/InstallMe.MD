@@ -98,6 +98,6 @@ Required Naming for the Azure Assets, including the required case:
   
 * Save the DaprRuntimePathPrefix\.dapr\components\svs-pubsub-asbtopic.yaml file.
 
-You are done with the Azzure Assets step!
+You are done with the Azure Assets step!
 
 **All done with InstallMe.  To run the code see RunMe.MD**
