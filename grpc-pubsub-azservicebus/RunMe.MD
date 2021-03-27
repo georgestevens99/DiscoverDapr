@@ -3,6 +3,21 @@ UNDER CONSTRUCTION -- This will be written on Sat 3/27/21.
 
 Contains the instructions to run the 2 services and test client with the commands found in StartRunServicesAndUI.txt
 
+The **ultimate overall goal** of this solution is to be able to start serviceA, serviceB, and the QuickTestClient.  Then with all 3 running, issue commands to the QuickTestClient UI that cause ServiceA to publish events to an Azure Service Bus Topic which is subscribed to by serviceB.  serviceB will then receive each event published to the Topic and display the event content on its debug UI.  Likewise, the QuickTestClient and serviceA also have UIs which display the traffic going thru each of them.
+
+It is also beneficial while running serviceA and serviceB to have your Azure Service Bus Topic open in the Azure Portal.  This will allow you to verify that events have indeed been published, plus monitor any errors that may occur.  For example when you have not yet created at least one subscription for the Topic and try to publish to that Topic, the publish will fail.  However, that failure can only be detected in the Azure Portal which will show a "User Error".
+
+Note:
+	1. the QuickTestClient has a command that publishes multiple events, plus a separate command that publishes a single event.
+	2. Only local hosting of a service and its Dapr side car in processes (no containers) is used in the below scenarios.  Kubernetes is NOT used, although it could be if you want to do the work required for Kubernetes hosting and putting the services in containers as well.
+
+The typical usage scenario is to host serviceA, serviceB, and the QuickTestClient on the same machine, and run all 3 processes at once for each testing session.  Here, both serviceA and serviceB will reside in the SAME Dapr-Mesh, i.e. each will have its own private Dapr sidecar, which are interconnected by gRPC connections using
+
+However, one does not have to run all three services at once.  Running only serviceA and the QuickTestClient is an excellent way to test the capability of publishing events that will be stored in the Azure Service Bus Topic until a subscriber process is started.  This gives one the ability to use the Azure Service Bus Explorer in the Azure Portal to examine the content of messages published.  In this scenario you can exit serviceA and the QuickTestClient, then later start serviceB running all by itself.  Here, serviceB will immediately read all the messages from the Topic since the code is set up to subscribe to that Topic.  The items processed are visible on the serviceB console UI.
+
+Another quite interesting hosting scenario has serviceA and the QuickTestClient running on separate machines, as follows:
+1. Use InstallMe.MD to install ALL the software on 2 machines!  Machine A and Machine B. This will simulate 2 geographically separate systems, each of which will host a separate Dapr-Mesh.
+
 ## Actions to prepare the Visual Studio solution for running serviceA, serviceB, and the QuickTestClient
 
 You will need to perform a small set of actions at the start of each session where you run one or more services or the QuickTestClient, as follows:
@@ -12,7 +27,10 @@ You will need to perform a small set of actions at the start of each session whe
 4. It is best to rebuild the entire solution before running any of the above services, just to prevent wasting time
    by having to chase down inconsistences.  Before each test run open the VS Build menu in the menu bar at the
    top of the display, and click Rebuild Solution.
-5. Now you are ready to do any, or all, of the following ACTIONS.
+5. Now you are ready to do any, or all, of the Actions describe below.
+
+## Overview of run scenarios
+Sometimes you will want to run all three processes at once:  serviceA, serviceB, and the QuickTestClient UI.  At other times you will want to run only one or two of these.  The below Actions are separated out into Actions for running serviceA, Actions for running serviceB, and Actions for running the QuickTestClient.  Each of these 3 Actions can be performed independently of each other.  However, for full end-to-end functionality of pub
 
 From StartRunServicesAndUI.ext
 
