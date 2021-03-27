@@ -4,13 +4,13 @@ UNDER CONSTRUCTION -- This will be written on Sat 3/27/21.
 Contains the instructions to run the 2 services and test client with the commands found in StartRunServicesAndUI.txt
 ## Overview
 
-The **ultimate overall goal** of this solution is to be able to start serviceA, serviceB, and the QuickTestClient.  Then with all 3 running, issue commands to the QuickTestClient UI that cause ServiceA to publish events to an Azure Service Bus Topic which is subscribed to by serviceB.  serviceB will then receive each event published to the Topic and display the event content on its debug UI.  Likewise, the QuickTestClient and serviceA also have UIs which display the traffic going thru each of them.
+The **ultimate overall goal** of this solution is to be able to start serviceA, serviceB, and the QuickTestClient.  Then with all 3 running, issue commands to the QuickTestClient UI that cause ServiceA to publish events to an Azure Service Bus Topic which is subscribed to by serviceB.  serviceB will then receive each event published to the Topic and display the event content on its debug UI.  Likewise, the QuickTestClient and serviceA also have UIs which display the traffic going through each of them.
 
 It is also beneficial while running serviceA and serviceB to have your Azure Service Bus Topic open in the Azure Portal.  This will allow you to verify that events have indeed been published, plus monitor any errors that may occur.  For example when you have not yet created at least one subscription for the Topic and try to publish to that Topic, the publish will fail.  However, that failure can only be detected in the Azure Portal which will show a "User Error".
 
 Note:
-	1. the QuickTestClient has a command that publishes multiple events, plus a separate command that publishes a single event.
-	2. Only local hosting of a service and its Dapr side car in processes (no containers) is used in the below scenarios.  Kubernetes is NOT used, although it could be if you want to do the work required for Kubernetes hosting and putting the services in containers as well.
+1. the QuickTestClient has a command that publishes multiple events, plus a separate command that publishes a single event.
+2. Only local hosting of a service and its Dapr side car in processes (no containers) is used in the below scenarios.  Kubernetes is NOT used, although it could be if you want to do the work required for Kubernetes hosting and putting the services in containers as well.
 
 The typical usage scenario is to host serviceA, serviceB, and the QuickTestClient on the same machine, and run all 3 processes at once for each testing session.  Here, both serviceA and serviceB will reside in the SAME Dapr-Mesh, i.e. each will have its own private Dapr sidecar, which are interconnected by gRPC connections using
 
