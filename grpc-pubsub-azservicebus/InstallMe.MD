@@ -31,6 +31,8 @@ To install Dapr:
     * Initialize Dapr for use WITH Docker (the normal configuration):  https://docs.dapr.io/getting-started/install-dapr-selfhost/  
       * If you are using Windows for your development system I recommend installing WSL2 Backend (from Microsoft) that really smooths the process of using Docker.  WSL means Windows System for Linux.  It emulates a Linux machine to make Docker work smoother.  See the Docker Desktop for Windows documentation at https://docs.docker.com/docker-for-windows/install/ for links on how to install WSL2. 
 
+You are done with the prequisites step!
+
 ## Get and Deploy GitHub Repo Assets
 Now that you have all the prerequisites installed you need to obtain and setup the assets (the code, files, scripts, etc) for the grpc-pubsub-azservicebus VS solution from the GitHub repository.
 1. **Copy the VS solution from GitHub to your machine** -- Clone this repo (https://github.com/georgestevens99/DiscoverDapr) to the machine (your "test" machine) upon which you intend to run this code sample.
@@ -50,9 +52,8 @@ Now that you have all the prerequisites installed you need to obtain and setup t
     * Copy the Azure Service Bus Pub/Sub Dapr component .yaml file from the local solution to .dapr\components.
       * In your local copy of the DiscoverDapr repo at **LocalRepoPathPrefix**, copy LocalRepoPathPrefix\DiscoverDapr\grpc-pubsub-azservicebus\components\svs-pubsub-asbtopic.yaml to your DaprRuntimePathPrefix\.dapr\components.
         * **DaprRuntimePathPrefix** is the directory on your machine where your **dapr init** command placed the Dapr runtime executables and components when you installed Dapr above. 
-        
-    * TODO put a file containing commands to setupdemo, start dapr run and UI commands in the solution.  Then deploy the setupdemo file to where Dapr Cli is deployed.  
-3. Update the LocalRepoPathPrefix path names in the StartRunServicesAndUI.txt  file in Visual Studio.  Commands in this file are used when you actually run services in the solution.
+
+3. **Update the LocalRepoPathPrefix path names in the StartRunServicesAndUI.txt file** in Visual Studio.  Commands in this file are used when you actually run services in the solution.
   * You can see StartRunServicesAndUI.txt in the VS Solution Explorer. Open StartRunServicesAndUI.txt in Visual Studio.
   * Replace the string LocalRepoPathPrefix with the actual full path string you saved above.  Do this in the 2 lines in StartRunServicesAndUI.txt shown below:
     * cd **LocalRepoPathPrefix**\DiscoverDapr\grpc-pubsub-azservicebus\Services\ServiceA
@@ -64,7 +65,7 @@ Now that you have all the prerequisites installed you need to obtain and setup t
       *  If it does not execute the "cd" command you will have to figure out why and fix it.  This "cd" command MUST work.
   *  When both of the newly adjusted "cd" commands in the StartRunServicesAndUI.txt file have beeen proven to work without a doubt, SAVE the file.
  
-You are done with the GitHub Repo step!
+You are done with the GitHub Repo Assets step!
   
 ## Create Azure Assets
 Creating the Azure Assets required by the grpc-pubsub-azservicebus solution is fairly easy.  There is only a single Azure Asset required -- An Azure Service Bus Topic with one Subscription.  The Topic and Subscription must be part of an Azure Service Bus Namespace, a "logical container" for Queues and Topics.  And the Azure Service Bus Namespace must be within an Azure Resource Group, another "logical container" used to organize Azure Assets of all kinds.
@@ -96,6 +97,7 @@ Required Naming for the Azure Assets, including the required case:
   * Above, paste so as to replace all to the right of "value: " with your connection string, leaving >=1 space between ':" and the conncetion string.
   
 * Save the DaprRuntimePathPrefix\.dapr\components\svs-pubsub-asbtopic.yaml file.
-* Done.
+
+You are done with the Azzure Assets step!
 
 **All done with InstallMe.  To run the code see RunMe.MD**
