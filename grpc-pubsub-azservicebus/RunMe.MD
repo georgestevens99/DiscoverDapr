@@ -3,6 +3,16 @@ UNDER CONSTRUCTION -- This will be written on Sat 3/27/21.
 
 Contains the instructions to run the 2 services and test client with the commands found in StartRunServicesAndUI.txt
 
+## Actions to prepare the Visual Studio solution for running serviceA, serviceB, and the QuickTestClient
+
+You will need to perform a small set of actions at the start of each session where you run one or more services or the QuickTestClient, as follows:
+1. Start Visual Studio.  Then open the DiscoverDapr folder on your machine that you cloned from GitHub.
+2. In the Visual Studio Solution Explorer, navigate to the grpc-pubsub-azservicebus\vscsharp folder.
+3. Open the grpc-pubsub-azservicebus solution by double clicking on the .sln file icon shown in the Solution Explorer.
+4. It is best to rebuild the entire solution before running any of the above services, just to prevent wasting time
+   by having to chase down inconsistences.  Before each test run open the VS Build menu in the menu bar at the
+   top of the display, and click Rebuild Solution.
+5. Now you are ready to do any, or all, of the following ACTIONS.
 
 From StartRunServicesAndUI.ext
 
