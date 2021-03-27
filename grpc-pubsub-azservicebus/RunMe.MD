@@ -2,6 +2,7 @@
 UNDER CONSTRUCTION -- This will be written on Sat 3/27/21.
 
 Contains the instructions to run the 2 services and test client with the commands found in StartRunServicesAndUI.txt
+## Overview
 
 The **ultimate overall goal** of this solution is to be able to start serviceA, serviceB, and the QuickTestClient.  Then with all 3 running, issue commands to the QuickTestClient UI that cause ServiceA to publish events to an Azure Service Bus Topic which is subscribed to by serviceB.  serviceB will then receive each event published to the Topic and display the event content on its debug UI.  Likewise, the QuickTestClient and serviceA also have UIs which display the traffic going thru each of them.
 
