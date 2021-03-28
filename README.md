@@ -1,5 +1,5 @@
 # DiscoverDapr
-This repo contains code samples showing how to use Dapr (Distributed Application Runtime) with Visual Studio, C#, ASP.NET Core, and gRPC services.  You can find out moree about Dapr at the below links:
+This repo contains code samples showing how to use Dapr (Distributed Application Runtime) with Visual Studio, C#, ASP.NET Core, and gRPC services.  You can find out more about Dapr at the below links:
 1.  My blog at https://dotnetsilverlightprism.wordpress.com/2021/01/08/discover-dapr-what-is-dapr-a-new-way-to-increase-developer-productivity/
 2.  The official Dapr documentation at https://docs.dapr.io/
 
