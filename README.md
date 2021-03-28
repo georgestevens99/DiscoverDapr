@@ -1,5 +1,7 @@
 # DiscoverDapr
-This repo contains code samples showing how to use Dapr (Distributed Application Runtime) with Visual Studio, C#, ASP.NET Core, and gRPC services.  
+This repo contains code samples showing how to use Dapr (Distributed Application Runtime) with Visual Studio, C#, ASP.NET Core, and gRPC services.  You can find out moree about Dapr at the below links:
+1.  My blog at https://dotnetsilverlightprism.wordpress.com/2021/01/08/discover-dapr-what-is-dapr-a-new-way-to-increase-developer-productivity/
+2.  The official Dapr documentation at https://docs.dapr.io/
 
 The first code sample, **grpc-pubsub-azservicebus**, shows how to use a Dapr pub/sub component for the Azure Service Bus using a connection string for doing service to service pub/sub with a Test Client, and 2 gRPC services. (Code is present and works. But InstallMe and RunMe are under construction).
 
