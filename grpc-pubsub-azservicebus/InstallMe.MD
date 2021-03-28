@@ -1,5 +1,5 @@
 # grpc-pubsub-azservicebus Installation Instructions
-UNDER CONSTRUCTION! This will be written on Wed - Sa 3/24/21 - 3/27/21.
+Completed Saturday 3/27/21.
 
 ## Prerequisites
 Three prerequisites need to be fulfilled to use this code sample.
