@@ -1,5 +1,5 @@
 # grpc-pubsub-azservicebus RunMe
-UNDER CONSTRUCTION -- Estimated completion date Monday 3/29/21.  This is still in the very early stage of being written.
+UNDER CONSTRUCTION -- Estimated completion date Monday 3/29/21.  This is still quite rough, in the early stage of being written.
 
 Contains the instructions to run the 2 services and test client with the commands found in StartRunServicesAndUI.txt
 ## Overview
@@ -9,14 +9,16 @@ The **ultimate overall goal** of this solution is to be able to start serviceA, 
 It is also beneficial while running serviceA and serviceB to have your Azure Service Bus Topic open in the Azure Portal.  This will allow you to verify that events have indeed been published, plus monitor any errors that may occur.  For example when you have not yet created at least one subscription for the Topic and try to publish to that Topic, the publish will fail.  However, that failure can only be detected in the Azure Portal which will show a "User Error".
 
 Note:
-1. the QuickTestClient has a command that publishes multiple events, plus a separate command that publishes a single event.
+1. The QuickTestClient has a command that **publishes multiple events**, plus a separate **command that publishes a single event**.
 2. Only local hosting of a service and its Dapr side car in processes (no containers) is used in the below scenarios.  Kubernetes is NOT used, although it could be if you want to do the work required for Kubernetes hosting and putting each service in a container as well.
 
 The **typical usage scenario** is to host serviceA, serviceB, and the QuickTestClient on the *same machine*, and run all 3 processes at once for each testing session.  Here, both serviceA and serviceB will reside in the SAME *Dapr-Mesh*, i.e. each will have its own private Dapr sidecar, which are interconnected by gRPC connections.
 
-However, **one does not have to run all three services at once**.  Running only serviceA and the QuickTestClient is an excellent way to test the capability of publishing events that will be stored in the Azure Service Bus Topic until a subscriber process is started.  This gives one the ability to use the Azure Service Bus Explorer in the Azure Portal to examine the content of messages published.  In this scenario you can exit serviceA and the QuickTestClient, then later start serviceB running all by itself.  Here, serviceB will immediately read all the messages from the Topic since the code is set up to subscribe to that Topic.  The items processed are visible on the serviceB console UI.
+However, **one does not have to run all three services at once**.  Instead, running only serviceA (plus its Dapr sidecar) and the QuickTestClient is an excellent way to test the capability of publishing events that will be stored in the Azure Service Bus Topic until a subscriber process is started.  This gives one the ability to use the Azure Service Bus Explorer in the Azure Portal to examine the content of messages published.  In this scenario you can exit serviceA and the QuickTestClient, then later start serviceB and its Dapr sidecar running all by themselves.  Here, serviceB will immediately read all the messages from the Topic since the code is set up to subscribe to that Topic.  The items processed are visible on the serviceB console UI.
 
-Another quite interesting hosting scenario has **the 2 services running on separate machines**.  This creates *2 separate Dapr-Meshes*, one on each machine. serviceA and the QuickTestClient run on one machine, with serviceA in Dapr-MeshA while serviceB runs on another machine in Dapr-MeshB.  Please erfer to the PowerPoint presentation "Thinking Outside the Dapr-Mesh" that is part of the DiscoverDapr\grpc-pubsub-azservicebus repo you cloned.  In Visual Studio switch to the folder view.  Then open the grpc-pubsub-azservicebus and you will see this PowerPoint slide deck.  Look through the slides so that you understand what a Dapr-Mesh is, and what a Mesh-of-Dapr-Meshes is because that is what is happening in this hosting scenario.  Set up this hosting scenario as follows:
+Another quite interesting hosting scenario has **the 2 services** (plus their Dapr sidecars) **running on separate machines**.  This creates *2 separate Dapr-Meshes*, one on each machine. serviceA (with its Dapr sidecar) and the QuickTestClient run on one machine, with serviceA in Dapr-MeshA while serviceB (with its Dapr side car) runs on another machine in Dapr-MeshB.  Please refer to the PowerPoint presentation "Thinking Outside the Dapr-Mesh" that is part of the DiscoverDapr\grpc-pubsub-azservicebus repo you cloned, as follows -- In Visual Studio switch to the folder view.  Then open the grpc-pubsub-azservicebus and you will see this PowerPoint slide deck.  Look through the slides so that you understand what a Dapr-Mesh is, and what a Mesh-of-Dapr-Meshes is because that is what is happening in this hosting scenario.  
+
+Set up this multi Dapr-Mesh hosting scenario as follows:
 1. Use InstallMe.MD to install ALL the software on 2 machines!  Machine A and Machine B. This will simulate 2 geographically separate systems, each of which will host a separate Dapr-Mesh.  
 2. Then on Machine A start serviceA and the QuickTestClient.  Then on MachineB start serviceB.
 3. Then issue commands to the QuickTestClient UI and you will see the results displayed in the serviceB debug console on Machine B.
@@ -38,7 +40,7 @@ You will need to perform a small set of actions at the start of each session whe
 ## Overview of run scenarios
 Sometimes you will want to run all three processes at once:  serviceA, serviceB, and the QuickTestClient UI.  At other times you will want to run only one or two of these.  The below Actions are separated out into Actions for running serviceA, Actions for running serviceB, and Actions for running the QuickTestClient.  Each of these 3 Actions can be performed independently of each other.  However, for full end-to-end functionality of pub
 
-From StartRunServicesAndUI.ext
+TEMPORARY -- From StartRunServicesAndUI.txt file located in the vscsharp subdirectory.
 
 Actions to prepare the Visual Studio solution for running serviceA, serviceB, and the QuickTestClient.
 1. Start Visual Studio.  Then open the DiscoverDapr folder on your machine that you cloned from GitHub.
