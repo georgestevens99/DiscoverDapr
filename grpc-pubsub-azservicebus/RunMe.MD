@@ -15,6 +15,12 @@ Note:
 1. The QuickTestClient has a command that **publishes multiple events**, plus a separate **command that publishes a single event**.
 2. Only local hosting of a service and its Dapr side car in processes (no containers) is used in the below scenarios.  Kubernetes is NOT used, although it could be if you want to do the work required for Kubernetes hosting and putting each service in a container as well.
 
+At this point it is useful to define the concept of a Dapr-Mesh.  The term Dapr-Mesh is shorthand for a "A Dapr-Mesh of Services".  The Implementation Diagram below shows a generalized Dapr-Mesh:
+
+![image](https://user-images.githubusercontent.com/6517661/112873279-6a1de800-908f-11eb-8296-42b0b90ab376.png)
+
+As you can see, a Dapr-Mesh is "A collection of collaborating services all using Dapr sidecars within a “nearby network neighborhood”".  Quote and diagram is from the PowerPoint slide deck in this repo at DiscoverDapr\grpc-pubsub-azservicebus\Thinking Outside the Dapr-Mesh with Dapr, gRPC.pptx.  This was part of a presentation at the Dapr Community Meeting on 3/23/21.
+
 The **typical usage scenario** is to host serviceA, serviceB, and the QuickTestClient on the *same machine*, and run all 3 processes at once for each testing session.  Here, both serviceA and serviceB will reside in the SAME *Dapr-Mesh*, i.e. each will have its own private Dapr sidecar, which are interconnected by gRPC connections.
 
 However, **one does not have to run all three services at once**.  Instead, running only serviceA (plus its Dapr sidecar) and the QuickTestClient is an excellent way to test the capability of publishing events that will be stored in the Azure Service Bus Topic until a subscriber process is started.  This gives one the ability to use the Azure Service Bus Explorer in the Azure Portal to examine the content of messages published.  In this scenario you can exit serviceA and the QuickTestClient, then later start serviceB and its Dapr sidecar running all by themselves.  Here, serviceB will immediately read all the messages from the Topic since the code is set up to subscribe to that Topic.  The items processed are visible on the serviceB console UI.
