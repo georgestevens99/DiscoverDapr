@@ -2,7 +2,7 @@
 Completed Saturday 3/27/21.
 
 ## Prerequisites
-Three prerequisites need to be fulfilled to use this code sample.
+You need to fulfill three prerequisites to use this code sample.
 1. Microsoft Visual Studio IDE (integrated development environment) needs to be **installed on *each machine*** that will run one of the services in the code sample.  The Microsoft **Visual Studio Community** edition is free.
 
 2. You need to have a Microsoft **Azure cloud subscription**.  Free introductory subscriptions are available.
