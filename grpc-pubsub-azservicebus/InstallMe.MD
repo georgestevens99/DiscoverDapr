@@ -53,14 +53,14 @@ Now that you have all the prerequisites installed you need to obtain and setup t
       * In your local copy of the DiscoverDapr repo at **LocalRepoPathPrefix**, copy LocalRepoPathPrefix\DiscoverDapr\grpc-pubsub-azservicebus\components\svs-pubsub-asbtopic.yaml to your DaprRuntimePathPrefix\\.dapr\components.
         * **DaprRuntimePathPrefix** is the directory on your machine where your **dapr init** command placed the Dapr runtime executables and components when you installed Dapr above. 
 
-3. **Update the LocalRepoPathPrefix path names in the StartRunServicesAndUI.txt file** in Visual Studio.  Commands in this file are used when you actually run services in the solution via Command Prompt windows.
+3. **Update the LocalRepoPathPrefix path names in the StartRunServicesAndUI.txt file** in Visual Studio.  Commands in this file are used when you actually run services in the VS solution via Command Prompt windows.
   * You can see StartRunServicesAndUI.txt in the VS Solution Explorer. Open StartRunServicesAndUI.txt in Visual Studio.
   * Replace the string LocalRepoPathPrefix with the actual full path string you saved above.  Do this in the 2 lines in StartRunServicesAndUI.txt shown below:
     * cd **LocalRepoPathPrefix**\DiscoverDapr\grpc-pubsub-azservicebus\Services\ServiceA
     * cd **LocalRepoPathPrefix**\DiscoverDapr\grpc-pubsub-azservicebus\Services\ServiceB  
   * When you are done with the string replacement be sure to do a test to make sure the above cd commands actually work in a Command Prompt window, as follows:
     *  Open a Command Prompt window.  
-      * Using the Windows Terminal Command Prompt is much, much easier to deal with so install Windows Terminal if you do not already have it!
+      * Using the Windows Terminal Command Prompt is much, much easier to deal with so install Windows Terminal if you do not already have it!  Here is the link to install Windows Terminal for free: https://www.microsoft.com/en-us/p/windows-terminal/9n0dx20hk701?activetab=pivot:overviewtab
     *  Copy the above string containing the full path name into the Command Prompt window and press enter.  
       *  If it does not execute the "cd" command you will have to figure out why and fix it.  This "cd" command MUST work.
   *  When both of the newly adjusted "cd" commands in the StartRunServicesAndUI.txt file have beeen proven to work without a doubt, SAVE the file.
