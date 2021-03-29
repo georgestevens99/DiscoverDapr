@@ -1,4 +1,5 @@
-Actions to prepare the Visual Studio solution for running serviceA, serviceB, and the QuickTestClient.
+ACTIONS to prepare the Visual Studio solution for running serviceA, serviceB, and the QuickTestClient.
+
 1. Start Visual Studio.  Then open the DiscoverDapr folder on your machine that you cloned from GitHub.
 2. In the Visual Studio Solution Explorer, navigate to the grpc-pubsub-azservicebus\vscsharp folder.
 3. Open the grpc-pubsub-azservicebus solution by double clicking on the .sln file icon shown in the Solution Explorer.
@@ -10,21 +11,21 @@ Actions to prepare the Visual Studio solution for running serviceA, serviceB, an
 
 
 
-ACTIONS to start and run serviceA and its Dapr sidecar.
-	Dapr starts serviceA via dotnet run (with implicit "." for current directory).
+ACTIONS to start and run ServiceA and its Dapr sidecar.
+	Dapr starts ServiceA via dotnet run (with implicit "." for current directory).
 
 Open a Windows Terminal Command Prompt window or Windows Command Prompt window.  Input the following commands. Best to do
 this one-by-one at first by copying a single command line from this file.  Paste it in to the Command Prompt window.  Press Enter.
 NOTE you need a SEPARATE COMMAND PROMPT WINDOW for each service and the QuickTestClient!
 
 cd LocalRepoPathPrefix\DiscoverDapr\grpc-pubsub-azservicebus\Services\ServiceA
-dapr run --app-id serviceA dotnet run
+dapr run --app-id ServiceA dotnet run
 
 
 
 
-ACTIONS to start and run serviceB and its Dapr sidecar.
-	Dapr starts serviceB via dotnet run (with implicit "." for current directory).
+ACTIONS to start and run ServiceB and its Dapr sidecar.
+	Dapr starts ServiceB via dotnet run (with implicit "." for current directory).
 
 
 Open a 2nd separate Windows Terminal Command Prompt window or Windows Command Prompt window.  Input the following commands. 
@@ -32,7 +33,7 @@ Best to do this one-by-one at first by copying a single command line from this f
 Press Enter.  NOTE you need a SEPARATE COMMAND PROMPT WINDOW for each service and the QuickTestClient!
 
 cd LocalRepoPathPrefix\DiscoverDapr\grpc-pubsub-azservicebus\Services\ServiceB
-dapr run --app-id serviceB --app-port 5050 --app-protocol grpc dotnet run
+dapr run --app-id ServiceB --app-port 5050 --app-protocol grpc dotnet run
 
 
 
