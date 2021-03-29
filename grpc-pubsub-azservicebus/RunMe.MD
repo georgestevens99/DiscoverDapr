@@ -1,10 +1,13 @@
 # grpc-pubsub-azservicebus RunMe
 UNDER CONSTRUCTION -- Estimated completion date Monday 3/29/21.  This is still quite rough, in the early stage of being written.
 
-Contains the instructions to run the 2 services and test client with the commands found in StartRunServicesAndUI.txt
-## Overview
+Contains the instructions to run the 2 services and test client with the commands found in DiscoverDapr\grpc-pubsub-azservicebus\vscsharp\StartRunServicesAndUI.txt
 
-The **ultimate overall goal** of this solution is to be able to start serviceA, serviceB, and the QuickTestClient.  Then with all 3 running, issue commands to the QuickTestClient UI that cause ServiceA to publish events to an Azure Service Bus Topic which is subscribed to by serviceB.  serviceB will then receive each event published to the Topic and display the event content on its debug UI.  Likewise, the QuickTestClient and serviceA also have UIs which display the traffic going through each of them.
+## Overview of the grpc-pubsub-azservicebus VS solution
+
+The **ultimate overall goal** of this solution is to be able to start serviceA, serviceB, and the QuickTestClient.  Then with all 3 running, allow the user to issue commands to the QuickTestClient UI that cause ServiceA to publish events to an Azure Service Bus Topic which is subscribed to by serviceB.  serviceB will then receive each event published to the Topic and display the event content on its debug UI.  Likewise, the QuickTestClient and serviceA also have UIs which display the traffic going through each of them.  This flow of processing is shown in the below logical diagram of the software:
+
+![image](https://user-images.githubusercontent.com/6517661/112858075-86198d80-907f-11eb-8980-83a456cef69f.png)
 
 It is also beneficial while running serviceA and serviceB to have your Azure Service Bus Topic open in the Azure Portal.  This will allow you to verify that events have indeed been published, plus monitor any errors that may occur.  For example when you have not yet created at least one subscription for the Topic and try to publish to that Topic, the publish will fail.  However, that failure can only be detected in the Azure Portal which will show a "User Error".
 
