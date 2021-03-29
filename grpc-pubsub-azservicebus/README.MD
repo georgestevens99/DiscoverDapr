@@ -2,6 +2,7 @@
 UNDER CONSTRUCTION -- Expected completion date is Tuesday 3/30/21.
 
 This Visual Studio Solution implements below Logical Diagram of a Test Client interacting with ServiceA, which then interacts with a Dapr Pub/Sub Component that is subscribed to by ServiceB.
+![image](https://user-images.githubusercontent.com/6517661/112846090-a5aab900-9073-11eb-8621-43c2181ff47e.png)
 
 ![image](https://user-images.githubusercontent.com/6517661/112757297-2e175400-8fb7-11eb-8db3-264ad2d867e7.png)
 
