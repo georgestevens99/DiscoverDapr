@@ -23,8 +23,7 @@ As you can see, a Dapr-Mesh is "A collection of collaborating services all using
 
 The **typical usage scenario** is to host serviceA, serviceB, and the QuickTestClient on the *same machine*, and run all 3 processes at once for each testing session.  Here, both serviceA and serviceB will reside in the SAME *Dapr-Mesh*, i.e. each will have its own private Dapr sidecar, which are interconnected by gRPC connections.  Below is an Implementation Diagram of this typical "all on same machine" usage scenario.  Note its relationship with the Logical Diagram at the start of this document.
 
-![image](https://user-images.githubusercontent.com/6517661/112874876-75721300-9091-11eb-8bb6-22e2c5b1a46f.png)
-
+![image](https://user-images.githubusercontent.com/6517661/112875080-b9fdae80-9091-11eb-8d1d-a4fba6224e17.png)
 
 However, **one does not have to run all three services at once**.  Instead, running only serviceA (plus its Dapr sidecar) and the QuickTestClient is an excellent way to test the capability of publishing events that will be stored in the Azure Service Bus Topic until a subscriber process is started.  This gives one the ability to use the Azure Service Bus Explorer in the Azure Portal to examine the content of messages published.  In this scenario you can exit serviceA and the QuickTestClient, then later start serviceB and its Dapr sidecar running all by themselves.  Here, serviceB will immediately read all the messages from the Topic since the code is set up to subscribe to that Topic.  The items processed are visible on the serviceB console UI.
 
