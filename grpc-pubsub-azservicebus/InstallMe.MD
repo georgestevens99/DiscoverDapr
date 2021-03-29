@@ -63,7 +63,7 @@ Now that you have all the prerequisites installed you need to obtain and setup t
       * Using the Windows Terminal Command Prompt is much, much easier to deal with so install Windows Terminal if you do not already have it!  Here is the link to install Windows Terminal for free: https://www.microsoft.com/en-us/p/windows-terminal/9n0dx20hk701?activetab=pivot:overviewtab
     *  Copy the above string containing the full path name into the Command Prompt window and press enter.  
       *  If it does not execute the "cd" command you will have to figure out why and fix it.  This "cd" command MUST work.
-  *  When both of the newly adjusted "cd" commands in the StartRunServicesAndUI.txt file have beeen proven to work without a doubt, SAVE the file.
+  *  When both of the newly adjusted "cd" commands in the StartRunServicesAndUI.txt file have been proven to work without a doubt, SAVE the file.
  
 You are done with the GitHub Repo Assets step!
   
@@ -81,10 +81,10 @@ Required Naming for the Azure Assets, including the required case:
 2. Copy the Azure Service Bus Namespace "connection string" from the Azure Portal and paste it into the svs-pubsub-asbtopic.yaml that resides in  DaprRuntimePathPrefix\.dapr\components.  Here is how to do that:
 * In the Azure Portal navigate to your Azure Service Bus Namespace.
 * Then click on Settings/Shared Access Policies.
-* Then click on RootNamageSharedAccessKey which will display the Primary and Secondary Key and Primary and Secondary Connection Strings
-* Click on the Copy icon of the Primary Connection String.  
-* Then paste it into some temporary local text file (NoteBook works well for this) on your local dev system.
-* Open DaprRuntimePathPrefix\.dapr\components\svs-pubsub-asbtopic.yaml in a text editor.  You can right click on the yaml file and choose Edit.
+* Then click on RootManageSharedAccessKey which will display the Primary and Secondary Key and Primary and Secondary Connection Strings
+* Click on the Copy icon of the Primary Connection String to make a copy of the connection string.  
+* Then paste the copy of the connecction string into some temporary local text file (NoteBook works well for this) on your local dev system.
+* Open DaprRuntimePathPrefix\\.dapr\components\svs-pubsub-asbtopic.yaml in a text editor.  You can right click on the yaml file and choose Edit.
 * Paste the Primary Connection String that you copied from the Azure Portal into the DaprRuntimePathPrefix\.dapr\components\svs-pubsub-asbtopic.yaml file as follows:
   * Replace the contents of the field labeled "value" as shown below:
 
@@ -94,10 +94,10 @@ Required Naming for the Azure Assets, including the required case:
    
      value: Endpoint=sb://YourNamespace.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=YourSharedAccessKey  
   
-  * Above, paste so as to replace all to the right of "value: " with your connection string, leaving >=1 space between ':" and the conncetion string.
+  * Above, paste so as to replace all to the right of "value: " with your connection string, leaving 1 space between ':" and the conncetion string.
   
-* Save the DaprRuntimePathPrefix\.dapr\components\svs-pubsub-asbtopic.yaml file.
+* Save the DaprRuntimePathPrefix\\.dapr\components\svs-pubsub-asbtopic.yaml file.
 
 You are done with the Azure Assets step!
 
-**All done with InstallMe.  To run the code see RunMe.MD**
+**All done with InstallMe!  To run the code see RunMe.MD**
