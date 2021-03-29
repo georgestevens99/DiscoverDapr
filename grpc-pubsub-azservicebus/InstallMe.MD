@@ -3,14 +3,14 @@ Completed Saturday 3/27/21.
 
 ## Prerequisites
 Three prerequisites need to be fulfilled to use this code sample.
-1. The free Microsoft **Visual Studio Community** IDE (integrated development environment) needs to be **installed on *each machine*** that will run one of the services in the code sample.
+1. Microsoft Visual Studio IDE (integrated development environment) needs to be **installed on *each machine*** that will run one of the services in the code sample.  The Microsoft **Visual Studio Community** edition is free.
 
 2. You need to have a Microsoft **Azure cloud subscription**.  Free introductory subscriptions are available.
 
-3. **Dapr** needs to be **installed on *each machine*** that will run one of the services in the code sample. The code sample will work with any version of Dapr that is compatible with v1.0.1 Dapr runtime and v1.0.0 Dapr CLI.
+3. **Dapr** needs to be **installed on *each machine*** that will run one of the services in the code sample. The code sample will work with any version of Dapr that is compatible with v1.0.1 Dapr runtime and v1.0.0 Dapr CLI.  Dapr is free of charge.
 
 **Visual Studio Community** -- Get the free Visual Studio Community IDE at this link:  https://visualstudio.microsoft.com/free-developer-offers/
-* Note that you must **get Visual Studio Community and NOT Visual Studio Code**.  It takes a substantial amount of work to get the code sample to run using Visual Studio Code.  Don't bother!
+* Note that you must **get Visual Studio Community and NOT Visual Studio Code**.  It takes a substantial amount of work to get the code sample to run using Visual Studio Code.  Don't bother now. Rather save VS Code for later if you want to use it.
   
 **Azure subscription** -- Get a free Azure subscription at one of these links:
 1. For Developers -- This subscription has some extra developer oriented features: https://visualstudio.microsoft.com/dev-essentials/
@@ -20,7 +20,7 @@ Three prerequisites need to be fulfilled to use this code sample.
 **Dapr** -- Install Dapr on *each machine* that runs one of the services in the code sample by following the instructions at this link: https://docs.dapr.io/getting-started/
 * You will only need to do the first 2 steps, i.e. 1. Install the Cli and 2. Initialize Dapr.  
 * The code sample does NOT require that Docker be installed.  Therefore you can use the command **dapr init --slim** rather than the standard **dapr init** command.  
-    * However, if you want to explore the full features of Dapr beyond just this code sample, go ahead and follow the instructions for initializing for use WITH Docker and use **dapr init**.
+    * However, if you want to explore the full features of Dapr beyond just this code sample, go ahead and follow the instructions for initializing for use WITH Docker and use **dapr init**.  This requires that you install Docker Desktop if you do not have it installed already.
     
 To install Dapr:
 1. Install the Dapr Cli (command language interface):  https://docs.dapr.io/getting-started/install-dapr-cli/
@@ -35,30 +35,30 @@ You are done with the prequisites step!
 
 ## Get and Deploy GitHub Repo Assets
 Now that you have all the prerequisites installed you need to obtain and setup the assets (the code, files, scripts, etc) for the grpc-pubsub-azservicebus VS solution from the GitHub repository.
-1. **Copy the VS solution from GitHub to your machine** -- Clone this repo (https://github.com/georgestevens99/DiscoverDapr) to the machine (your "test" machine) upon which you intend to run this code sample.
+1. **Copy the VS solution from GitHub to your machine** -- Clone this repo (https://github.com/georgestevens99/DiscoverDapr) to the machine (your "test" machine) upon which you intend to run this code sample, as follows:
     * Start Visual Studio Community on your "test" machine.
     * Download the repo, i.e. Clone it from GitHub to your "test" machine.
       * In the Visual Studio start up menu click on the "Clone a repository" selection.  Then fill out the input boxes on the screen as follows.
         * For the "Repository location" input box use https://github.com/georgestevens99/DiscoverDapr.
-        * For the "Path" input box insert the file path on your machine where you want the DiscoverDapr repo to reside. This path is know as the **LocalRepoPathPrefix** in this document so record it somewhere.
+        * For the "Path" input box insert the file path on your machine where you want the DiscoverDapr repo to reside. This path is know as the **LocalRepoPathPrefix** in this document so record it somewhere.  You will need to use this path name later.
       * It may take a few minutes for the GitHub repo to be downloaded to your machine.
     * Open the solution and build it.
       * When the download is complete, in Visual Studio (VS) open the grpc-pubsub-azservicebus.sln.  Double clicking on the .sln file icon will open the solution.
       * Once the solution is open in VS, build the solution by opening the Build menu in the menu bar at the top of the display and click on Rebuild.
       * The build should work, and if it does then you can proceed with the remainder of these installation instructions.
-        * If the build has errors then you must fix them before proceeding.  Try asking on Dapr Discord at https://discord.com/invite/ptHhX6jc34
+        * If the build has errors then you must fix them before proceeding.  Try asking on Dapr Discord at https://discord.com/invite/ptHhX6jc34 if you cannot figure out by yourself how to get the solution to build properly.
        
-2. **Deploy repo files** to required places outside the repo.
-    * Copy the Azure Service Bus Pub/Sub Dapr component .yaml file from the local solution to .dapr\components.
+2. **Deploy repo files** to required places outside the repo as follows:
+    * Copy the Azure Service Bus Pub/Sub Dapr component .yaml file from the local solution to the .dapr\components directory on your "test" machine.
       * In your local copy of the DiscoverDapr repo at **LocalRepoPathPrefix**, copy LocalRepoPathPrefix\DiscoverDapr\grpc-pubsub-azservicebus\components\svs-pubsub-asbtopic.yaml to your DaprRuntimePathPrefix\.dapr\components.
         * **DaprRuntimePathPrefix** is the directory on your machine where your **dapr init** command placed the Dapr runtime executables and components when you installed Dapr above. 
 
-3. **Update the LocalRepoPathPrefix path names in the StartRunServicesAndUI.txt file** in Visual Studio.  Commands in this file are used when you actually run services in the solution.
+3. **Update the LocalRepoPathPrefix path names in the StartRunServicesAndUI.txt file** in Visual Studio.  Commands in this file are used when you actually run services in the solution via Command Prompt windows.
   * You can see StartRunServicesAndUI.txt in the VS Solution Explorer. Open StartRunServicesAndUI.txt in Visual Studio.
   * Replace the string LocalRepoPathPrefix with the actual full path string you saved above.  Do this in the 2 lines in StartRunServicesAndUI.txt shown below:
     * cd **LocalRepoPathPrefix**\DiscoverDapr\grpc-pubsub-azservicebus\Services\ServiceA
     * cd **LocalRepoPathPrefix**\DiscoverDapr\grpc-pubsub-azservicebus\Services\ServiceB  
-  * When you are done with the string replacement do a test to make sure the above cd commands actually work in the Command Prompt window.
+  * When you are done with the string replacement be sure to do a test to make sure the above cd commands actually work in a Command Prompt window, as follows:
     *  Open a Command Prompt window.  
       * Using the Windows Terminal Command Prompt is much, much easier to deal with so install Windows Terminal if you do not already have it!
     *  Copy the above string containing the full path name into the Command Prompt window and press enter.  
