@@ -31,7 +31,7 @@ The above "typical usage scenario" is the way this Visual Studio solution is set
 
 Another quite interesting hosting scenario has **the 2 services** (plus their Dapr sidecars) **running on separate machines**.  This creates ***2 separate Dapr-Meshes***, one on each machine. ServiceA (with its Dapr sidecar) and the QuickTestClient run on one machine, with ServiceA in Dapr-MeshA.  And ServiceB (with its Dapr side car) runing on another machine in Dapr-MeshB.  This Multi-Dapr-Mesh scenario is shown in the below Implementation Diagram:
 
-![image](https://user-images.githubusercontent.com/6517661/112876543-a5221a80-9093-11eb-907e-531f8b39c822.png)
+![image](https://user-images.githubusercontent.com/6517661/112878208-a3f1ed00-9095-11eb-875e-b14983d55fed.png)
 
 For a dive into a *Mesh-of-Dapr-Meshes* please refer to the PowerPoint presentation "Thinking Outside the Dapr-Mesh" that is part of the DiscoverDapr\grpc-pubsub-azservicebus repo you cloned, as follows: In Visual Studio switch to the folder view.  Then open the grpc-pubsub-azservicebus and you will see this PowerPoint slide deck.  Look through the slides so that you understand what a Dapr-Mesh is, and what a Mesh-of-Dapr-Meshes is because that is what is happening in this hosting scenario.  
 
