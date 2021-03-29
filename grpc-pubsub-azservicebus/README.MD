@@ -5,8 +5,8 @@ This Visual Studio Solution implements below Logical Diagram of a Test Client in
 
 ![image](https://user-images.githubusercontent.com/6517661/112757297-2e175400-8fb7-11eb-8db3-264ad2d867e7.png)
 
-For details please refer to the PowerPoint presentation "Thinking Outside the Dapr-Mesh with Dapr, gRPC".  The PowerPoint slide deck is in the DiscoverDapr\grpc-pubsub-azservicebus folder, in the file named Thinking Outside the Dapr-Mesh with Dapr, gRPC.pptx. 
+For the high level concepts please refer to the PowerPoint presentation "Thinking Outside the Dapr-Mesh with Dapr, gRPC".  This PowerPoint slide deck is in the DiscoverDapr\grpc-pubsub-azservicebus folder, in the file named "Thinking Outside the Dapr-Mesh with Dapr, gRPC.pptx." 
 
-Further descriptive details are available in RunMe.MD, which also contains instructions on how to run this on your own machine(s).  
+Further descriptive details of the implementation are available in **RunMe.MD**, which also contains instructions on how to run this on your own machine(s).  
 
-Instructions for how to install this on your machine(s) are in InstallMe.MD.
+Instructions for how to install this on your machine(s) are in **InstallMe.MD**.
