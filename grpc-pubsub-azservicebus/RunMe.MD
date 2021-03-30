@@ -20,7 +20,7 @@ At this point it is useful to define the concept of a Dapr-Mesh.  The term Dapr-
 
 ![image](https://user-images.githubusercontent.com/6517661/112873279-6a1de800-908f-11eb-8296-42b0b90ab376.png)
 
-As you can see, a Dapr-Mesh is "A collection of collaborating services all using Dapr sidecars within a “nearby network neighborhood".  This quote, plus all diagrams in this RunMe.MD, are from the PowerPoint slide deck in this repo, at DiscoverDapr\grpc-pubsub-azservicebus\Thinking Outside the Dapr-Mesh with Dapr, gRPC.pptx.  This was part of a presentation I gave at the Dapr Community Meeting on 3/23/21.  It is available on YouTube at https://www.youtube.com/watch?v=PXXYxJLyT9Y.
+As you can see, a Dapr-Mesh is "A collection of collaborating services all using Dapr sidecars within a 'nearby network neighborhood'".  This quote, plus all diagrams in this RunMe.MD, are from the PowerPoint slide deck in this repo, at DiscoverDapr\grpc-pubsub-azservicebus\Thinking Outside the Dapr-Mesh with Dapr, gRPC.pptx.  This was part of a presentation I gave at the Dapr Community Meeting on 3/23/21.  It is available on YouTube at https://www.youtube.com/watch?v=PXXYxJLyT9Y.
 
 ### Usage Scenarios for this Code Sample
 The **typical usage scenario** is to host ServiceA, ServiceB, their sidecars, and the QuickTestClient on the *same machine*, and run all 5 processes at once for each testing session.  Here, both ServiceA and ServiceB reside in the ***SAME Dapr-Mesh***, i.e. each will have its own private Dapr sidecar, which are both interconnected by gRPC connections.  Below is an Implementation Diagram of this "all on same machine" usage scenario.  Note its relationship with the Logical Diagram at the start of this document.
