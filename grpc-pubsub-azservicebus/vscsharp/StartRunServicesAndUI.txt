@@ -1,4 +1,4 @@
-ACTIONS to prepare the Visual Studio solution for running serviceA, serviceB, and the QuickTestClient.
+ACTION -- Prepare the Visual Studio solution for Test Runs.
 
 1. Start Visual Studio.  Then open the DiscoverDapr folder on your machine that you cloned from GitHub.
 2. In the Visual Studio Solution Explorer, navigate to the grpc-pubsub-azservicebus\vscsharp folder.
@@ -11,7 +11,7 @@ ACTIONS to prepare the Visual Studio solution for running serviceA, serviceB, an
 
 
 
-ACTIONS to start and run ServiceA and its Dapr sidecar.
+ACTION -- Start ServiceA and its Dapr sidecar.
 	Dapr starts ServiceA via dotnet run (with implicit "." for current directory).
 
 Open a Windows Terminal Command Prompt window or Windows Command Prompt window.  Input the following commands. Best to do
@@ -24,7 +24,7 @@ dapr run --app-id ServiceA dotnet run
 
 
 
-ACTIONS to start and run ServiceB and its Dapr sidecar.
+ACTION -- Start ServiceB and its Dapr sidecar.
 	Dapr starts ServiceB via dotnet run (with implicit "." for current directory).
 
 
@@ -38,7 +38,7 @@ dapr run --app-id ServiceB --app-port 5050 --app-protocol grpc dotnet run
 
 
 
-ACTIONS to start and run the QuickTestClient. NOTE you need a SEPARATE COMMAND PROMPT WINDOW for each service and the QuickTestClient!
+ACTION -- Start the QuickTestClient. NOTE you need a SEPARATE COMMAND PROMPT WINDOW for each service and the QuickTestClient!
 
 1. In the Visual Studio Solution Explorer, navigate to the grpc-pubsub-azservicebus\vscsharp folder.
 2. Open the grpc-pubsub-azservicebus solution by double clicking on the .sln file icon.
@@ -50,7 +50,7 @@ ACTIONS to start and run the QuickTestClient. NOTE you need a SEPARATE COMMAND P
 
 
 
-ACTIONS to input commands into the QuickTestClient command window that will cause it to publish an event to ServiceA which will enqueue one or more items into your Azure Service Bus svcADemoEvent1 Topic.
+ACTION -- Input commands into the QuickTestClient command window to Test the system.
 
 Note:  The payload must always be a string since this is a minimal implementation no DTOs are used! Also note that the QuickTestClient
        automagically prepends a 9 character "SenderSequeuceNumber" to each payload string.  This allows the output
@@ -75,5 +75,3 @@ this by copying a single UI command line from this file.  Paste it in to the Com
 Please see the source code of the QuickTestClient for the meaning of all other command arguments.  However, with the
 way this solution is set up these args CANNOT BE CHANGED:  daprpubsub svs-pubsub-asbtopic svcADemoEvent1.  Changing
 them in any way is a breaking change and will cause an error.
-
-
