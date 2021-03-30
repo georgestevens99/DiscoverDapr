@@ -45,83 +45,17 @@ Set up the Multi-Dapr-Mesh (Mesh-of-Dapr-Meshes) hosting scenario as follows:
 
 So, now that you have an overview of where the services are hosted and a general understanding of what is going on, here are a few more details on how to run the code in this solution.
 
+## Running the Code!
 
+Sometimes you will want to run all processes at once:  ServiceA, ServiceB, their side cars, and the QuickTestClient UI.  At other times you will want to run only a few of these. The details of the Actions for preparing the Visual Studio for a test run, starting the processes, and issuing commands to the QuickTestClient can be found in  DiscoverDapr\grpc-pubsub-azservicebus\vscsharp\StartRunServicesAndUI.txt.  It contains the following multi-step actions:
+1. ACTION -- Prepare the Visual Studio solution for Test Runs.
+2. ACTION -- Start ServiceA and its Dapr sidecar.
+3. ACTION -- Start ServiceB and its Dapr sidecar.
+4. ACTION -- Start the QuickTestClient.
+5. ACTION -- Input commands into the QuickTestClient command window to Test the system.
 
-## Actions to prepare the Visual Studio solution for running serviceA, serviceB, and the QuickTestClient
+Many of the steps in each of the above actions require text to be typed into one or more Command Prompt windows.  To save typing and the time required to fix typing errors the StartRunServicesAndUI.txt file is formatted that you can copy a command line from that file, and then paste it into a Command Prompt window.  That is why it is a separate text file.
 
-You will need to perform a small set of actions at the start of each session where you run one or more services or the QuickTestClient, as follows:
-1. Start Visual Studio.  Then open the DiscoverDapr folder on your machine that you cloned from GitHub.
-2. In the Visual Studio Solution Explorer, navigate to the grpc-pubsub-azservicebus\vscsharp folder.
-3. Open the grpc-pubsub-azservicebus solution by double clicking on the .sln file icon shown in the Solution Explorer.
-4. It is best to rebuild the entire solution before running any of the above services, just to prevent wasting time
-   by having to chase down inconsistences.  Before each test run open the VS Build menu in the menu bar at the
-   top of the display, and click Rebuild Solution.
-5. Now you are ready to do any, or all, of the Actions described below.
+Finally, I have found that the Windows Terminal Command Prompt window is much, much more efficient to use that the Windows Command Prompt window. Here is the link to install Windows Terminal for free: https://www.microsoft.com/en-us/p/windows-terminal/9n0dx20hk701?activetab=pivot:overviewtab
 
-## Overview of run scenarios
-Sometimes you will want to run all three processes at once:  ServiceA, ServiceB, and the QuickTestClient UI.  At other times you will want to run only one or two of these.  The below 4 Actions are separated out into Actions for starting ServiceA, Actions for starting ServiceB, Actions for starting the QuickTestClient, and Actions for issueing commands to the QuickTestClient UI.  Each of these 4 Actions may be performed independently of the other Actions.  However, for full end-to-end functionality of of the Pub/Sub example it is best to perform thee actions in the order presented below.
-
-ACTIONS to start and run serviceA and its Dapr sidecar.
-	Dapr starts serviceA via dotnet run (with implicit "." for current directory).
-
-Open a Windows Terminal Command Prompt window or Windows Command Prompt window.  Input the following commands. Best to do
-this one-by-one at first by copying a single command line from this file.  Paste it in to the Command Prompt window.  Press Enter.
-NOTE you need a SEPARATE COMMAND PROMPT WINDOW for each service and the QuickTestClient!
-
-cd LocalRepoPathPrefix\DiscoverDapr\grpc-pubsub-azservicebus\Services\ServiceA
-dapr run --app-id serviceA dotnet run
-
-
-
-
-ACTIONS to start and run serviceB and its Dapr sidecar.
-	Dapr starts serviceB via dotnet run (with implicit "." for current directory).
-
-
-Open a 2nd separate Windows Terminal Command Prompt window or Windows Command Prompt window.  Input the following commands. 
-Best to do this one-by-one at first by copying a single command line from this file. Then Paste it in to the Command Prompt window.
-Press Enter.  NOTE you need a SEPARATE COMMAND PROMPT WINDOW for each service and the QuickTestClient!
-
-cd LocalRepoPathPrefix\DiscoverDapr\grpc-pubsub-azservicebus\Services\ServiceB
-dapr run --app-id serviceB --app-port 5050 --app-protocol grpc dotnet run
-
-
-
-
-ACTIONS to start and run the QuickTestClient. NOTE you need a SEPARATE COMMAND PROMPT WINDOW for each service and the QuickTestClient!
-
-1. In the Visual Studio Solution Explorer, navigate to the grpc-pubsub-azservicebus\vscsharp folder.
-2. Open the grpc-pubsub-azservicebus solution by double clicking on the .sln file icon.
-3. Find the QuickTestClient project and hover your mouse cursor on it.
-   a. Right click this project symbol to make a context menu pop up.  
-   b. Hover your mouse cursor over the Debug context menu item.  
-   c. Click on Start New Instance and the Quick Test Client will start and display its own Command Prompt window.
-
-
-
-
-ACTIONS to input commands into the QuickTestClient command window that will cause it to publish an event to ServiceA which will enqueue one or more items into your Azure Service Bus svcADemoEvent1 Topic.
-
-Note:  The payload must always be a string since this is a minimal implementation no DTOs are used! Also note that the QuickTestClient
-       automagically prepends a 9 character "SenderSequeuceNumber" to each payload string.  This allows the output
-	   of the receiving service to be inspected to find missing messages, a BAD BUG!  But, the SenderSequenceNumber is only
-	   prepended to the multi-event publish command.
-
-1. The below QuickTestClient UI command publishes a SINGLE message, WITHOUT a SenderSequenceNumber. Best to do
-this by copying a single UI command line from this file.  Paste it in to the Command Prompt window.  Press Enter.
-
-	a-pubevent daprpubsub svs-pubsub-asbtopic svcADemoEvent1 payload=tttttt
-
-
-
-2. The below QuickTestClient UI command publishes MULTIPLE messages, WITH a SenderSequenceNumber. Best to do
-this by copying a single UI command line from this file.  Paste it in to the Command Prompt window.  Press Enter.
-
-	a-pubeventmulti daprpubsub svs-pubsub-asbtopic svcADemoEvent1 payload=tttttt 10 1000
-
-	The two numbers at the right end of the command line are 10 for EventCount to publish, and
-	1000 for NumberOfMillisecondsToDelay between event publications.
-
-Please see the source code of the QuickTestClient for the meaning of all other command arguments.  However, with the
-way this solution is set up these args CANNOT BE CHANGED:  daprpubsub svs-pubsub-asbtopic svcADemoEvent1.  Changing
-them in any way is a breaking change and will cause an error.
+Good luck with your exploration of Dapr, ASP.NET Core gRPC servcies, and the Azure Service Bus.  If you get stuck try asking a question on Dapr Discord
