@@ -5,11 +5,11 @@ Contains a conceptual overview of this Visual Studio solution, plus instructions
 
 ## Overview of the grpc-pubsub-azservicebus VS Solution
 
-The **ultimate overall goal** of this solution is to be able to start ServiceA, ServiceB, and the QuickTestClient.  Then with all 3 running, allow the user to issue commands to the QuickTestClient UI that cause ServiceA to publish events to an Azure Service Bus Topic which is subscribed to by ServiceB.  ServiceB will then receive each event published to the Topic and display the event content on its debug UI.  Likewise, the QuickTestClient and ServiceA also have UIs which display the traffic going through each of them.  This flow of processing is shown in the below logical diagram of the software:
+The **ultimate overall goal** of this solution is to be able to start ServiceA, ServiceB, and the QuickTestClient.  Then, with all 3 running, allow the user to issue commands to the QuickTestClient UI that cause ServiceA to publish events to an Azure Service Bus Topic which is subscribed to by ServiceB.  ServiceB will then receive each event published to the Topic and display the event content on its debug UI.  Likewise, the QuickTestClient and ServiceA also have UIs which display the traffic going through each of them.  This flow of processing is shown in the below logical diagram of the software:
 
 ![image](https://user-images.githubusercontent.com/6517661/112858075-86198d80-907f-11eb-8980-83a456cef69f.png)
 
-It is also beneficial while running ServiceA and ServiceB to have your Azure Service Bus Topic open in the Azure Portal.  This will allow you to verify that events have indeed been published, plus monitor any errors that may occur.  For example when you have not yet created at least one subscription for the Topic and try to publish to that Topic, the publish will fail.  However, that failure can only be detected in the Azure Portal which will show a "User Error".
+It is also beneficial while running ServiceA and ServiceB to have your Azure Service Bus Topic open in the Azure Portal.  This will allow you to verify that events have indeed been published, plus monitor any errors that may occur.  For example when you have not yet created at least one subscription for the Topic and try to publish to that Topic, the publish will fail.  However, that failure can only be detected in the Azure Portal which will show a "User Error". And in the Portal you can use the Service Bus Explorer to view and manipulate messages residing in each Topic.
 
 Note:
 1. The QuickTestClient UI has a **command that publishes multiple events**, plus a separate **command that publishes a single event**.  Please see DiscoverDapr\grpc-pubsub-azservicebus\vscsharp\StartRunServicesAndUI.txt for the syntax of these UI commands.
@@ -31,7 +31,7 @@ However, **one does not have to run all services at once**.  Instead, running on
 
 The above "typical usage scenario" is the way this Visual Studio solution is setup when you follow the directions in InstallMe.MD.  It is ready to run as a single Dapr-Mesh.
 
-Another quite interesting hosting scenario has **the 2 services** (plus their Dapr sidecars) **running on separate machines**.  This creates ***2 separate Dapr-Meshes***, one on each machine. ServiceA (with its Dapr sidecar) and the QuickTestClient run on one machine, with ServiceA in Dapr-MeshA.  And ServiceB (with its Dapr side car) running on another machine in Dapr-MeshB.  This Multi-Dapr-Mesh scenario is shown in the below Implementation Diagram:
+Another useful and quite interesting hosting scenario has **the 2 services** (plus their Dapr sidecars) **running on separate machines**.  This creates ***2 separate Dapr-Meshes***, one on each machine. ServiceA (with its Dapr sidecar) and the QuickTestClient run on one machine, with ServiceA in Dapr-MeshA.  And ServiceB (with its Dapr side car) running on another machine in Dapr-MeshB.  This Multi-Dapr-Mesh scenario is shown in the below Implementation Diagram:
 
 ![image](https://user-images.githubusercontent.com/6517661/112878408-e74c5b80-9095-11eb-8f1e-813a701a7d66.png)
 
