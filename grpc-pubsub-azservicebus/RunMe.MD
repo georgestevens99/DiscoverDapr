@@ -1,7 +1,7 @@
 # grpc-pubsub-azservicebus RunMe
 UNDER CONSTRUCTION -- Estimated completion date Monday 3/29/21.  This is still quite rough, in the early stage of being written.
 
-Contains instructions to run the 2 services and the test client with commands found in DiscoverDapr\grpc-pubsub-azservicebus\vscsharp\StartRunServicesAndUI.txt
+Contains a conceptual overview of this Visual Studio solution, plus instructions to run the 2 services and the test client with the commands found in DiscoverDapr\grpc-pubsub-azservicebus\vscsharp\StartRunServicesAndUI.txt
 
 ## Overview of the grpc-pubsub-azservicebus VS Solution
 
