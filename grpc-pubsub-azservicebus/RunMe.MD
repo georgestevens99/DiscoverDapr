@@ -20,7 +20,7 @@ At this point it is useful to define the concept of a Dapr-Mesh.  The term Dapr-
 
 ![image](https://user-images.githubusercontent.com/6517661/112873279-6a1de800-908f-11eb-8296-42b0b90ab376.png)
 
-As you can see, a Dapr-Mesh is "A collection of collaborating services all within a 'nearby network neighborhood'".  This quote, plus all diagrams in this RunMe.MD, are from the PowerPoint slide deck in this repo, at https://github.com/georgestevens99/DiscoverDapr/blob/main/grpc-pubsub-azservicebus/Thinking%20Outside%20the%20Dapr-Mesh%20with%20Dapr%2C%20gRPC.pptx.  This was part of a presentation I gave at the Dapr Community Meeting on 3/23/21.  It is available on YouTube at https://www.youtube.com/watch?v=PXXYxJLyT9Y.
+As you can see, a Dapr-Mesh is "A collection of collaborating services all within a 'nearby network neighborhood'".  This quote, plus all diagrams in this RunMe.MD, are from the PowerPoint slide deck "Thinking Outside the Dapr-Mesh with Dapr, gRPC" in this repo at https://github.com/georgestevens99/DiscoverDapr/blob/main/grpc-pubsub-azservicebus/Thinking%20Outside%20the%20Dapr-Mesh%20with%20Dapr%2C%20gRPC.pptx.  This was part of a presentation I gave at the Dapr Community Meeting on 3/23/21.  It is available on YouTube at https://www.youtube.com/watch?v=PXXYxJLyT9Y.
 
 Note that a Dapr-Mesh is very different from Service Meshes like Linkerd, Istio, etc. in 2 ways:
 1. The Service Meshes operate the Network Level while Dapr works at the Application Level.  This is shown above with Dapr using HTTP and gRPC communications to do its job.
@@ -39,7 +39,7 @@ Another useful, and quite interesting, hosting scenario has **the 2 services** (
 
 ![image](https://user-images.githubusercontent.com/6517661/112878408-e74c5b80-9095-11eb-8f1e-813a701a7d66.png)
 
-For a dive into the details of the Multi-Dapr-Mesh *Mesh-of-Dapr-Meshes* scenario please refer to the PowerPoint slide deck in this repo, at https://github.com/georgestevens99/DiscoverDapr/blob/main/grpc-pubsub-azservicebus/Thinking%20Outside%20the%20Dapr-Mesh%20with%20Dapr%2C%20gRPC.pptx. Look through the slides so that you understand what a Dapr-Mesh is, what a Mesh-of-Dapr-Meshes is, and their **benefits and limitations** (both are really important!), because that is what is happening in this hosting scenario.  
+For a dive into the details of the Multi-Dapr-Mesh *Mesh-of-Dapr-Meshes* scenario please refer to the PowerPoint slide deck "Thinking Outside the Dapr-Mesh with Dapr, gRPC" in this repo at https://github.com/georgestevens99/DiscoverDapr/blob/main/grpc-pubsub-azservicebus/Thinking%20Outside%20the%20Dapr-Mesh%20with%20Dapr%2C%20gRPC.pptx. Look through the slides so that you understand what a Dapr-Mesh is, what a Mesh-of-Dapr-Meshes is, and their **benefits and limitations** (both are really important!), because that is what is happening in this hosting scenario.  
 
 It is quite easy to set up the Multi-Dapr-Mesh (Mesh-of-Dapr-Meshes) hosting scenario for this Visual Studio solution as follows:
 1. Use InstallMe.MD to install ALL the software on 2 machines: Machine A and Machine B. This will simulate 2 geographically separate systems, each of which will host a separate Dapr-Mesh in self-host mode.  And **this requires no code changes!**  
