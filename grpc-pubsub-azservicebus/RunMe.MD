@@ -60,6 +60,8 @@ Sometimes you will want to run all processes at once:  ServiceA, ServiceB, their
 
 Many of the steps in each of the above actions require text to be typed into one or more Command Prompt windows.  To save typing and the time required to fix typing errors the StartRunServicesAndUI.txt file is formatted that you can copy a command line from that file, and then paste it into a Command Prompt window.  That is why it is a separate text file, so you can open it on each system when you are doing test runs.
 
-Finally, I have found that the Windows Terminal Command Prompt window is much, much more efficient to use that the Windows Command Prompt window. Here is the link to install Windows Terminal for free: https://www.microsoft.com/en-us/p/windows-terminal/9n0dx20hk701?activetab=pivot:overviewtab
+I have found that the Windows Terminal Command Prompt window is much, much more efficient to use that the Windows Command Prompt window. Here is the link to install Windows Terminal for free: https://www.microsoft.com/en-us/p/windows-terminal/9n0dx20hk701?activetab=pivot:overviewtab
+
+Finally, be sure to use the QuickTestClient **a-pubeventmulti** command to load test and stress test the system.  Try running EventCounts of tens of thousands of of events, or more.  And try running thousands or even tens of thousands of events with a 0 millisecond delay.  Do these break your system?  Do these cause events to "backup" in your Azure Service Bus Topic when its "Message Count" is viewed in the portal.  Doing load and stress testing will both show you where you need to strengthen the software, and build your confidence in it as well.
 
 Good luck with your exploration of Dapr, ASP.NET Core gRPC servcies, and the Azure Service Bus.  If you get stuck try asking a question on Dapr Discord at https://discord.com/invite/ptHhX6jc34.
