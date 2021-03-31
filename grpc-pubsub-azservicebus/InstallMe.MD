@@ -96,6 +96,9 @@ Required Naming for the Azure Assets, including the required case:
   * Above, paste so as to replace all to the right of "value: " with your connection string, leaving 1 space between ':' and the connection string.
   
 * Save the DaprRuntimePathPrefix\\.dapr\components\svs-pubsub-asbtopic.yaml file.
+*
+* Now run the yaml file through a yaml validator.  For example copy the yaml and then paste it into https://codebeautify.org/yaml-validator.  If there are errors the validator will tell you.  This saves much time compared to trying to debug incorrect yaml via running code.  When the yaml is validated copy the yaml from the validator back into the yaml file and then save it.
+  * Note that from my experience a >= 1 space indent is required for each level of nesting in the yaml.  Without this even yaml that has been validated OK will cause errors.
 
 You are done with the Azure Assets step!
 
