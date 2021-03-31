@@ -16,11 +16,15 @@ Note:
 2. Only Dapr "self-host" mode is used in the below scenarios, i.e. a service and its Dapr side car run in processes (no containers).  Kubernetes is NOT used, although it could be if you want to do the work required for Kubernetes hosting and putting each service in a container as well.
 
 ### The Dapr-Mesh
-At this point it is useful to define the concept of a Dapr-Mesh.  The term Dapr-Mesh is shorthand for a "A Dapr Mesh-of-Services". A Mesh-of-Services is a collection so services that can collaborate with each other.  The Implementation Diagram below shows a generalized Dapr-Mesh:
+At this point it is useful to define the concept of a Dapr-Mesh.  The term Dapr-Mesh is shorthand for a "A Dapr Mesh-of-Services". A Mesh-of-Services is a collection of services that can collaborate with each other.  The Implementation Diagram below shows a generalized Dapr-Mesh, which *uses Dapr* to facilitate the service's collaboration:
 
 ![image](https://user-images.githubusercontent.com/6517661/112873279-6a1de800-908f-11eb-8296-42b0b90ab376.png)
 
-As you can see, a Dapr-Mesh is "A collection of collaborating services all *using Dapr sidecars* within a 'nearby network neighborhood'".  This quote, plus all diagrams in this RunMe.MD, are from the PowerPoint slide deck in this repo, at DiscoverDapr\grpc-pubsub-azservicebus\Thinking Outside the Dapr-Mesh with Dapr, gRPC.pptx.  This was part of a presentation I gave at the Dapr Community Meeting on 3/23/21.  It is available on YouTube at https://www.youtube.com/watch?v=PXXYxJLyT9Y.
+As you can see, a Dapr-Mesh is "A collection of collaborating services all within a 'nearby network neighborhood'".  This quote, plus all diagrams in this RunMe.MD, are from the PowerPoint slide deck in this repo, at DiscoverDapr\grpc-pubsub-azservicebus\Thinking Outside the Dapr-Mesh with Dapr, gRPC.pptx.  This was part of a presentation I gave at the Dapr Community Meeting on 3/23/21.  It is available on YouTube at https://www.youtube.com/watch?v=PXXYxJLyT9Y.
+
+Note that a Dapr-Mesh is very different from Service Meshes like Linkerd, Istio, etc. in 2 ways:
+1. The Service Meshes operate the Network Level while Dapr works at the Application Level.  This is shown above with Dapr using HTTP and gRPC communications to do its job.
+2. Dapr provides capabilities (via its Building Blocks and Components) to services using it that are far beyond the capabilities offered by Service Meshes.  For example, Dapr provides capabilities like State Storage, Pub/Sub, Bindings and Triggers, Virtual Actors, and more.  These capabilities are broad "runtime" capabilities that happen to include facilitating services collaborating with each other.  Please see this link for Dapr capabilities https://docs.dapr.io/concepts/overview/. 
 
 ### Usage Scenarios for this Code Sample
 The **typical usage scenario** is to host ServiceA, ServiceB, their sidecars, and the QuickTestClient on the *same machine*, and run all 5 processes at once for each testing session.  Here, both ServiceA and ServiceB reside in the ***SAME Dapr-Mesh***, i.e. each will have its own private Dapr sidecar, which are both interconnected by gRPC connections.  Below is an Implementation Diagram of this "all on same machine" usage scenario.  Note its relationship with the Logical Diagram at the start of this document.  Also note that the **QuickTestClient is not a part of any Dapr-Mesh** since it has no Dapr sidecar!
