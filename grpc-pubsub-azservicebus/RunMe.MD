@@ -39,7 +39,7 @@ Another useful, and quite interesting, hosting scenario has **the 2 services** (
 
 ![image](https://user-images.githubusercontent.com/6517661/112878408-e74c5b80-9095-11eb-8f1e-813a701a7d66.png)
 
-For a dive into the Multi-Dapr-Mesh *Mesh-of-Dapr-Meshes* scenario please refer to the PowerPoint slide deck in this repo, at DiscoverDapr\grpc-pubsub-azservicebus\Thinking Outside the Dapr-Mesh with Dapr, gRPC.pptx. Look through the slides so that you understand what a Dapr-Mesh is, what a Mesh-of-Dapr-Meshes is, and its benefits and limitations (both are really important!), because that is what is happening in this hosting scenario.  
+For a dive into the details of the Multi-Dapr-Mesh *Mesh-of-Dapr-Meshes* scenario please refer to the PowerPoint slide deck in this repo, at DiscoverDapr\grpc-pubsub-azservicebus\Thinking Outside the Dapr-Mesh with Dapr, gRPC.pptx. Look through the slides so that you understand what a Dapr-Mesh is, what a Mesh-of-Dapr-Meshes is, and its benefits and limitations (both are really important!), because that is what is happening in this hosting scenario.  
 
 It is quite easy to set up the Multi-Dapr-Mesh (Mesh-of-Dapr-Meshes) hosting scenario as follows:
 1. Use InstallMe.MD to install ALL the software on 2 machines: Machine A and Machine B. This will simulate 2 geographically separate systems, each of which will host a separate Dapr-Mesh in self-host mode.  
