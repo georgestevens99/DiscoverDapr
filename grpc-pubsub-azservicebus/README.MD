@@ -1,5 +1,5 @@
 # grpc-pubsub-azservicebus ReadMe
-Completed 3/29/21.
+Completed 3/31/21.
 
 This Visual Studio Solution implements below Logical Diagram of a Test Client interacting with ServiceA, which then interacts with a Dapr Pub/Sub Component that is subscribed to by ServiceB.
 
