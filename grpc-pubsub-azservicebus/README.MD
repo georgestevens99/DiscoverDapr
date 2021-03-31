@@ -11,4 +11,4 @@ For the high level concepts please refer to:
 
 Further descriptive details of the implementation are available in **RunMe.MD**, which also contains instructions on how to run this on your own machine(s).  
 
-Instructions for how to install this on your machine(s) are in **InstallMe.MD**.
+Instructions for how to install this on your machine(s) are in **InstallMe.MD** at https://github.com/georgestevens99/DiscoverDapr/blob/main/grpc-pubsub-azservicebus/InstallMe.MD.
