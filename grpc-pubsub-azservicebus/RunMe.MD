@@ -9,18 +9,18 @@ This solution consists of the components, and their interactions, as shown in th
 
 ![image](https://user-images.githubusercontent.com/6517661/112858075-86198d80-907f-11eb-8980-83a456cef69f.png)
 
-While running ServiceA and ServiceB it is also beneficial to have your Azure Service Bus Topic open in the Azure Portal.  This allows you to verify that events have indeed been published, plus monitor any errors that may occur.  For example when you have not yet created at least one subscription for the Topic and try to publish to that Topic, the publish will fail.  However, that failure can only be detected in the Azure Portal which will show a "User Error". And in the Portal you can use the Service Bus Explorer to view and manipulate messages residing in each Topic.
+While running ServiceA and ServiceB it is also beneficial to have your Azure Service Bus Topic (the Pub/Sub component) open in the Azure Portal.  This allows you to verify that events have indeed been published, plus monitor any errors that may occur.  For example when you have not yet created at least one subscription for the Topic and try to publish to that Topic, the publish will fail.  However, that failure can only be detected in the Azure Portal which will show a "User Error". And in the Portal you can use the Service Bus Explorer to view and manipulate messages residing in each Topic.
 
 Note:
 1. The QuickTestClient UI has a **command that publishes *multiple events***, plus a separate **command that publishes a *single event***.  Please see DiscoverDapr\grpc-pubsub-azservicebus\vscsharp\StartRunServicesAndUI.txt for the syntax of these UI commands.
 2. Only Dapr "self-host" mode is used in the below scenarios, i.e. a service and its Dapr side car run in processes (no containers).  Kubernetes is NOT used, although it could be if you want to do the work required for Kubernetes hosting and putting each service in a container as well.
 
 ### The Dapr-Mesh
-At this point it is useful to define the concept of a Dapr-Mesh.  The term Dapr-Mesh is shorthand for a "A Dapr Mesh-of-Services".  The Implementation Diagram below shows a generalized Dapr-Mesh:
+At this point it is useful to define the concept of a Dapr-Mesh.  The term Dapr-Mesh is shorthand for a "A Dapr Mesh-of-Services". A Mesh-of-Services is a collection so services that can collaborate with each other.  The Implementation Diagram below shows a generalized Dapr-Mesh:
 
 ![image](https://user-images.githubusercontent.com/6517661/112873279-6a1de800-908f-11eb-8296-42b0b90ab376.png)
 
-As you can see, a Dapr-Mesh is "A collection of collaborating services all using Dapr sidecars within a 'nearby network neighborhood'".  This quote, plus all diagrams in this RunMe.MD, are from the PowerPoint slide deck in this repo, at DiscoverDapr\grpc-pubsub-azservicebus\Thinking Outside the Dapr-Mesh with Dapr, gRPC.pptx.  This was part of a presentation I gave at the Dapr Community Meeting on 3/23/21.  It is available on YouTube at https://www.youtube.com/watch?v=PXXYxJLyT9Y.
+As you can see, a Dapr-Mesh is "A collection of collaborating services all *using Dapr sidecars* within a 'nearby network neighborhood'".  This quote, plus all diagrams in this RunMe.MD, are from the PowerPoint slide deck in this repo, at DiscoverDapr\grpc-pubsub-azservicebus\Thinking Outside the Dapr-Mesh with Dapr, gRPC.pptx.  This was part of a presentation I gave at the Dapr Community Meeting on 3/23/21.  It is available on YouTube at https://www.youtube.com/watch?v=PXXYxJLyT9Y.
 
 ### Usage Scenarios for this Code Sample
 The **typical usage scenario** is to host ServiceA, ServiceB, their sidecars, and the QuickTestClient on the *same machine*, and run all 5 processes at once for each testing session.  Here, both ServiceA and ServiceB reside in the ***SAME Dapr-Mesh***, i.e. each will have its own private Dapr sidecar, which are both interconnected by gRPC connections.  Below is an Implementation Diagram of this "all on same machine" usage scenario.  Note its relationship with the Logical Diagram at the start of this document.  Also note that the **QuickTestClient is not a part of any Dapr-Mesh** since it has no Dapr sidecar!
