@@ -5,7 +5,7 @@ This document contains a *conceptual overview* of this Visual Studio solution, p
 
 ## Conceptual Overview of the grpc-pubsub-azservicebus VS Solution
 
-The **ultimate overall goal** of this solution is to be able to start ServiceA, ServiceB, and the QuickTestClient.  Then, with all 3 running, allow the user to issue commands to the QuickTestClient UI that cause ServiceA to publish events to an Azure Service Bus Topic which is subscribed to by ServiceB.  ServiceB will then receive each event published to the Topic and display the event content on its Console UI.  Likewise, the QuickTestClient and ServiceA also have Console UIs which display the traffic going through each of them.  This flow of processing is shown in the below logical diagram of the software:
+This solution consists of the components, and their interactions, as shown in the below logical diagram of the software. The **ultimate overall goal** of this solution is to be able to start ServiceA, ServiceB, and the QuickTestClient.  Then, with all 3 running, allow the user to issue commands to the QuickTestClient UI that cause ServiceA to publish events to an Azure Service Bus Topic which is subscribed to by ServiceB.  ServiceB will then receive each event published to the Topic and display the event content on its Console UI.  Likewise, the QuickTestClient and ServiceA also have Console UIs which display the traffic going through each of them.  
 
 ![image](https://user-images.githubusercontent.com/6517661/112858075-86198d80-907f-11eb-8980-83a456cef69f.png)
 
