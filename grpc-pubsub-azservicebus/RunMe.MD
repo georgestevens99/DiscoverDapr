@@ -5,7 +5,7 @@ This document contains a *conceptual overview* of this Visual Studio solution, p
 
 ## Conceptual Overview of the grpc-pubsub-azservicebus VS Solution
 
-This solution consists of the components, and their interactions, as shown in the below Logical Diagram of the software. The **ultimate overall goal** of this solution is to be able to start ServiceA, ServiceB, and the QuickTestClient.  Then, with all 3 running, allow the user to issue commands to the QuickTestClient UI that cause ServiceA to publish events to Pub/Sub component (implemented via an external Azure Service Bus Topic) which is subscribed to by ServiceB.  ServiceB will then receive each event published to the Topic and display the event content on its Console UI.  Likewise, the QuickTestClient and ServiceA also have Console UIs which display the traffic going through each of them.  
+This solution consists of the components, and their interactions, shown in the below Logical Diagram of the software. The **ultimate overall goal** of this solution is to be able to start ServiceA, ServiceB, and the QuickTestClient.  Then, with all 3 running, allow the user to issue commands to the QuickTestClient UI that cause ServiceA to publish events to Pub/Sub component (implemented via an external Azure Service Bus Topic) which is subscribed to by ServiceB.  ServiceB will then receive each event published to the Topic and display the event content on its Console UI.  Likewise, the QuickTestClient and ServiceA also have Console UIs which display the traffic going through each of them.  
 
 ![image](https://user-images.githubusercontent.com/6517661/112858075-86198d80-907f-11eb-8980-83a456cef69f.png)
 
@@ -20,7 +20,7 @@ At this point it is useful to define the concept of a Dapr-Mesh.  The term Dapr-
 
 ![image](https://user-images.githubusercontent.com/6517661/112873279-6a1de800-908f-11eb-8296-42b0b90ab376.png)
 
-As you can see, a Dapr-Mesh is "A collection of collaborating services all within a 'nearby network neighborhood'".  This quote, plus all diagrams in this RunMe.MD, are from the PowerPoint slide deck in this repo, at DiscoverDapr\grpc-pubsub-azservicebus\Thinking Outside the Dapr-Mesh with Dapr, gRPC.pptx.  This was part of a presentation I gave at the Dapr Community Meeting on 3/23/21.  It is available on YouTube at https://www.youtube.com/watch?v=PXXYxJLyT9Y.
+As you can see, a Dapr-Mesh is "A collection of collaborating services all within a 'nearby network neighborhood'".  This quote, plus all diagrams in this RunMe.MD, are from the PowerPoint slide deck in this repo, at https://github.com/georgestevens99/DiscoverDapr/blob/main/grpc-pubsub-azservicebus/Thinking%20Outside%20the%20Dapr-Mesh%20with%20Dapr%2C%20gRPC.pptx.  This was part of a presentation I gave at the Dapr Community Meeting on 3/23/21.  It is available on YouTube at https://www.youtube.com/watch?v=PXXYxJLyT9Y.
 
 Note that a Dapr-Mesh is very different from Service Meshes like Linkerd, Istio, etc. in 2 ways:
 1. The Service Meshes operate the Network Level while Dapr works at the Application Level.  This is shown above with Dapr using HTTP and gRPC communications to do its job.
