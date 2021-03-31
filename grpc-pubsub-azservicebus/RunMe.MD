@@ -44,7 +44,7 @@ Note the above Implementation Diagram implements exactly the same system as show
 For a dive into the details of the Multi-Dapr-Mesh *Mesh-of-Dapr-Meshes* scenario please refer to the PowerPoint slide deck "Thinking Outside the Dapr-Mesh with Dapr, gRPC" in this repo at https://github.com/georgestevens99/DiscoverDapr/blob/main/grpc-pubsub-azservicebus/Thinking%20Outside%20the%20Dapr-Mesh%20with%20Dapr%2C%20gRPC.pptx. Look through the slides so that you understand what a Dapr-Mesh is, what a Mesh-of-Dapr-Meshes is, and their **benefits and limitations** (both are really important!), because that is what is happening in this hosting scenario.  
 
 It is quite easy to set up the Multi-Dapr-Mesh (Mesh-of-Dapr-Meshes) hosting scenario for this Visual Studio solution as follows:
-1. Use InstallMe.MD to install ALL the software on 2 machines: Machine A and Machine B. This will simulate 2 geographically separate systems, each of which will host a separate Dapr-Mesh in self-host mode.  And **this requires no code changes!**  
+1. Use InstallMe.MD to install ALL the software and other assets on 2 machines: Machine A and Machine B. This will simulate 2 geographically separate systems, each of which will host a separate Dapr-Mesh in self-host mode.  And **this requires no code changes!**  
 2. Then on Machine A start ServiceA and the QuickTestClient.  Then on MachineB start ServiceB.
 3. Then issue commands to the QuickTestClient UI and you will see the results displayed in the serviceB debug console on Machine B.
 4. Note that Machine A and Machine B can be anywhere on the planet, so long as they both can successfully connect to the same Azure Service Bus Topic (located externally in some Azure Cloud somewhere).
