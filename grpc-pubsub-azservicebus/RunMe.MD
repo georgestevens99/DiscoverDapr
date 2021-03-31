@@ -1,5 +1,5 @@
 # grpc-pubsub-azservicebus RunMe
-Completed Tuesday 3/30/21.
+Completed Wednesday 3/31/21.
 
 This document contains a *conceptual overview* of this Visual Studio solution, plus *instructions to run* the 2 services and the test client with the commands found in DiscoverDapr\grpc-pubsub-azservicebus\vscsharp\StartRunServicesAndUI.txt
 
