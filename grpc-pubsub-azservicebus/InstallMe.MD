@@ -81,7 +81,7 @@ Required Naming for the Azure Assets, including the required case:
 2. Copy the Azure Service Bus Namespace "connection string" from the Azure Portal and paste it into the svs-pubsub-asbtopic.yaml that resides in  DaprRuntimePathPrefix\.dapr\components.  Here is how to do that:
 * In the Azure Portal navigate to your Azure Service Bus Namespace.
 * Then click on Settings/Shared Access Policies.
-* Then click on RootManageSharedAccessKey which will display the Primary and Secondary Key and Primary and Secondary Connection Strings
+* Then click on RootManageSharedAccessKey which will display the Primary and Secondary Key and Primary and Secondary Connection Strings.
 * Click on the Copy icon of the Primary Connection String to make a copy of the connection string.  
 * Then paste the copy of the connecction string into some temporary local text file (NoteBook works well for this) on your local dev system.
 * Open your local DaprRuntimePathPrefix\\.dapr\components\svs-pubsub-asbtopic.yaml in a text editor.  You can right click on the yaml file and choose Edit.
@@ -94,7 +94,7 @@ Required Naming for the Azure Assets, including the required case:
    
      value: Endpoint=sb://YourNamespace.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=YourSharedAccessKey  
   
-  * Above, paste so as to replace all to the right of "value: " with your connection string, leaving 1 space between ':' and the conncetion string.
+  * Above, paste so as to replace all to the right of "value: " with your connection string, leaving 1 space between ':' and the connection string.
   
 * Save the DaprRuntimePathPrefix\\.dapr\components\svs-pubsub-asbtopic.yaml file.
 
