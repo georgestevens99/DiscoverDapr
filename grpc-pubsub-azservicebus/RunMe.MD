@@ -39,7 +39,7 @@ Another useful, and quite interesting, hosting scenario has **the 2 services** (
 
 ![image](https://user-images.githubusercontent.com/6517661/112878408-e74c5b80-9095-11eb-8f1e-813a701a7d66.png)
 
-Note the above Implementation Diagram implements exactly the same logic as shown in the previous *Logical Diagram* of the software.
+Note the above Implementation Diagram implements exactly the same system as shown in the previous *Logical Diagram* of the software.
 
 For a dive into the details of the Multi-Dapr-Mesh *Mesh-of-Dapr-Meshes* scenario please refer to the PowerPoint slide deck "Thinking Outside the Dapr-Mesh with Dapr, gRPC" in this repo at https://github.com/georgestevens99/DiscoverDapr/blob/main/grpc-pubsub-azservicebus/Thinking%20Outside%20the%20Dapr-Mesh%20with%20Dapr%2C%20gRPC.pptx. Look through the slides so that you understand what a Dapr-Mesh is, what a Mesh-of-Dapr-Meshes is, and their **benefits and limitations** (both are really important!), because that is what is happening in this hosting scenario.  
 
