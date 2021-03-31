@@ -23,7 +23,7 @@ At this point it is useful to define the concept of a Dapr-Mesh.  The term Dapr-
 As you can see, a Dapr-Mesh is "A collection of collaborating services all using Dapr sidecars within a 'nearby network neighborhood'".  This quote, plus all diagrams in this RunMe.MD, are from the PowerPoint slide deck in this repo, at DiscoverDapr\grpc-pubsub-azservicebus\Thinking Outside the Dapr-Mesh with Dapr, gRPC.pptx.  This was part of a presentation I gave at the Dapr Community Meeting on 3/23/21.  It is available on YouTube at https://www.youtube.com/watch?v=PXXYxJLyT9Y.
 
 ### Usage Scenarios for this Code Sample
-The **typical usage scenario** is to host ServiceA, ServiceB, their sidecars, and the QuickTestClient on the *same machine*, and run all 5 processes at once for each testing session.  Here, both ServiceA and ServiceB reside in the ***SAME Dapr-Mesh***, i.e. each will have its own private Dapr sidecar, which are both interconnected by gRPC connections.  Below is an Implementation Diagram of this "all on same machine" usage scenario.  Note its relationship with the Logical Diagram at the start of this document.
+The **typical usage scenario** is to host ServiceA, ServiceB, their sidecars, and the QuickTestClient on the *same machine*, and run all 5 processes at once for each testing session.  Here, both ServiceA and ServiceB reside in the ***SAME Dapr-Mesh***, i.e. each will have its own private Dapr sidecar, which are both interconnected by gRPC connections.  Below is an Implementation Diagram of this "all on same machine" usage scenario.  Note its relationship with the Logical Diagram at the start of this document.  Also note that the **QuickTestClient is not a part of any Dapr-Mesh** since it has no Dapr sidecar!
 
 ![image](https://user-images.githubusercontent.com/6517661/112875080-b9fdae80-9091-11eb-8d1d-a4fba6224e17.png)
 
@@ -43,7 +43,7 @@ It is quite easy to set up the Multi-Dapr-Mesh (Mesh-of-Dapr-Meshes) hosting sce
 3. Then issue commands to the QuickTestClient UI and you will see the results displayed in the serviceB debug console on Machine B.
 4. Note that Machine A and Machine B can be anywhere on the planet, so long as they both can successfully connect to the same Azure Service Bus Topic!
 
-So, now that you have an overview of where the services are hosted and a general understanding of what is going on, here are a few more details on how to run the code in this solution.
+Now that you have an overview of where the services are hosted and a general understanding of what is going on, here are a few more details on how to run the code in this solution.
 
 ## Running the Code!
 
