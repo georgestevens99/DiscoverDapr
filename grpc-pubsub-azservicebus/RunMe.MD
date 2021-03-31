@@ -31,7 +31,7 @@ However, **one does not have to run all services at once**.  Instead, running on
 
 The above "typical usage scenario" is the way this Visual Studio solution is setup when you follow the directions in InstallMe.MD.  It is ready to run as a single Dapr-Mesh.
 
-Another useful, and quite interesting, hosting scenario has **the 2 services** (plus their Dapr sidecars) **running on separate machines**.  This creates ***2 separate Dapr-Meshes***, one on each machine (still in "self-host" mode). ServiceA (with its Dapr sidecar) and the QuickTestClient run on one machine, with ServiceA in Dapr-MeshA.  And ServiceB (with its Dapr side car) running on another machine in Dapr-MeshB.  This Multi-Dapr-Mesh scenario is shown in the below Implementation Diagram:
+Another useful, and quite interesting, hosting scenario has **the 2 services** (plus their Dapr sidecars) **running on separate machines**.  This creates ***2 separate Dapr-Meshes***, one on each machine (still in "self-host" mode). ServiceA (with its Dapr sidecar) and the QuickTestClient running on one machine, with ServiceA in Dapr-MeshA.  And ServiceB (with its Dapr side car) running on another machine in Dapr-MeshB.  This Multi-Dapr-Mesh scenario is shown in the below Implementation Diagram:
 
 ![image](https://user-images.githubusercontent.com/6517661/112878408-e74c5b80-9095-11eb-8f1e-813a701a7d66.png)
 
