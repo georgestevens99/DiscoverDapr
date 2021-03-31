@@ -5,7 +5,7 @@ This document contains a *conceptual overview* of this Visual Studio solution, p
 
 ## Conceptual Overview of the grpc-pubsub-azservicebus VS Solution
 
-This solution consists of the components, and their interactions, as shown in the below Logical Diagram of the software. The **ultimate overall goal** of this solution is to be able to start ServiceA, ServiceB, and the QuickTestClient.  Then, with all 3 running, allow the user to issue commands to the QuickTestClient UI that cause ServiceA to publish events to Pub/Sub component (implemented via an Azure Service Bus Topic) which is subscribed to by ServiceB.  ServiceB will then receive each event published to the Topic and display the event content on its Console UI.  Likewise, the QuickTestClient and ServiceA also have Console UIs which display the traffic going through each of them.  
+This solution consists of the components, and their interactions, as shown in the below Logical Diagram of the software. The **ultimate overall goal** of this solution is to be able to start ServiceA, ServiceB, and the QuickTestClient.  Then, with all 3 running, allow the user to issue commands to the QuickTestClient UI that cause ServiceA to publish events to Pub/Sub component (implemented via an external Azure Service Bus Topic) which is subscribed to by ServiceB.  ServiceB will then receive each event published to the Topic and display the event content on its Console UI.  Likewise, the QuickTestClient and ServiceA also have Console UIs which display the traffic going through each of them.  
 
 ![image](https://user-images.githubusercontent.com/6517661/112858075-86198d80-907f-11eb-8980-83a456cef69f.png)
 
@@ -24,10 +24,10 @@ As you can see, a Dapr-Mesh is "A collection of collaborating services all withi
 
 Note that a Dapr-Mesh is very different from Service Meshes like Linkerd, Istio, etc. in 2 ways:
 1. The Service Meshes operate the Network Level while Dapr works at the Application Level.  This is shown above with Dapr using HTTP and gRPC communications to do its job.
-2. Dapr provides capabilities (via its Building Blocks and Components) to services using it that are far beyond the capabilities offered by Service Meshes.  For example, Dapr provides capabilities like State Storage, Pub/Sub, Bindings and Triggers, Virtual Actors, and more.  These capabilities are broad "runtime" capabilities that happen to include facilitating services collaborating with each other.  Please see this link for Dapr capabilities https://docs.dapr.io/concepts/overview/. 
+2. Dapr provides capabilities (via its Building Blocks and Components) to services using it that are far beyond the capabilities offered by Service Meshes.  For example, Dapr provides capabilities like State Storage, Pub/Sub, Bindings and Triggers, Virtual Actors, and more.  These capabilities are broad "runtime" capabilities tha also happen to include facilitating services collaborating with each other.  Please see this link for Dapr capabilities https://docs.dapr.io/concepts/overview/. 
 
 ### Usage Scenarios for this Code Sample
-The **typical usage scenario** is to host ServiceA, ServiceB, their sidecars, and the QuickTestClient on the *same machine*, and run all 5 processes together, all at once, for each testing session.  Here, both ServiceA and ServiceB reside in the ***SAME Dapr-Mesh***, i.e. each will have its own private Dapr sidecar, which are interconnected by gRPC connections.  Below is an Implementation Diagram of this "all on same machine" usage scenario.  Note its relationship with the Logical Diagram at the start of this document.  Also note that the **QuickTestClient is not a part of any Dapr-Mesh** since it has no Dapr sidecar.  Finally, note that the Az SB Pub/Sub component is an **external service** that runs in the Azure Cloud and thus is not part of any of the Dapr-Meshes shown below.
+The **typical usage scenario** is to host ServiceA, ServiceB, their sidecars, and the QuickTestClient on the *same machine*, and run all 5 processes together, all at once, for each testing session.  Here, both ServiceA and ServiceB reside in the ***SAME Dapr-Mesh***, i.e. each will have its own private Dapr sidecars, which are interconnected by gRPC connections.  Below is an Implementation Diagram of this "all on same machine" usage scenario.  Note its relationship with the Logical Diagram at the start of this document.  Also note that the **QuickTestClient is not a part of any Dapr-Mesh** since it has no Dapr sidecar.  Finally, note that the Az SB Pub/Sub component is an **external service** that runs in the Azure Cloud and thus is not part of any of the Dapr-Meshes shown below.
 
 ![image](https://user-images.githubusercontent.com/6517661/112875080-b9fdae80-9091-11eb-8d1d-a4fba6224e17.png)
 
@@ -35,23 +35,23 @@ However, **one does not have to run all services together, all at once**.  Inste
 
 The above "typical usage scenario" is the way this Visual Studio solution is setup when you follow the directions in InstallMe.MD.  It is ready to run as a single Dapr-Mesh.
 
-Another useful, and quite interesting, hosting scenario has **the 2 services** (plus their Dapr sidecars) **running on separate machines**.  This creates ***2 separate Dapr-Meshes***, one on each machine (still in "self-host" mode on each machine). ServiceA (with its Dapr sidecar) and the QuickTestClient run on one machine, with ServiceA in Dapr-MeshA.  And ServiceB (with its Dapr side car) run on another machine in Dapr-MeshB.  This Multi-Dapr-Mesh scenario is shown in the following Implementation Diagram:
+Another useful, and quite interesting, hosting scenario has **the 2 services** (plus their Dapr sidecars) **running on separate machines**.  This creates ***2 separate Dapr-Meshes***, one on each machine (still in "self-host" mode on each machine). ServiceA (with its Dapr sidecar) and the QuickTestClient run on one machine, with ServiceA in Dapr-MeshA.  And ServiceB (with its Dapr side car) running on another machine in Dapr-MeshB.  This Multi-Dapr-Mesh scenario is shown in the following Implementation Diagram:
 
 ![image](https://user-images.githubusercontent.com/6517661/112878408-e74c5b80-9095-11eb-8f1e-813a701a7d66.png)
 
-For a dive into the details of the Multi-Dapr-Mesh *Mesh-of-Dapr-Meshes* scenario please refer to the PowerPoint slide deck in this repo, at DiscoverDapr\grpc-pubsub-azservicebus\Thinking Outside the Dapr-Mesh with Dapr, gRPC.pptx. Look through the slides so that you understand what a Dapr-Mesh is, what a Mesh-of-Dapr-Meshes is, and its benefits and limitations (both are really important!), because that is what is happening in this hosting scenario.  
+For a dive into the details of the Multi-Dapr-Mesh *Mesh-of-Dapr-Meshes* scenario please refer to the PowerPoint slide deck in this repo, at DiscoverDapr\grpc-pubsub-azservicebus\Thinking Outside the Dapr-Mesh with Dapr, gRPC.pptx. Look through the slides so that you understand what a Dapr-Mesh is, what a Mesh-of-Dapr-Meshes is, and its **benefits and limitations** (both are really important!), because that is what is happening in this hosting scenario.  
 
 It is quite easy to set up the Multi-Dapr-Mesh (Mesh-of-Dapr-Meshes) hosting scenario as follows:
 1. Use InstallMe.MD to install ALL the software on 2 machines: Machine A and Machine B. This will simulate 2 geographically separate systems, each of which will host a separate Dapr-Mesh in self-host mode.  
 2. Then on Machine A start ServiceA and the QuickTestClient.  Then on MachineB start ServiceB.
 3. Then issue commands to the QuickTestClient UI and you will see the results displayed in the serviceB debug console on Machine B.
-4. Note that Machine A and Machine B can be anywhere on the planet, so long as they both can successfully connect to the same Azure Service Bus Topic!
+4. Note that Machine A and Machine B can be anywhere on the planet, so long as they both can successfully connect to the same Azure Service Bus Topic (located externally in some Azure Cloud somewhere).
 
 Now that you have an overview of where the services are hosted and a general understanding of what is going on, here are a few more details on how to run the code in this solution.
 
 ## How to Run the Code
 
-Sometimes you will want to run all processes at once:  ServiceA, ServiceB, their side cars, and the QuickTestClient UI.  At other times you will want to run only a few of these. The details of the Actions for preparing the Visual Studio for a test run, starting the processes, and issuing commands to the QuickTestClient can be found in  DiscoverDapr\grpc-pubsub-azservicebus\vscsharp\StartRunServicesAndUI.txt.  It contains the following 5 multi-step Actions:
+Sometimes you will want to run all processes at once:  ServiceA, ServiceB, their side cars, and the QuickTestClient UI.  At other times you will want to run only a few of these.  This is accomplished by Actions. The details of these Actions can be found in  DiscoverDapr\grpc-pubsub-azservicebus\vscsharp\StartRunServicesAndUI.txt.  It contains the following 5 multi-step Actions:
 1. ACTION -- Prepare the Visual Studio solution for Test Runs.
 2. ACTION -- Start ServiceA and its Dapr sidecar.
 3. ACTION -- Start ServiceB and its Dapr sidecar.
