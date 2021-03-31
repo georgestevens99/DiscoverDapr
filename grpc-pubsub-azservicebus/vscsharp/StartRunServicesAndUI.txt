@@ -18,7 +18,7 @@ Open a Windows Terminal Command Prompt window or Windows Command Prompt window. 
 this one-by-one at first by copying a single command line from this file.  Paste it in to the Command Prompt window.  Press Enter.
 NOTE you need a SEPARATE COMMAND PROMPT WINDOW for each service and the QuickTestClient!
 
-cd LocalRepoPathPrefix\DiscoverDapr\grpc-pubsub-azservicebus\Services\ServiceA
+cd LocalRepoPathPrefix\DiscoverDapr\grpc-pubsub-azservicebus\vscsharp\Services\ServiceA
 dapr run --app-id ServiceA dotnet run
 
 
@@ -32,7 +32,7 @@ Open a 2nd separate Windows Terminal Command Prompt window or Windows Command Pr
 Best to do this one-by-one at first by copying a single command line from this file. Then Paste it in to the Command Prompt window.
 Press Enter.  NOTE you need a SEPARATE COMMAND PROMPT WINDOW for each service and the QuickTestClient!
 
-cd LocalRepoPathPrefix\DiscoverDapr\grpc-pubsub-azservicebus\Services\ServiceB
+cd LocalRepoPathPrefix\DiscoverDapr\grpc-pubsub-azservicebus\vscsharp\Services\ServiceB
 dapr run --app-id ServiceB --app-port 5050 --app-protocol grpc dotnet run
 
 
