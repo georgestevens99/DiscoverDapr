@@ -3,7 +3,7 @@ Completed Tuesday 3/30/21.
 
 This document contains a *conceptual overview* of this Visual Studio solution, plus *instructions to run* the 2 services and the test client with the commands found in DiscoverDapr\grpc-pubsub-azservicebus\vscsharp\StartRunServicesAndUI.txt
 
-## Overview of the grpc-pubsub-azservicebus VS Solution
+## Conceptual Overview of the grpc-pubsub-azservicebus VS Solution
 
 The **ultimate overall goal** of this solution is to be able to start ServiceA, ServiceB, and the QuickTestClient.  Then, with all 3 running, allow the user to issue commands to the QuickTestClient UI that cause ServiceA to publish events to an Azure Service Bus Topic which is subscribed to by ServiceB.  ServiceB will then receive each event published to the Topic and display the event content on its Console UI.  Likewise, the QuickTestClient and ServiceA also have Console UIs which display the traffic going through each of them.  This flow of processing is shown in the below logical diagram of the software:
 
@@ -45,7 +45,7 @@ It is quite easy to set up the Multi-Dapr-Mesh (Mesh-of-Dapr-Meshes) hosting sce
 
 Now that you have an overview of where the services are hosted and a general understanding of what is going on, here are a few more details on how to run the code in this solution.
 
-## Running the Code!
+## How to Run the Code
 
 Sometimes you will want to run all processes at once:  ServiceA, ServiceB, their side cars, and the QuickTestClient UI.  At other times you will want to run only a few of these. The details of the Actions for preparing the Visual Studio for a test run, starting the processes, and issuing commands to the QuickTestClient can be found in  DiscoverDapr\grpc-pubsub-azservicebus\vscsharp\StartRunServicesAndUI.txt.  It contains the following 5 multi-step Actions:
 1. ACTION -- Prepare the Visual Studio solution for Test Runs.
