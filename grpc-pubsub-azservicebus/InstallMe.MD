@@ -1,5 +1,5 @@
 # grpc-pubsub-azservicebus Installation Instructions
-Completed Saturday 3/27/21.
+Completed Tuesday 3/31/21.
 
 ## Prerequisites
 You need to fulfill three prerequisites to use this code sample.
@@ -84,8 +84,8 @@ Required Naming for the Azure Assets, including the required case:
 * Then click on RootManageSharedAccessKey which will display the Primary and Secondary Key and Primary and Secondary Connection Strings
 * Click on the Copy icon of the Primary Connection String to make a copy of the connection string.  
 * Then paste the copy of the connecction string into some temporary local text file (NoteBook works well for this) on your local dev system.
-* Open DaprRuntimePathPrefix\\.dapr\components\svs-pubsub-asbtopic.yaml in a text editor.  You can right click on the yaml file and choose Edit.
-* Paste the Primary Connection String that you copied from the Azure Portal into the DaprRuntimePathPrefix\.dapr\components\svs-pubsub-asbtopic.yaml file as follows:
+* Open your local DaprRuntimePathPrefix\\.dapr\components\svs-pubsub-asbtopic.yaml in a text editor.  You can right click on the yaml file and choose Edit.
+* Paste the Primary Connection String that you copied from the Azure Portal into the local DaprRuntimePathPrefix\.dapr\components\svs-pubsub-asbtopic.yaml file as follows:
   * Replace the contents of the field labeled "value" as shown below:
 
   metadata:
@@ -94,7 +94,7 @@ Required Naming for the Azure Assets, including the required case:
    
      value: Endpoint=sb://YourNamespace.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=YourSharedAccessKey  
   
-  * Above, paste so as to replace all to the right of "value: " with your connection string, leaving 1 space between ':" and the conncetion string.
+  * Above, paste so as to replace all to the right of "value: " with your connection string, leaving 1 space between ':' and the conncetion string.
   
 * Save the DaprRuntimePathPrefix\\.dapr\components\svs-pubsub-asbtopic.yaml file.
 
