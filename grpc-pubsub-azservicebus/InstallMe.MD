@@ -74,9 +74,8 @@ Creating the Azure Assets required by the grpc-pubsub-azservicebus solution is f
 
 Required Naming for the Azure Assets, including the required case:
 * Use any name for the Resource Group and Service Bus Namespace.
-* The Topic MUST be named "**svcADemoEvent1**".
-* The Subscription MUST be named "**ServiceB**".
-* The above 2 names are "hard coded" in the solution's code.  You'll find them in the "NamesOfQueuesNPubSubs.cs" file located in Common.SharedConstantsNStrings.
+* The Topic MUST be named "**svcADemoEvent1**". This name is "hard coded" in the solution's code.  You'll find it in the "NamesOfQueuesNPubSubs.cs" file located in Common.SharedConstantsNStrings.
+* The Subscription MUST be named "**ServiceB**". This name comes from the dapr run command, namely the --app-id argument, i.e. --app-id ServiceB.
 
 2. Copy the Azure Service Bus Namespace "connection string" from the Azure Portal and paste it into the svs-pubsub-asbtopic.yaml that resides in  DaprRuntimePathPrefix\.dapr\components.  Here is how to do that:
 * In the Azure Portal navigate to your Azure Service Bus Namespace.
