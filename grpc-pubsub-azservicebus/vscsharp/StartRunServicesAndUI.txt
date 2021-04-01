@@ -1,12 +1,13 @@
 ACTION -- Prepare the Visual Studio solution for Test Runs.
 
-1. Start Visual Studio.  Then open the DiscoverDapr folder on your machine that you cloned from GitHub.
-2. In the Visual Studio Solution Explorer, navigate to the grpc-pubsub-azservicebus\vscsharp folder.
-3. Open the grpc-pubsub-azservicebus solution by double clicking on the .sln file icon shown in the Solution Explorer.
-4. It is best to rebuild the entire solution before running any of the above services, just to prevent wasting time
+1. If you are using Docker, start Docker Desktop and let it completely start before proceeding.  If not using Docker do Step 2 below.
+2. Start Visual Studio.  Then open the DiscoverDapr folder on your machine that you cloned from GitHub.
+3. In the Visual Studio Solution Explorer, navigate to the grpc-pubsub-azservicebus\vscsharp folder.
+4. Open the grpc-pubsub-azservicebus solution by double clicking on the .sln file icon shown in the Solution Explorer.
+5. It is best to rebuild the entire solution before running any of the above services, just to prevent wasting time
    by having to chase down inconsistences.  Before each test run open the VS Build menu in the menu bar at the
    top of the display, and click Rebuild Solution.
-5. Now you are ready to do any, or all, of the following ACTIONS.
+6. Now you are ready to do any, or all, of the following ACTIONS.
 
 
 
