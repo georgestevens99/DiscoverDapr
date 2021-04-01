@@ -1,6 +1,6 @@
 ACTION -- Prepare the Visual Studio solution for Test Runs.
 
-1. If you are using Docker, start Docker Desktop and let it completely start before proceeding.  If not using Docker do Step 2 below.
+1. If you are using Docker, start Docker Desktop and let it completely start before proceeding.  If not using Docker (i.e. you used dapr init --slim) do Step 2 below.
 2. Start Visual Studio.  Then open the DiscoverDapr folder on your machine that you cloned from GitHub.
 3. In the Visual Studio Solution Explorer, navigate to the grpc-pubsub-azservicebus\vscsharp folder.
 4. Open the grpc-pubsub-azservicebus solution by double clicking on the .sln file icon shown in the Solution Explorer.
