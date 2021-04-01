@@ -50,7 +50,7 @@ Now that you have all the prerequisites installed you need to obtain and setup t
        
 2. **Deploy repo files** to required places outside the repo as follows:
     * Copy the Azure Service Bus Pub/Sub Dapr component .yaml file from the local solution to the .dapr\components directory on your "test" machine.
-      * In your local copy of the DiscoverDapr repo at **LocalRepoPathPrefix**, copy LocalRepoPathPrefix\DiscoverDapr\grpc-pubsub-azservicebus\components\svs-pubsub-asbtopic.yaml to your DaprRuntimePathPrefix\\.dapr\components.
+      * In your local copy of the DiscoverDapr repo at **LocalRepoPathPrefix**, copy LocalRepoPathPrefix\DiscoverDapr\grpc-pubsub-azservicebus\components\svs-pubsub-asbtopic.yaml to your machine's DaprRuntimePathPrefix\\.dapr\components directory.
         * **DaprRuntimePathPrefix** is the directory on your machine where your **dapr init** command placed the Dapr runtime executables and components when you installed Dapr above. 
 
 3. **Update the LocalRepoPathPrefix path names in the StartRunServicesAndUI.txt file** in Visual Studio.  Commands in this file are used when you actually run services in the VS solution via Command Prompt windows.
@@ -75,7 +75,7 @@ Creating the Azure Assets required by the grpc-pubsub-azservicebus solution is f
 Required Naming for the Azure Assets, including the required case:
 * Use any name for the Resource Group and Service Bus Namespace.
 * The Topic MUST be named "**svcADemoEvent1**". This name is "hard coded" in the solution's code.  You'll find it in the "NamesOfQueuesNPubSubs.cs" file located in Common.SharedConstantsNStrings.
-* The Subscription MUST be named "**ServiceB**". This name comes from the dapr run command, namely the --app-id argument, i.e. --app-id ServiceB.
+* The Subscription MUST be named "**ServiceB**". This name comes from the dapr run command, namely the --app-id argument, i.e. --app-id ServiceB, that is in the StartRunServicesAndUI.txt file.
 
 2. Copy the Azure Service Bus Namespace "connection string" from the Azure Portal and paste it into the svs-pubsub-asbtopic.yaml that resides in  DaprRuntimePathPrefix\.dapr\components.  Here is how to do that:
 * In the Azure Portal navigate to your Azure Service Bus Namespace.
