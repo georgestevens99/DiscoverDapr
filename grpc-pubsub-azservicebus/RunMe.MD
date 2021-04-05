@@ -37,7 +37,7 @@ The above "typical usage scenario" is the way this Visual Studio solution is set
 
 Another useful, and quite interesting, hosting scenario has **the 2 services** (plus their Dapr sidecars) **running on separate machines**.  This creates ***2 separate Dapr-Meshes***, one on each machine (still in "self-host" mode on each machine). ServiceA (with its Dapr sidecar) and the QuickTestClient run on one machine, with ServiceA in Dapr-MeshA.  And ServiceB (with its Dapr side car) running on another machine in Dapr-MeshB.  This Multi-Dapr-Mesh scenario is shown in the following Implementation Diagram:
 
-![image](https://user-images.githubusercontent.com/6517661/112878408-e74c5b80-9095-11eb-8f1e-813a701a7d66.png)
+![image](https://user-images.githubusercontent.com/6517661/113525642-17a76480-9584-11eb-90d1-e9c60be9782f.png)
 
 Note the above Implementation Diagram implements exactly the same system as shown in the previous *Logical Diagram* of the software.  It just implements the software in a different way -- on 2 machines in 2 Dapr-Meshes.  However this hosting scenario only works when the physical Pub/Sub resource is **external** to the machine hosting the Dapr-Mesh, as is the Azure Service Bus Topic used in this code sample.  If, for example, you were to swap in the default Dapr Pub/Sub component, this hosting scenario would NOT work since the Dapr default Pub/Sub component uses Redis as its physical Pub/Sub implementation.  And due to Dapr's architecture, Redis must be located on the same machine when using self hosting, as does this code sample.
 
