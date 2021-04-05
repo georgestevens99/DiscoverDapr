@@ -39,8 +39,6 @@ Another useful, and quite interesting, hosting scenario has **the 2 services** (
 
 ![image](https://user-images.githubusercontent.com/6517661/113525642-17a76480-9584-11eb-90d1-e9c60be9782f.png)
 
-![image](https://user-images.githubusercontent.com/6517661/112878408-e74c5b80-9095-11eb-8f1e-813a701a7d66.png)
-
 Note the above Implementation Diagram implements exactly the same system as shown in the previous *Logical Diagram* of the software.  It just implements the software in a different way -- on 2 machines in 2 Dapr-Meshes.  However this hosting scenario only works when the physical Pub/Sub resource is **external** to the machine hosting the Dapr-Mesh, as is the Azure Service Bus Topic used in this code sample.  If, for example, you were to swap in the default Dapr Pub/Sub component, this hosting scenario would NOT work since the Dapr default Pub/Sub component uses Redis as its physical Pub/Sub implementation.  And due to Dapr's architecture, Redis must be located on the same machine when using self hosting, as does this code sample.
 
 For a dive into the details of the Multi-Dapr-Mesh *Mesh-of-Dapr-Meshes* scenario please refer to the PowerPoint slide deck "Thinking Outside the Dapr-Mesh with Dapr, gRPC" in this repo at https://github.com/georgestevens99/DiscoverDapr/blob/main/grpc-pubsub-azservicebus/Thinking%20Outside%20the%20Dapr-Mesh%20with%20Dapr%2C%20gRPC.pptx. Look through the slides so that you understand what a Dapr-Mesh is, what a Mesh-of-Dapr-Meshes is, and their **benefits and limitations** (both are really important!), because that is what is happening in this hosting scenario.  
