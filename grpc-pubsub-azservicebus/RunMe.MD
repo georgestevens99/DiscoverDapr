@@ -37,8 +37,7 @@ The above "typical usage scenario" is the way this Visual Studio solution is set
 
 Another useful, and quite interesting, hosting scenario has **the 2 services** (plus their Dapr sidecars) **running on separate machines**.  This creates ***2 separate Dapr-Meshes***, one on each machine (still in "self-host" mode on each machine). ServiceA (with its Dapr sidecar) and the QuickTestClient run on one machine, with ServiceA in Dapr-MeshA.  And ServiceB (with its Dapr side car) running on another machine in Dapr-MeshB.  This Multi-Dapr-Mesh scenario is shown in the following Implementation Diagram:
 
-![image](https://user-images.githubusercontent.com/6517661/113525623-e3cc3f00-9583-11eb-82b2-074fded45c9e.png)
-
+![image](https://user-images.githubusercontent.com/6517661/113525642-17a76480-9584-11eb-90d1-e9c60be9782f.png)
 
 ![image](https://user-images.githubusercontent.com/6517661/112878408-e74c5b80-9095-11eb-8f1e-813a701a7d66.png)
 
