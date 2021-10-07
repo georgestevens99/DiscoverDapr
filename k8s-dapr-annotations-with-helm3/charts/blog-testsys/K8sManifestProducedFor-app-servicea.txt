@@ -1,0 +1,55 @@
+---
+# Source: blog-testsys/charts/app-servicea/templates/deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: blog-testsys-app-servicea
+  labels:
+    helm.sh/chart: app-servicea-0.1.0
+    app.kubernetes.io/name: app-servicea
+    app.kubernetes.io/instance: blog-testsys
+    app.kubernetes.io/version: "0.2.0"
+    app.kubernetes.io/managed-by: Helm
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: app-servicea
+      app.kubernetes.io/instance: blog-testsys
+  template:
+    metadata:
+      annotations:
+        dapr.io/app-id: "blog-testsys-app-servicea"
+        dapr.io/enabled: "true"
+        dapr.io/app-port: "3500"
+        dapr.io/app-protocol: "http"
+        dapr.io/config: "blog-testsys-config"
+        dapr.io/log-level: "debug"
+      labels:
+        app.kubernetes.io/name: app-servicea
+        app.kubernetes.io/instance: blog-testsys
+    spec:
+      serviceAccountName: default
+      securityContext:
+        {}
+      containers:
+        - name: app-servicea
+          securityContext:
+            {}
+          image: app-servicea-demo:dev
+          imagePullPolicy: IfNotPresent
+          ports:
+            - name: http
+              containerPort: 80
+              protocol: TCP
+
+          env:
+            - name: "ASPNETCORE_URLS"
+              value: "http://+:80"
+          command:
+            - dotnet
+            - AppServiceA.dll
+
+          resources:
+            {}
+---
