@@ -7,6 +7,9 @@ The first code sample, **grpc-pubsub-azservicebus**, shows how to use a Dapr pub
 
 The second code sample, **grpc-pubsub-azservicebus-clicreds**, shows how to use a Dapr pub/sub component for the Azure Service Bus using the Confidential Client Credential Flow and Azure Active Directory Role Based Access Control (RBAC) for highly secure service to service pub/sub.  It has a Test Client and 2 gRPC services as well. (Code is NOT YET PRESENT).
 
+The thrid code sample, **k8s-dapr-annotations-with-helm3**, shows how to use Helm3 to create the Kubernetes Annotations required to use a Dapr sidecar with a service
+deployed to Kubernetes.  For a walk through of this, please see my blog at 10/7/21 Still inputting the blog text to WordPress.
+
 georgestevens99 works for Solid Value Software, specializing in architecting and implementing evolvable service oriented software systems for the cloud era.
 * LinkedIn Profile:  https://www.linkedin.com/in/georgestevenssvs
 * Blog:  http://dotnetsilverlightprism.wordpress.com
