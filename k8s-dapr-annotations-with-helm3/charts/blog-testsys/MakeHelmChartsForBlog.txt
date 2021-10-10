@@ -1,7 +1,7 @@
 # To produce the K8s Manifest on your dev system's command window, do the following after
 # you have:
-# A. installed Helm 3,
-# B. installed kubectl,
+# A. installed Helm 3 on your dev system,
+# B. installed kubectl on your dev system,
 # C. and pointed kubectl at a running instance of kubernetes via the kubectl config command:
 
 1. Clone the GitHub repo onto your dev system in any directory you wish, symbolically
