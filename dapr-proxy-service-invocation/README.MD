@@ -10,7 +10,7 @@ Here is the link to the relevant Dapr doc detailing this form of Service Invocat
 
 And here is a link to the higher level Dapr doc describing the Service Invocation Building Block: https://docs.dapr.io/developing-applications/building-blocks/service-invocation/service-invocation-overview/
 
-The code, in a Visual Studio Solution is done and works great!  It is really fast, so be sure to try out running 1000 or 10000 iterations.  It may just amaze you!  
+The code, in a Visual Studio Solution in this repo folder, is done and works great!  It is really fast, so be sure to try out running 1000 or 10000 iterations.  It may just amaze you!  
 
 
 But the documentation is incomplete, as follows:
