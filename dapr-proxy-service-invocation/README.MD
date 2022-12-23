@@ -2,6 +2,10 @@ Hello!  Welcome to C# ASP.NET Core code example of Dapr's new Service Invocation
 
 There are 3 software apps that call each other as follows, where --> means "calls":   
   QuickTestClient .NET Core Console App --> WebAPI1 ASP.NET Core --> ServiceA ASP.NET Core gRPC service.
+  
+Standard HTTP is used on the first "hop", while the second "hop" (between WebAPI1 and ServiceA) is done by Dapr Service Invocation using gRPC.  Note that both WebAPI1 and ServiceA have their own personal Dapr sidecars that do the work of Service Invocation between the 2 services.
+
+Here is the link to the relevant Dapr docs https://docs.dapr.io/developing-applications/building-blocks/service-invocation/howto-invoke-services-grpc/ 
 
 The code, in a Visual Studio Solution is done and works great.  But the documentation is incomplete, as follows:
 
