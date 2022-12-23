@@ -28,5 +28,4 @@ I will set about doing the above work items soon after Christmas.
 I hope this helps. 12/23/22
 
 Thanks, 
-George Stevens
-Software Architect at Solid Value Software
+George Stevens, Software Architect at Solid Value Software
