@@ -1,0 +1,26 @@
+apiVersion: dapr.io/v1alpha1
+kind: Component
+metadata:
+  # 6/8/21 This version of svs-statestore-redis is dependent on Kubernetes secret store.
+  name: svs-state-redis
+  #namespace: default  #To keep in sync with others
+  namespace: mew110ns
+spec:
+  type: state.redis
+  version: v1
+  metadata: 
+  # 6/7/21 eShopOnDapr State chapter says metadata names "redisHost" and "redisPassword" are required by redis
+   - name: redisHost
+     # below is the name of the K8sNodePort Service used by the Redis Utility, NOT the K8s name of the Redis Utility.
+     value: util-redis-svc:6379 
+
+   - name: actorStateStore
+     value: "true"
+
+# 6/7/21 FYI -- When running on K8s hard coded secrets do not work.
+   - name: redisPassword
+     secretKeyRef:
+       name: sys-info 
+       key: redisPassword
+auth:
+  secretStore: kubernetes

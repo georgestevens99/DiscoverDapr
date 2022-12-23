@@ -1,0 +1,24 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+    <DockerfileContext>..\..</DockerfileContext>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Ardalis.GuardClauses" Version="4.0.1" />
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.17.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\SDK\ExploreDapr.SDK.WebAPI1HttpProxy\ExploreDapr.SDK.WebAPI1HttpProxy.csproj" />
+    <ProjectReference Include="..\..\Shared\ExploreDapr.Shared.CSharpDTOs\ExploreDapr.Shared.CSharpDTOs.csproj" />
+    <ProjectReference Include="..\ExploreDapr.Services.ServiceA\ExploreDapr.Services.ServiceA.csproj" />
+    <ProjectReference Include="..\ExploreDapr.Services.WebAPI1.Interface\ExploreDapr.Services.WebAPI1.Interface.csproj" />
+  </ItemGroup>
+
+</Project>
