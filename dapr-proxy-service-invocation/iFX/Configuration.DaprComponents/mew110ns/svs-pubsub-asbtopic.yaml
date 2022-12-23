@@ -1,0 +1,11 @@
+apiVersion: dapr.io/v1alpha1
+kind: Component
+metadata:
+  name: svs-pubsub-asbtopic
+  namespace: mew110ns
+spec:
+  type: pubsub.azure.servicebus
+  version: v1
+  metadata:
+  - name: connectionString 
+    value: Endpoint=sb://svsdaprasbns.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=xFdYZMDvAs1cQL7dAU5ViAek9tdDhCRMDS29lko4m8A= 

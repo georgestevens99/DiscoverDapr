@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Http" Version="7.0.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\iFX\ExploreDapr.iFX.Configuration.ConstantsNEnums\ExploreDapr.iFX.Configuration.ConstantsNEnums.csproj" />
+    <ProjectReference Include="..\..\Services\ExploreDapr.Services.WebAPI1.Interface\ExploreDapr.Services.WebAPI1.Interface.csproj" />
+    <ProjectReference Include="..\..\Shared\ExploreDapr.Shared.CSharpDTOs\ExploreDapr.Shared.CSharpDTOs.csproj" />
+  </ItemGroup>
+
+</Project>

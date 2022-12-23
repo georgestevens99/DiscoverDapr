@@ -1,0 +1,110 @@
+// Copyright © 2022 Solid Value Software, LLC
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
+
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+//
+----------
+Run Self Hosted Commands and info
+12/23/22
+
+CAUTION -- You MUST replace the file system pathnames in the 2 cd commands BELOW with pathnames appropriate
+to the system you are running this on.  Specifically replace all characters ahead of:
+
+	dapr-proxy-service-invocation\Services\ExploreDapr.Services.WebAPI1  and
+	dapr-proxy-service-invocation\Services\ExploreDapr.Services.ServiceA
+
+with path names for your dev system!!  This is required to run the 2 Daprized services in Self Hosted mode.
+
+
+----------
+To run WebAPI1
+
+Open a Windows Terminal command window dedicated to running ServiceA:
+
+Then, do this CD COMMAND:
+cd C:\path-name-for-your-dev-system\dapr-proxy-service-invocation\Services\ExploreDapr.Services.WebAPI1
+
+To run WebAPI1 WITHOUT Dapr in the dedicated Windows Terminal command window:
+
+dotnet run
+
+
+To run WebAPI1 WITH Dapr in SELF HOSTED mode in the dedicated Windows Terminal command window:
+
+dapr run --app-id WebAPI1 --app-port 5130 --app-protocol grpc --dapr-grpc-port 50001 --log-level debug --components-path "..\..\iFX\Configuration.DaprComponents" dotnet run
+
+Note 1 see ServiceEndpoints.cs for the constant used in code.
+Note2 --app-port 5130 is the port WebAPI1 listens on for http requests.  In SelfHosted mode that is defined in
+launchSettings.json as  "applicationUrl": "http://localhost:5130"
+Note3 --dapr-grpc-port is the Dapr API gRPC Server port which Dapr listens on for Dapr API grpc requests going
+to the side car.  Default is 50001.
+
+
+To test a running WebAPI1's functionality in a browser navigate to http://localhost:5130/weatherforecast
+or to http://localhost:5130/api/tests
+
+
+----------
+To run ServiceA
+
+Open a Windows Terminal command window dedicated to running ServiceA:
+
+Then, do this CD COMMAND:
+cd C:\path-name-for-your-dev-system\dapr-proxy-service-invocation\Services\ExploreDapr.Services.ServiceA
+
+To run ServiceA WITHOUT Dapr in the dedicated Windows Terminal command window:
+
+dotnet run
+
+
+To run ServiceA WITH Dapr in SELF HOSTED mode, in the dedicated Windows Terminal command window:
+
+dapr run --app-id ServiceA --app-port 5293 --app-protocol grpc --dapr-grpc-port 50002 --log-level debug --components-path "..\..\iFX\Configuration.DaprComponents" dotnet run
+
+Note1 See ServiceEndpoints.cs for the constant used in the code.
+Note2 --app-port 5293 is the port ServiceA listens on for grpc requests.  In SelfHosted mode that is defined in
+launchSettings.json as  "applicationUrl": "http://localhost:5293"
+Note3 --dapr-grpc-port is the Dapr API gRPC Server port which Dapr listens on for Dapr API grpc requests going
+to the side car.  Default is 50001.
+
+
+----------
+To run the Quick Test Client (QTC)
+
+In Visual Studio Solution Explorer right click on the QuickTestClient project, select Debug,
+click on ""Start new instance".
+
+
+
+----------
+Then in the QTC console window run any of the below commands to test the WebAPI1 and ServiceA services
+by having them echo back the data sent to them:
+
+Commands for the WebAPI1 TestsController accepted by the QTC (QuickTestClient)
+
+QTC-->WebAPI1:  This has the QTC call WebAPI1.EchoMessageOnServiceA(message) which then returns back up the call chain.
+
+w-echo testscontroller xxxxx 2 1000
+
+
+
+QTC-->WebAPI1-->ServiceA: This has the QTC call WebAPI1.EchoMessageOnServiceA(message) which then calls ServiceA.EchoMessage(message) then returns
+back up the call chain.
+
+w-echo ServiceA xxxxx 2 1000
+
+
+See QuickTestClient.Program.cs for more detailed information about the commands and args, and which
+args are required and which are optionsl.
+
+Using the optional args throw and throwInA after the delay arg will cause an exception to be thrown
+so as to test the formatting of exception info on the QTC display.  Displaying exception messages in the
+QTC UI has proven to save lots of time in diagnosing bugs, especially in K8s where exceptions can be
+easily caused by the K8 configuration even when the service code is operating correctly.
