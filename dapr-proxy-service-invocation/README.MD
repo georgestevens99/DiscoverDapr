@@ -1,4 +1,4 @@
-Hello!  Welcome to C# ASP.NET Core code example of Dapr's new Service Invocation via using Dapr as a proxy to do the Service Invocation rather than using the .NET SDK to do it.
+Hello!  Welcome to C# ASP.NET Core code example of Dapr's new Service Invocation that uses Dapr as a proxy to do the Service Invocation rather than using the .NET SDK to do it.
 
 There are 3 software apps that call each other as follows, where --> means "calls":   
   QuickTestClient .NET Core Console App --> WebAPI1 ASP.NET Core --> ServiceA ASP.NET Core gRPC service.
