@@ -8,4 +8,4 @@ spec:
   version: v1
   metadata:
   - name: connectionString 
-    value: Endpoint=sb://xxxxxxx.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=PutYourASBInfoHere= 
+    value: Endpoint=sb://YourASBNS.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=YourSpecificInfoGoesHere= 
