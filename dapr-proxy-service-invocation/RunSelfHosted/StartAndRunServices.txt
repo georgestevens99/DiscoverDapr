@@ -59,6 +59,7 @@ Open a Windows Terminal command window dedicated to running ServiceA:
 Then, do this CD COMMAND:
 cd C:\path-name-for-your-dev-system\dapr-proxy-service-invocation\Services\ExploreDapr.Services.ServiceA
 
+
 To run ServiceA WITHOUT Dapr in the dedicated Windows Terminal command window:
 
 dotnet run
