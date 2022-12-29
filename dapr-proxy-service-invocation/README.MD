@@ -13,19 +13,15 @@ And here is a link to the higher level Dapr doc describing the Service Invocatio
 The code, in a Visual Studio Solution in this repo folder, is done and works great!  It is really fast, so be sure to try out running 1000 or 10000 iterations.  It may just amaze you!  
 
 
-But the documentation is incomplete, as follows:
+Here is the supporting documentation:
 
 INSTALLME.MD  -- Not yet written.  But if you already have Dapr V 1.9.2 or later, and Visual Studio, installed on your dev system you should have nothing to install.
 
 RUNME.MD -- Not yet written, but most of that sort of info is in the file StartAndRunServices.txt in the RunSelfHosted folder.
 
-README.MD -- Needs a little more work.
+Using the Dapr Proxy for Service Invocation.pptx -- This PowerPoint slide deck has several diagrams of how the services interact and the various ports they, and their Dapr Sidecars, use.  This really helps understanding the dapr run commands used to start the services and their side cars, plus understanding how Dapr produces its magic.  Viewing the slide deck first is STRONGLY SUGGESTED so as to get you oriented in a useful way.
 
-Using the Dapr Proxy for Service Invocation.pptx -- While this is currently not done, it will eventually have 2 diagrams.  A system level diagram showing how the 3 apps interact.  And a second diagram showing the details of how the apps and their Dapr side cars interact, especially paying attention to the port names they use for various things.  This can be a source of bafflement for the uninitiated, and a diagram can act to make it very clear.
-
-I will set about doing the above work items soon after Christmas.
-
-I hope this helps. 12/23/22
+I hope this helps. 12/29/22
 
 Thanks, 
 George Stevens, Software Architect at Solid Value Software
