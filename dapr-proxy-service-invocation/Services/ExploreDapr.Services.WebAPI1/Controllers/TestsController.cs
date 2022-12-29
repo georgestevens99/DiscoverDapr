@@ -105,7 +105,7 @@ namespace ExploreDapr.Services.WebAPI1.Controllers
                 Guard.Against.Null(request.DataToEcho, nameof(request.DataToEcho));
 
                 // Use Dapr Service Invocation to invoke ServiceA.EchoMessage().  This includes converting
-                // the POCO request DTO to protobuf that is used by ServiceA.
+                // the POCO request DTO into protobuf that is used by ServiceA.
 
                 // A grpc metadata object is used to tell the Dapr sidecar the name of the service to invoke.
                 // This name is the name used in the --app-id argument in the dapr run command or same named K8s
@@ -117,10 +117,10 @@ namespace ExploreDapr.Services.WebAPI1.Controllers
 
                 // Key info to understand Dapr proxy Service invocation:
                 //
-                // The Dapr sidecar's API gRPC server listens to its app on the dapr-grpc-port (or dapr-http-port)
+                // The Dapr sidecar's API gRPC server listens to its app on the dapr-grpc-port (or dapr-http-port).
                 // The app listens to the Dapr sidecar for requests on the app-port, for example Invoke ServiceATests.
                 // This distinction is key.  Also note the app-port is also the port that receives requests from
-                // the outside, i.e. non-Dapr generated requests from different clients).
+                // the outside, i.e. non-Dapr generated requests from different clients.
 
                 // An app doing Service Invocation tells the Dapr sidecar to invoke a method on another service.
                 // That requires this app code to communicate with the Dapr sidecar over grpc on the
@@ -128,8 +128,9 @@ namespace ExploreDapr.Services.WebAPI1.Controllers
                 // dapr run command or the same named annotation in K8s. That is the purpose of the below grpcChannel.
                 using var grpcChannel = GrpcChannel.ForAddress(ServiceEndpoints.WebAPI1DaprGrpcPortAddress);
 
-                // Create a client (aka proxy) that knows about the various methods to call on the grpc
-                // service via the channel.                
+                // Create a protobuf client (aka proxy) that knows about the various methods to call on the grpc
+                // service via the channel.  See the file test.proto in the ServiceA project's Protos folder that defines
+                // the protobub Tests service and its methods.            
                 var grpcClient = new Tests.TestsClient(grpcChannel);
 
                 // From the incomming EchoRequestDto (a .NET POCO) create the EchoRequest args (in protobuf)
@@ -151,6 +152,7 @@ namespace ExploreDapr.Services.WebAPI1.Controllers
                     $"\n\tServiceA-ResponseDetails={echoResponse.ResponseDetails}";
 
                 string resultsMsg = $"{classNameDotMethod} response =\n{responseMsg}";
+
                 responseDto.ResponseMsg = resultsMsg;
                 responseDto.ResponseMsg += " -- " + ServiceOpCompletedOK;
 
