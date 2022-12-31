@@ -1,25 +1,22 @@
-12/31/22 Under construction.
-
 # dapr-proxy-service-invocation Installation Instructions
 Completed Saturday 12/31/22.
 
 ## Prerequisites
-You need to fulfill 2 prerequisites to use this code sample.
-1. Microsoft Visual Studio IDE (integrated development environment) needs to be **installed on *each machine*** that will run one of the services in the code sample.  The Microsoft **Visual Studio Community** edition is free.
+You need to fulfill 3 prerequisites to use this code sample.
+1. Microsoft Visual Studio IDE (integrated development environment) needs to be **installed on *your dev machine*** that will run one of the services in the code sample.  The Microsoft **Visual Studio Community** edition is free.
 
-2. Docker Desktop needs to be **installed on *each machine*** to support the Dapr container and others as well.
+2. Docker Desktop needs to be **installed on *your dev machine*** to support the Dapr container and others as well.
 
-3. **Dapr** needs to be **installed on *each machine*** that will run one of the services in the code sample. The code sample will work with any version of Dapr that is compatible with v1.0.1 Dapr runtime and v1.0.0 Dapr CLI.  Dapr is free of charge.
+3. **Dapr** needs to be **installed on *your dev machine*** that will run one of the services in the code sample. The code sample will work with any version of Dapr that is compatible with v1.9.2 Dapr runtime and v1.9.0 Dapr CLI.  Dapr is free of charge.
 
 **Visual Studio Community** -- Get the free Visual Studio Community IDE at this link:  https://visualstudio.microsoft.com/free-developer-offers/
 * Note that you must **get Visual Studio Community and NOT Visual Studio Code**.  It takes a substantial amount of work to get the code sample to run using Visual Studio Code.  Don't bother now. Rather save VS Code for later if you want to use it.
 
-**Docker Desktop** --  Get the free version of Docker, including Docker Desktop.  Just follow the instructions at https://docs.docker.com/get-docker/
+**Docker Desktop** --  Install the free version of Docker, including Docker Desktop, on **your dev machine** that runs one of the services in the code sample.  Just follow the instructions at https://docs.docker.com/get-docker/
 
-**Dapr** -- Install Dapr on *each machine* that runs one of the services in the code sample by following the instructions at this link: https://docs.dapr.io/getting-started/
+**Dapr** -- Install Dapr on **your dev machine** that runs the services in the code sample by following the instructions at this link: https://docs.dapr.io/getting-started/
 * You will only need to do the first 2 steps, i.e. 1. Install the Cli and 2. Initialize Dapr.  
-* The code sample Requires that Docker be installed.  Therefore DO NOT use the command **dapr init --slim**, rather than the standard **dapr init** command.  
-    * However, if you want to explore the full features of Dapr beyond just this code sample, go ahead and follow the instructions for initializing for use WITH Docker and use **dapr init**.  This requires that you install Docker Desktop if it is not already installed on your "test" machine.
+* The code sample Requires that Docker be installed.  Therefore DO NOT use the command **dapr init --slim**, rather use the standard **dapr init** command.  
     
 To install Dapr:
 1. Install the Dapr Cli (command language interface):  https://docs.dapr.io/getting-started/install-dapr-cli/
@@ -32,7 +29,7 @@ You are done with the prequisites step!
 
 ## Get and Deploy GitHub Repo Assets
 Now that you have all the prerequisites installed you need to obtain and setup the assets (the code, files, scripts, etc) for the grpc-pubsub-azservicebus VS solution from the GitHub repository.
-1. **Copy the VS solution from GitHub to your machine** -- Clone this repo (https://github.com/georgestevens99/DiscoverDapr) to the machine (your "test" machine) upon which you intend to run this code sample, as follows:
+1. **Copy the VS solution from GitHub to your your dev machine** -- Clone this repo (https://github.com/georgestevens99/DiscoverDapr) to the machine (your "test" machine) upon which you intend to run this code sample, as follows:
     * Start Visual Studio IDE on your "test" machine.
     * Download the repo, i.e. Clone it from GitHub to your "test" machine.
       * In the Visual Studio start up menu click on the "Clone a repository" selection.  Then fill out the input boxes on the screen as follows.
