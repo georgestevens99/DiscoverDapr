@@ -3,29 +3,27 @@ Hello!  Welcome to this C# ASP.NET Core code example of Dapr's new Service Invoc
 2. Use the Dapr Proxy feature which is lower level and requires a little more code (but not much) to produce the same Service Invocation request.
 
 Here is an example of the Service Invocation request sent to Dapr:
-http://localhost:3500/v1.0/invoke/ServiceA/nodeapp/method/echomessage
+http://localhost:50001/v1.0/invoke/ServiceA/method/EchoMessage
 
 The Dapr Proxy approach is mainly of use when using languages which have no Dapr SDK.  However, the Dapr Proxy approach is an excellent way to learn about how Service Invocation works specifically, and more generally how the Dapr Proxy approach applies in the samee general way to the other Dapr Building Blocks.  This is the main goal of this code sample.
 
-The use of Dapr Service Invocation also provides the following capabilities, built into Dapr and its implementation of Service Invocation:
-1. "Mutual authentication.
-2. Tracing.
-3. Metrics
-4. Access Control Lists.
-5. Network Level Resiliency.
-6. API Token Based Authentication."
-The above are quoted from https://docs.dapr.io/developing-applications/building-blocks/service-invocation/howto-invoke-services-grpc/
+But first, a little more about Dapr Service Invocation to show the value it produces beyond just allowing one service to invoke methods on another service.  The use of Dapr Service Invocation also provides the following capabilities, built into Dapr and its implementation of Service Invocation:
+1. Service Discovery.
+2. "Mutual authentication.
+3. Tracing.
+4. Metrics.
+5. Access Control Lists.
+6. Network Level Resiliency.
+7. API Token Based Authentication."
+The above items in quotes are from https://docs.dapr.io/developing-applications/building-blocks/service-invocation/howto-invoke-services-grpc/
 
+And here is a link to the higher level Dapr doc describing the Service Invocation Building Block: https://docs.dapr.io/developing-applications/building-blocks/service-invocation/service-invocation-overview/  This docment has lots of key information AND diagrams that really help understand how Dapr implements Service Invocation.  I suggest you look it over.
 
 In this code example there are 3 software apps that call each other as follows, where --> means "calls":   
 
   QuickTestClient .NET Core Console App --> WebAPI1 ASP.NET Core --> ServiceA ASP.NET Core gRPC service.
   
 Standard HTTP is used on the first "hop", while the second "hop" (between WebAPI1 and ServiceA) is done by Dapr Service Invocation using gRPC.  Note that both WebAPI1 and ServiceA have their own Dapr sidecars that do the work of Service Invocation between the 2 services.
-
-Here is the link to the relevant Dapr doc detailing this form of Service Invocation: https://docs.dapr.io/developing-applications/building-blocks/service-invocation/howto-invoke-services-grpc/  
-
-And here is a link to the higher level Dapr doc describing the Service Invocation Building Block: https://docs.dapr.io/developing-applications/building-blocks/service-invocation/service-invocation-overview/
 
 The code, in a Visual Studio Solution in this repo folder, is done and works great!  It is really fast, so be sure to try out running 1000 or 10000 iterations.  It may just amaze you!  
 
