@@ -7,7 +7,7 @@ You need to fulfill 3 prerequisites to use this code sample.
 
 2. Docker Desktop needs to be **installed on *your dev machine*** to support the Dapr container and others as well.
 
-3. **Dapr** needs to be **installed on *your dev machine*** that will run one of the services in the code sample. The code sample will work with any version of Dapr that is compatible with v1.9.2 Dapr runtime and v1.9.0 Dapr CLI.  Dapr is free of charge.
+3. **Dapr** needs to be **installed on *your dev machine*** that will run the services in the code sample. The code sample will work with any version of Dapr that is compatible with v1.9.2 Dapr runtime and v1.9.0 Dapr CLI.  Dapr is free of charge.
 
 **Visual Studio Community** -- Get the free Visual Studio Community IDE at this link:  https://visualstudio.microsoft.com/free-developer-offers/
 * Note that you must **get Visual Studio Community and NOT Visual Studio Code**.  It takes a substantial amount of work to get the code sample to run using Visual Studio Code.  Don't bother now. Rather save VS Code for later if you want to use it.
