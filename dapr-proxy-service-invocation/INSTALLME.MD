@@ -23,12 +23,12 @@ To install Dapr:
 2. Install the Dapr Runtime (i.e. the executable) as follows.  Please **make a note of the full pathname of the directory** on your local machine where Dapr is installed.  This is known as the **DaprRuntimePathPrefix** in this document.  It is used later in this document, and perhaps in other documents as well. 
 
     * Initialize Dapr for use WITH Docker (the normal configuration):  https://docs.dapr.io/getting-started/install-dapr-selfhost/
-    * If you are using Windows for your development system I recommend installing WSL2 Backend (from Microsoft) that really smooths the process of using Docker.  WSL means Windows System for Linux.  It emulates a Linux machine to make Docker work smoother.  See the Docker Desktop for Windows documentation at https://docs.docker.com/docker-for-windows/install/ for links on how to install WSL2. With WSL2 you do not need to install a Linux distro in order to run services using Dapr!  Having only WSL2 and Docker is all you need.
+    * If you are using Windows for your development system I recommend installing WSL2 Backend (from Microsoft) that really smooths the process of using Docker.  WSL means Windows System for Linux.  It emulates a Linux machine to make Docker work smoother.  See the Docker Desktop for Windows documentation at https://docs.docker.com/docker-for-windows/install/ for links on how to install WSL2. With WSL2 you **do not** need to install a Linux distro in order to run services using Dapr!  Having only WSL2 and Docker is all you need.
 
 You are done with the prequisites step!
 
 ## Get and Deploy GitHub Repo Assets
-Now that you have all the prerequisites installed you need to obtain and setup the assets (the code, files, scripts, etc) for the grpc-pubsub-azservicebus VS solution from the GitHub repository.
+Now that you have all the prerequisites installed you need to obtain and setup the assets (the code, files, scripts, etc) for the dapr-proxy-service-invocation VS solution from the GitHub repository.
 1. **Copy the VS solution from GitHub to your your dev machine** -- Clone this repo (https://github.com/georgestevens99/DiscoverDapr) to the machine (your "test" machine) upon which you intend to run this code sample, as follows:
     * Start Visual Studio IDE on your "test" machine.
     * Download the repo, i.e. Clone it from GitHub to your "test" machine.
@@ -44,51 +44,17 @@ Now that you have all the prerequisites installed you need to obtain and setup t
        
 2.**Update the LocalRepoPath path names in the StartRunServicesAndUI.txt file** in Visual Studio.  Commands in this file are used when you actually run services in the VS solution via Command Prompt windows.
   * You can see StartRunServicesAndUI.txt in the VS Solution Explorer. Open StartRunServicesAndUI.txt in Visual Studio.
-  * Replace the string "LocalRepoPath"" with the actual full path string you saved above.  Do this in the 2 lines in StartRunServicesAndUI.txt shown below:
+  * Create the "LocalRepoPath" string by concatenating the "LocalRepoPathPrefix" you saved above with the string "DiscoverDapr".  This is the full path to the DiscoverDapr repo on your system.
+  * Next, replace the string "LocalRepoPath"" with the actual full path string you saved above in the 2 lines in StartRunServicesAndUI.txt shown below:
     * cd **LocalRepoPath**\DiscoverDapr\dapr-proxy-service-invocation\Services\ServiceA
     * cd **LocalRepoPath**\DiscoverDapr\dapr-proxy-service-invocation\Services\ServiceB  
   * When you are done with the string replacement be sure to do a test to make sure the above cd commands actually work in a Command Prompt window, as follows:
     *  Open a Command Prompt window.  
       * Using the Windows Terminal Command Prompt is much, much easier to deal with so install Windows Terminal if you do not already have it!  Here is the link to install Windows Terminal for free: https://www.microsoft.com/en-us/p/windows-terminal/9n0dx20hk701?activetab=pivot:overviewtab
     *  Copy the above string containing the full path name into the Command Prompt window and press enter.  
-      *  If it does not execute the "cd" command you will have to figure out why and fix it.  This "cd" command MUST work.
+      *  If it does not execute the "cd" command you will have to figure out why and fix it.  This "cd" command MUST work in ordder to run the services.
   *  When both of the newly adjusted "cd" commands in the StartRunServicesAndUI.txt file have been proven to work without a doubt, SAVE the file.
  
 You are done with the GitHub Repo Assets step!
-  
-## Create Azure Assets
-Creating the Azure Assets required by the grpc-pubsub-azservicebus solution is fairly easy.  There is only a single Azure Asset required -- An Azure Service Bus Topic with one Subscription.  The Topic and Subscription must be part of an Azure Service Bus Namespace, a "logical container" for Queues and Topics.  And the Azure Service Bus Namespace must be within an Azure Resource Group, another "logical container" used to organize Azure Assets of all kinds.
 
-1. Follow the instructions in the following link to Azure Documentation to create all the above Azure Assets.  Make sure you follow the instructions step by step and create all the necessary assets with the names as specified below.  If you do not do this, the code sample will not work. https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-quickstart-topics-subscriptions-portal
-
-Required Naming for the Azure Assets, including the required case:
-* Use any name for the Resource Group and Service Bus Namespace.
-* The Topic MUST be named "**svcADemoEvent1**". This name is "hard coded" in the solution's code.  You'll find it in the "NamesOfQueuesNPubSubs.cs" file located in Common.SharedConstantsNStrings.
-* The Subscription MUST be named "**ServiceB**". This name comes from the dapr run command, namely the --app-id argument, i.e. --app-id ServiceB, that is in the StartRunServicesAndUI.txt file.
-
-2. Copy the Azure Service Bus Namespace "connection string" from the Azure Portal and paste it into the svs-pubsub-asbtopic.yaml that resides in  DaprRuntimePathPrefix\.dapr\components.  Here is how to do that:
-* In the Azure Portal navigate to your Azure Service Bus Namespace.
-* Then click on Settings/Shared Access Policies.
-* Then click on RootManageSharedAccessKey which will display the Primary and Secondary Key and Primary and Secondary Connection Strings.
-* Click on the Copy icon of the Primary Connection String to make a copy of the connection string.  
-* Then paste the copy of the connecction string into some temporary local text file (NoteBook works well for this) on your local dev system.
-* Open your local DaprRuntimePathPrefix\\.dapr\components\svs-pubsub-asbtopic.yaml in a text editor.  You can right click on the yaml file and choose Edit.
-* Paste the Primary Connection String that you copied from the Azure Portal into the local DaprRuntimePathPrefix\.dapr\components\svs-pubsub-asbtopic.yaml file as follows:
-  * Replace the contents of the field labeled "value" as shown below:
-
-  metadata:
-  
-   \- name: connectionString 
-   
-     value: Endpoint=sb://YourNamespace.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=YourSharedAccessKey  
-  
-  * Above, paste so as to replace all to the right of "value: " with your connection string, leaving 1 space between ':' and the connection string.
-  
-* Save the DaprRuntimePathPrefix\\.dapr\components\svs-pubsub-asbtopic.yaml file.
-
-* Now run the yaml file through a yaml validator.  For example copy the yaml and then paste it into https://codebeautify.org/yaml-validator.  If there are errors the validator will tell you.  This saves much time compared to trying to debug incorrect yaml via running code.  When the yaml is validated copy the yaml from the validator back into the yaml file and then save it.
-  * Note that from my experience a >= 1 space indent is required for each level of nesting in the yaml.  Without this even yaml that has been validated OK with the above yaml validator will still cause runtime errors.  Also use ONLY SPACES, and not tabs for indents.  Tabs cause errors.
-
-You are done with the Azure Assets step!
-
-**All done with InstallMe!  To run the code see RunMe.MD**
+**All done with INSTALLME!  To run the code see RUNME.MD**
