@@ -1,4 +1,4 @@
-Hello!  Welcome to this C# ASP.NET Core code example of Dapr's new Service Invocation that uses Dapr as a proxy to do the gRPC based Service Invocation rather than using the Dapr .NET SDK to do it. In other words, there are 2 ways of doing Service Invocation with Dapr:
+Hello!  Welcome to this C# ASP.NET Core code example of Dapr's new Service Invocation that uses Dapr as a proxy.  Dapr Service Invocation provides the capability of having one service to invoke methods on another service.  This code example show how to use Dapr as a proxy to do the gRPC based Service Invocation, rather than using the Dapr .NET SDK to do it. In other words, there are 2 ways of doing Service Invocation with Dapr:
 1. Use the Dapr language specific SDK that provides Service Invocation methods to produce the Service Invocation request and send it to Dapr to process.
 2. Use the Dapr Proxy feature which is lower level and requires a little more code (but not much) to produce and send the same Service Invocation request.
 
