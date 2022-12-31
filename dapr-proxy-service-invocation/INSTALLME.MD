@@ -12,7 +12,7 @@ You need to fulfill 3 prerequisites to use this code sample.
 **Visual Studio Community** -- Get the free Visual Studio Community IDE at this link:  https://visualstudio.microsoft.com/free-developer-offers/
 * Note that you must **get Visual Studio Community and NOT Visual Studio Code**.  It takes a substantial amount of work to get the code sample to run using Visual Studio Code.  Don't bother now. Rather save VS Code for later if you want to use it.
 
-**Docker Desktop** --  Install the free version of Docker, including Docker Desktop, on **your "test" machine** that runs one of the services in the code sample.  Just follow the instructions at https://docs.docker.com/get-docker/
+**Docker Desktop** --  Install the free version of Docker, including Docker Desktop, on **your "test" machine** that runs the services in the code sample.  Just follow the instructions at https://docs.docker.com/get-docker/
 
 **Dapr** -- Install Dapr on **your "test" machine** that runs the services in the code sample by following the instructions at this link: https://docs.dapr.io/getting-started/
 * You will only need to do the first 2 steps, i.e. 1. Install the Cli and 2. Initialize Dapr.  
@@ -20,10 +20,10 @@ You need to fulfill 3 prerequisites to use this code sample.
     
 To install Dapr:
 1. Install the Dapr Cli (command language interface):  https://docs.dapr.io/getting-started/install-dapr-cli/
-2. Install the Dapr Runtime (i.e. the executable) as follows.  Please **make a note of the full pathname of the directory** on your local machine where Dapr is installed.  This is known as the **DaprRuntimePathPrefix** in this document.  It is used later in this document, and perhaps in other documents as well. 
+2. Install the Dapr Runtime (i.e. the executable) as follows.  Please **make a note of the full pathname of the directory** on your local machine where Dapr is installed.  This is known as the **DaprRuntimePathPrefix** in this document.  It may be used later in this document, and perhaps in other documents as well. 
 
     * Initialize Dapr for use WITH Docker (the normal configuration):  https://docs.dapr.io/getting-started/install-dapr-selfhost/
-    * If you are using Windows for your development system I recommend installing WSL2 Backend (from Microsoft) that really smooths the process of using Docker.  WSL means Windows System for Linux.  It emulates a Linux machine to make Docker work smoother.  See the Docker Desktop for Windows documentation at https://docs.docker.com/docker-for-windows/install/ for links on how to install WSL2. With WSL2 you **do not** need to install a Linux distro in order to run services using Dapr!  Having only WSL2 and Docker is all you need.
+    * If you are using Windows for your "test" system I recommend installing WSL2 Backend (from Microsoft) that really smooths the process of using Docker.  WSL means Windows System for Linux.  It emulates a Linux machine to make Docker work smoother.  See the Docker Desktop for Windows documentation at https://docs.docker.com/docker-for-windows/install/ for links on how to install WSL2. With WSL2 you **do not** need to install a Linux distro in order to run services using Dapr!  Having only WSL2 and Docker is all you need.
 
 You are done with the prequisites step!
 
@@ -42,10 +42,10 @@ Now that you have all the prerequisites installed you need to obtain and setup t
       * The build should work, and if it does then you can proceed with the remainder of these installation instructions.
         * If the build has errors then you must fix them before proceeding.  Try asking on Dapr Discord at https://discord.com/invite/ptHhX6jc34 if you cannot figure out by yourself how to get the solution to build properly.
        
-2.**Update the LocalRepoPath path names in the StartRunServicesAndUI.txt file** in Visual Studio.  Commands in this file are used when you actually run services in the VS solution via Command Prompt windows.
-  * You can see StartRunServicesAndUI.txt in the VS Solution Explorer. Open StartRunServicesAndUI.txt in Visual Studio.
+2.**Update the LocalRepoPath path names in the StartRunServices.txt file** in Visual Studio.  Commands in this file are used when you actually run services in the VS solution via Command Prompt windows.
+  * You can see StartRunServices.txt in the VS Solution Explorer. Open StartRunServices.txt in Visual Studio.
   * Create the "LocalRepoPath" string by concatenating the "LocalRepoPathPrefix" you saved above with the string "DiscoverDapr".  This is the full path to the DiscoverDapr repo on your system.
-  * Next, replace the string "LocalRepoPath"" with the actual full path string you saved above in the 2 lines in StartRunServicesAndUI.txt shown below:
+  * Next, replace the string "LocalRepoPath"" with the actual full path string you saved above in the 2 lines in StartRunServices.txt shown below:
     * cd **LocalRepoPath**\DiscoverDapr\dapr-proxy-service-invocation\Services\ServiceA
     * cd **LocalRepoPath**\DiscoverDapr\dapr-proxy-service-invocation\Services\ServiceB  
   * When you are done with the string replacement be sure to do a test to make sure the above cd commands actually work in a Command Prompt window, as follows:
@@ -53,7 +53,7 @@ Now that you have all the prerequisites installed you need to obtain and setup t
       * Using the Windows Terminal Command Prompt is much, much easier to deal with so install Windows Terminal if you do not already have it!  Here is the link to install Windows Terminal for free: https://www.microsoft.com/en-us/p/windows-terminal/9n0dx20hk701?activetab=pivot:overviewtab
     *  Copy the above string containing the full path name into the Command Prompt window and press enter.  
       *  If it does not execute the "cd" command you will have to figure out why and fix it.  This "cd" command MUST work in ordder to run the services.
-  *  When both of the newly adjusted "cd" commands in the StartRunServicesAndUI.txt file have been proven to work without a doubt, SAVE the file.
+  *  When both of the newly adjusted "cd" commands in the StartRunServices.txt file have been proven to work without a doubt, SAVE the file.
  
 You are done with the GitHub Repo Assets step!
 
