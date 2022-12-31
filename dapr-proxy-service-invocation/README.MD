@@ -14,6 +14,7 @@ But first, a little more about Dapr Service Invocation to show the value it prod
 5. Access Control Lists.
 6. Network Level Resiliency.
 7. API Token Based Authentication."
+
 The above items in quotes are from https://docs.dapr.io/developing-applications/building-blocks/service-invocation/howto-invoke-services-grpc/ .
 
 And here is a link to the higher level Dapr doc describing the Service Invocation Building Block: https://docs.dapr.io/developing-applications/building-blocks/service-invocation/service-invocation-overview/ . This docment has lots of key information AND diagrams that really help understand how Dapr implements Service Invocation.  I suggest you look it over.
