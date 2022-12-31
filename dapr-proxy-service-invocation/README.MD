@@ -30,12 +30,11 @@ The code, in a Visual Studio Solution in this repo folder, is done and works gre
 
 Here is the supporting documentation:
 
-INSTALLME.MD  -- Not yet written.  But if you already have Dapr V 1.9.2 or later, and Visual Studio, installed on your dev system you should have nothing to install.
+INSTALLME.MD  -- Not yet written.  But if you already have  Docker Desktop, Dapr V 1.9.2 or later, and Visual Studio, installed on your dev system you should have nothing to install.
 
-RUNME.MD -- Not yet written, but most of that sort of info is in the file StartAndRunServices.txt in the RunSelfHosted folder.
+RUNME.MD -- Not yet written, but most of that sort of info is in the file StartAndRunServices.txt in the RunSelfHosted folder of the Visual Studio solution.
 
-The PowerPoint slide deck Using the Dapr Proxy for Service Invocation.pptx -- This has several diagrams of how the services interact and the various ports they, and their Dapr Sidecars, use.  This really helps understanding the dapr run commands used to start the services and their side cars, plus understanding how Dapr produces its magic.  **Viewing the slide deck first is STRONGLY SUGGESTED so as to get you oriented in a useful way**.  The slide deck also contains additional links to useful info sources to aid you in understanding Dapr and its Service Invocation.
-
+The PowerPoint slide deck Using the Dapr Proxy for Service Invocation.pptx is located in the top level directory dapr-proxy-service-invocation.  **It has several diagrams of how the services interact and the various ports they, and their Dapr Sidecars, use**.  This really helps understanding the dapr run commands used to start the services and their side cars, plus understanding how Dapr produces its magic.  **Viewing the slide deck first is STRONGLY SUGGESTED so as to get you oriented in a useful way**.  The slide deck also contains additional links to useful info sources to aid you in understanding Dapr and its Service Invocation.  
 I hope this helps. 12/31/22.
 
 Thanks, 
