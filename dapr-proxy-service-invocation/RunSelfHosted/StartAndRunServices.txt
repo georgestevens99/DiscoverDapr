@@ -15,12 +15,13 @@ Run Self Hosted Commands and info
 12/23/22
 
 CAUTION -- You MUST replace the file system pathnames in the 2 cd commands BELOW with pathnames appropriate
-to the system you are running this on.  Specifically replace all characters ahead of:
+to the system you are running this on.  Specifically replace all in C:\LocalRepoPathPrefix\ with path names
+for your dev system:
 
-	dapr-proxy-service-invocation\Services\ExploreDapr.Services.WebAPI1  and
-	dapr-proxy-service-invocation\Services\ExploreDapr.Services.ServiceA
+	C:\LocalRepoPath\dapr-proxy-service-invocation\Services\ExploreDapr.Services.WebAPI1  and
+	C:\LocalRepoPath\dapr-proxy-service-invocation\Services\ExploreDapr.Services.ServiceA
 
-with path names for your dev system!!  This is required to run the 2 Daprized services in Self Hosted mode.
+This is required to run the 2 Daprized services in Self Hosted mode.
 
 
 ----------
@@ -29,7 +30,7 @@ To run WebAPI1
 Open a Windows Terminal command window dedicated to running ServiceA:
 
 Then, do this CD COMMAND:
-cd C:\path-name-for-your-dev-system\dapr-proxy-service-invocation\Services\ExploreDapr.Services.WebAPI1
+cd C:\LocalRepoPath\dapr-proxy-service-invocation\Services\ExploreDapr.Services.WebAPI1
 
 To run WebAPI1 WITHOUT Dapr in the dedicated Windows Terminal command window:
 
@@ -57,7 +58,7 @@ To run ServiceA
 Open a Windows Terminal command window dedicated to running ServiceA:
 
 Then, do this CD COMMAND:
-cd C:\path-name-for-your-dev-system\dapr-proxy-service-invocation\Services\ExploreDapr.Services.ServiceA
+cd C:\LocalRepoPath\dapr-proxy-service-invocation\Services\ExploreDapr.Services.ServiceA
 
 
 To run ServiceA WITHOUT Dapr in the dedicated Windows Terminal command window:
