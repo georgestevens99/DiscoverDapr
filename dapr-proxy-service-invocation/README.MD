@@ -33,9 +33,9 @@ INSTALLME.MD  -- Not yet written.  But if you already have Dapr V 1.9.2 or later
 
 RUNME.MD -- Not yet written, but most of that sort of info is in the file StartAndRunServices.txt in the RunSelfHosted folder.
 
-Using the Dapr Proxy for Service Invocation.pptx -- This PowerPoint slide deck has several diagrams of how the services interact and the various ports they, and their Dapr Sidecars, use.  This really helps understanding the dapr run commands used to start the services and their side cars, plus understanding how Dapr produces its magic.  Viewing the slide deck first is STRONGLY SUGGESTED so as to get you oriented in a useful way.  This slide deck also contains additional links to useful info sources to aid you in understanding Dapr and its Service Invocation.
+The PowerPoint slide deck Using the Dapr Proxy for Service Invocation.pptx -- This has several diagrams of how the services interact and the various ports they, and their Dapr Sidecars, use.  This really helps understanding the dapr run commands used to start the services and their side cars, plus understanding how Dapr produces its magic.  Viewing the slide deck first is STRONGLY SUGGESTED so as to get you oriented in a useful way.  This slide deck also contains additional links to useful info sources to aid you in understanding Dapr and its Service Invocation.
 
-I hope this helps. 12/29/22.
+I hope this helps. 12/31/22.
 
 Thanks, 
 George Stevens, Software Architect at Solid Value Software
