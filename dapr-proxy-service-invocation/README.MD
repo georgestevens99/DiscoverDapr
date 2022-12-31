@@ -9,7 +9,7 @@ A Service Invocation request example: `http://localhost:50001/v1.0/invoke/Servic
 The Dapr Proxy approach is mainly of use when using languages which have no Dapr SDK.  However, the Dapr Proxy approach is an excellent way to learn about how Service Invocation works specifically, and more generally how the Dapr Proxy approach applies in the same general way to the other Dapr Building Blocks.  This is the main goal of this code sample.
 
 But first, a little more about Dapr Service Invocation to show the value it produces beyond just allowing one service to invoke methods on another service.  The use of Dapr Service Invocation also provides the following capabilities, built into Dapr and its implementation of Service Invocation:
-1. Service Discovery.
+1. Service Discovery, using Dapr's [mDNS](https://docs.dapr.io/reference/components-reference/supported-name-resolution/nr-mdns/).
 2. "Mutual Authentication.
 3. Tracing.
 4. Metrics.
