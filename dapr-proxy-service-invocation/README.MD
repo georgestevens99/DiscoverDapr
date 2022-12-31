@@ -17,7 +17,7 @@ But first, a little more about Dapr Service Invocation to show the value it prod
 
 The above items in quotes are from https://docs.dapr.io/developing-applications/building-blocks/service-invocation/howto-invoke-services-grpc/ .
 
-And here is a link to the higher level Dapr doc describing the Service Invocation Building Block: https://docs.dapr.io/developing-applications/building-blocks/service-invocation/service-invocation-overview/ . This docment has lots of key information AND diagrams that really help understand how Dapr implements Service Invocation.  I suggest you look it over.
+And here is a link to the higher level Dapr doc describing the Service Invocation Building Block: https://docs.dapr.io/developing-applications/building-blocks/service-invocation/service-invocation-overview/ . This docment has lots of key information AND diagrams that really help understand how Dapr implements Service Invocation.  **I suggest you look it over**.
 
 In this code example there are 3 software apps that call each other as follows, where --> means "calls":   
 
@@ -34,7 +34,7 @@ INSTALLME.MD  -- Not yet written.  But if you already have Dapr V 1.9.2 or later
 
 RUNME.MD -- Not yet written, but most of that sort of info is in the file StartAndRunServices.txt in the RunSelfHosted folder.
 
-The PowerPoint slide deck Using the Dapr Proxy for Service Invocation.pptx -- This has several diagrams of how the services interact and the various ports they, and their Dapr Sidecars, use.  This really helps understanding the dapr run commands used to start the services and their side cars, plus understanding how Dapr produces its magic.  Viewing the slide deck first is STRONGLY SUGGESTED so as to get you oriented in a useful way.  This slide deck also contains additional links to useful info sources to aid you in understanding Dapr and its Service Invocation.
+The PowerPoint slide deck Using the Dapr Proxy for Service Invocation.pptx -- This has several diagrams of how the services interact and the various ports they, and their Dapr Sidecars, use.  This really helps understanding the dapr run commands used to start the services and their side cars, plus understanding how Dapr produces its magic.  **Viewing the slide deck first is STRONGLY SUGGESTED so as to get you oriented in a useful way**.  The slide deck also contains additional links to useful info sources to aid you in understanding Dapr and its Service Invocation.
 
 I hope this helps. 12/31/22.
 
