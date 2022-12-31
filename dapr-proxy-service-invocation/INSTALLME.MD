@@ -3,7 +3,7 @@ Completed Saturday 12/31/22.
 
 ## Prerequisites
 You need to fulfill 3 prerequisites to use this code sample.
-1. Microsoft Visual Studio IDE (integrated development environment) needs to be **installed on *your dev machine*** that will run one of the services in the code sample.  The Microsoft **Visual Studio Community** edition is free.
+1. Microsoft Visual Studio IDE (integrated development environment) needs to be **installed on *your dev machine*** that will run the services in the code sample.  The Microsoft **Visual Studio Community** edition is free.
 
 2. Docker Desktop needs to be **installed on *your dev machine*** to support the Dapr container and others as well.
 
@@ -23,7 +23,7 @@ To install Dapr:
 2. Install the Dapr Runtime (i.e. the executable) as follows.  Please **make a note of the full pathname of the directory** on your local machine where Dapr is installed.  This is known as the **DaprRuntimePathPrefix** in this document.  It is used later in this document, and perhaps in other documents as well. 
 
     * Initialize Dapr for use WITH Docker (the normal configuration):  https://docs.dapr.io/getting-started/install-dapr-selfhost/
-      * If you are using Windows for your development system I recommend installing WSL2 Backend (from Microsoft) that really smooths the process of using Docker.  WSL means Windows System for Linux.  It emulates a Linux machine to make Docker work smoother.  See the Docker Desktop for Windows documentation at https://docs.docker.com/docker-for-windows/install/ for links on how to install WSL2. With WSL2 you do not need to install a Linux distro in order to run services using Dapr!  Having only WSL2 and Docker is all you need.
+    * If you are using Windows for your development system I recommend installing WSL2 Backend (from Microsoft) that really smooths the process of using Docker.  WSL means Windows System for Linux.  It emulates a Linux machine to make Docker work smoother.  See the Docker Desktop for Windows documentation at https://docs.docker.com/docker-for-windows/install/ for links on how to install WSL2. With WSL2 you do not need to install a Linux distro in order to run services using Dapr!  Having only WSL2 and Docker is all you need.
 
 You are done with the prequisites step!
 
