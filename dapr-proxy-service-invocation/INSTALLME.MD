@@ -42,7 +42,7 @@ Now that you have all the prerequisites installed you need to obtain and setup t
       * The build should work, and when it does then you can proceed with the remainder of these installation instructions.
         * If the build has errors then you must fix them before proceeding.  Try asking on Dapr Discord at https://discord.com/invite/ptHhX6jc34 if you cannot figure out by yourself how to get the solution to build properly.
        
-2. **Update the LocalRepoPath path names in the StartRunServices.txt file** in Visual Studio.  Commands in this file are used when you actually manually run services in the VS solution via Command Prompt windows.
+2. **Update the LocalRepoPath path names in the StartRunServices.txt file** in Visual Studio.  Commands in this file are used when you actually manually run services whose code is in the VS solution via Command Prompt windows.
   * You can see StartRunServices.txt in the VS Solution Explorer. Open StartRunServices.txt in Visual Studio.
   * Create the "LocalRepoPath" string by concatenating the "LocalRepoPathPrefix" you saved above with the string "DiscoverDapr" and save the entire path in a temporary text file for use below.  This is the full path to the DiscoverDapr repo on your system.
   * Next, in StartRunServices.txt replace the string "LocalRepoPath"" with the actual full path string you saved above.  Replacement must happen in the 2 lines in StartRunServices.txt shown below:
