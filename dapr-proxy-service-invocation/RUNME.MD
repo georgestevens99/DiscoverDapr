@@ -11,7 +11,7 @@ Please see the QuickTestClient code for the meanings of each command and its arg
 
 
 
-I've found that the Windows Terminal Command Prompt window is much, much more efficient to use that the Windows Command Prompt window. Here is the link to install Windows Terminal for free: https://www.microsoft.com/en-us/p/windows-terminal/9n0dx20hk701?activetab=pivot:overviewtab
+I've found that the Windows Terminal Command Prompt window is much, much more efficient to use than the Windows Command Prompt window. Here is the link to install Windows Terminal for free: https://www.microsoft.com/en-us/p/windows-terminal/9n0dx20hk701?activetab=pivot:overviewtab
 
 Finally, be sure to try out the QuickTestClient's "n-Iterations" argument" to load test and stress test the system.  Try running n-iterations of thousands or tens of thousands iterations.  You will be amazed at how fast it is.  And try running thousands or even tens of thousands of events with a 0 millisecond delay.  Do these break your system?  How long does it take the system as a whole, end-to-end, to process 1000 events, i.e. the throughput?  Doing load and stress testing will both show you where you need to strengthen the software, and build your confidence in it as well.
 
