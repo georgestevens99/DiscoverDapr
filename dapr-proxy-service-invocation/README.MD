@@ -1,6 +1,6 @@
 Hello!  Welcome to this C# ASP.NET Core code example of Dapr's new Service Invocation that uses Dapr as a proxy.  Dapr Service Invocation provides the capability of having one service invoke methods on another service.  
 
-This simple code example not only shows how to do Dapr Proxied Service Invocation, but can also serve as a starter to aid in exploring many other Dapr caapabilities.  Just extend it by adding other services and/or other Dapr Building blocks.  Also note that this code example uses Dapr's Self Hosted mode so that you can run it on your desktop dev machine and avoid the extra setup required when running it under Docker Compose or Kubernetes.
+This simple code example not only shows how to do Dapr Proxied Service Invocation, but can also serve as a starter to aid in exploring many other Dapr caapabilities.  Just extend it by adding other services and/or other Dapr Building Blocks.  Also note that this code example uses Dapr's Self Hosted mode so that you can run it on your desktop dev machine and avoid the extra setup required when running it under Docker Compose or Kubernetes.
 
 This code example shows how to use Dapr-as-a-proxy to do gRPC based Service Invocation rather than using the Dapr .NET SDK to do it. In other words, there are 2 ways of doing Service Invocation with Dapr:
 1. Use the a language specific SDK that provides Dapr Service Invocation methods to produce the Service Invocation request and send it to a Dapr sidecar to process. A list of language specific Dapr SDKs is available at this link -- https://docs.dapr.io/developing-applications/sdks/
@@ -34,11 +34,12 @@ The code, in a Visual Studio Solution in this repo folder, is tested and works g
 
 Here is the supporting documentation:
 
-INSTALLME.MD  -- This is almost ready to use.
+INSTALLME.MD  -- As of 1/2/23 this is complete and ready to use.
 
-RUNME.MD -- This is almost ready to use, with most of the key info being in the file StartAndRunServices.txt in the RunSelfHosted folder of the Visual Studio solution, which is complete and stable.
+RUNME.MD -- As of 1/2/23 this is complete and ready to use.
 
-The PowerPoint slide deck "Using the Dapr Proxy for Service Invocation.pptx" -- This is located in the top level dapr-proxy-service-invocation directory.  **It has several diagrams of how the services interact and the various ports they, and their Dapr Sidecars, use**.  This really helps understanding the dapr run commands used to start the services and their side cars in Self Hosted mode, plus understanding how Dapr produces its magic.  **Viewing the slide deck first is STRONGLY SUGGESTED so as to get you oriented in a useful way**.  The slide deck also contains additional links to useful info sources to aid you in understanding Dapr and its Service Invocation.  
+The PowerPoint slide deck "Using the Dapr Proxy for Service Invocation.pptx" -- This is located in the top level dapr-proxy-service-invocation directory.  **It has several diagrams of how the services interact and the various ports they, and their Dapr Sidecars, use**.  This really helps understanding the dapr run commands used to start the services and their side cars in Self Hosted mode, plus understanding how Dapr produces its magic.  **Viewing the slide deck first is STRONGLY SUGGESTED so as to get you oriented in a useful way**.  The slide deck also contains additional links to useful info sources to aid you in understanding Dapr and its Service Invocation. 
+
 I hope this helps. 1/2/23.
 
 Thanks, 
