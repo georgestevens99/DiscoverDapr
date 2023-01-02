@@ -39,7 +39,7 @@ Now that you have all the prerequisites installed you need to obtain and setup t
     * Open the solution and build it.
       * When the download is complete, in Visual Studio (VS) open the dapr-proxy-service-invocation.sln.  Double clicking on the .sln file icon will open the solution.
       * Once the solution is open in VS, build the solution by opening the Build menu in the menu bar at the top of the display and click on Rebuild.
-      * The build should work, and if it does then you can proceed with the remainder of these installation instructions.
+      * The build should work, and when it does then you can proceed with the remainder of these installation instructions.
         * If the build has errors then you must fix them before proceeding.  Try asking on Dapr Discord at https://discord.com/invite/ptHhX6jc34 if you cannot figure out by yourself how to get the solution to build properly.
        
 2.**Update the LocalRepoPath path names in the StartRunServices.txt file** in Visual Studio.  Commands in this file are used when you actually manually run services in the VS solution via Command Prompt windows.
