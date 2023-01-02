@@ -27,7 +27,7 @@ In this code example there are 3 software apps that call each other as follows, 
 
   QuickTestClient .NET Core Console App **-->** WebAPI1 ASP.NET Core **-->** ServiceA ASP.NET Core gRPC service.
   
-Standard non-Daprized HTTP is used on the first "hop", while the second "hop" (between WebAPI1 and ServiceA) is done by Dapr Service Invocation using gRPC.  Note that both WebAPI1 and ServiceA have their own Dapr sidecars that do the work of Service Invocation between the 2 services.
+Standard non-Daprized HTTP is used on the first "hop", while the second "hop" (between WebAPI1 and ServiceA) is done by Dapr Service Invocation using gRPC.  Note that both WebAPI1 and ServiceA have their own Dapr sidecars that do the work of Service Invocation between the 2 services.  The request issued by the QuickTestClient simply asks the various services and their service ops (aka methods) to echo back the argument supplied by the caller.  Very simple, but it does adequeately demonstrate that a multiservice distributed call chain using Dapr Service Invocation works.
 
 The code, in a Visual Studio Solution in this repo folder, is tested and works great!  It is really fast, so be sure to try out running 1000 or 5000 iterations.  It may just amaze you!  
 
