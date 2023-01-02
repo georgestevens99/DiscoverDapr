@@ -55,9 +55,9 @@ Now that you have all the prerequisites installed you need to obtain and setup t
       * Using the Windows Terminal Command Prompt is much, much easier to deal with so install Windows Terminal if you do not already have it!  Here is the link to install Windows Terminal for free: https://www.microsoft.com/en-us/p/windows-terminal/9n0dx20hk701?activetab=pivot:overviewtab
     *  Copy the above strings containing the full path name from StartRunServices.txt into the Command Prompt window and press enter.  Do this for each of the two strings.
       *  If it does not execute the "cd" command you will have to figure out why and fix it.  This "cd" command MUST work in ordder to run the services using the dapr run command.
-  *  When both of the newly adjusted "cd" commands in the StartRunServices.txt file have been proven to work without a doubt, SAVE the file.
+  *  When both of the newly adjusted "cd" commands in the StartRunServices.txt file have been proven to work without a doubt, SAVE the StartRunServices.txt file.
   *  NOTE -- This technique of using copy/paste to transfer command strings from the text file into a Command Window is used throughout RUNME.MD to avoid manually typing long command strings into the Command Window and the inveitable errors.
  
-You are done with the GitHub Repo Assets step!
+You are done with the GitHub Repo Assets step!  And ready to run the 2 services and QuickTestClient.
 
 **All done with INSTALLME!  To run the code see RUNME.MD**
