@@ -3,9 +3,9 @@ Completed 1/2/23.
 
 ## Prerequisites
 You need to fulfill 3 prerequisites to use this code sample.
-1. Microsoft Visual Studio IDE (integrated development environment) needs to be **installed on *your "test" machine*** that will run the services in the code sample.  The Microsoft **Visual Studio Community** edition is free.
+1. **Microsoft Visual Studio** IDE (integrated development environment) needs to be **installed on *your "test" machine*** that will run the services in the code sample.  The Microsoft **Visual Studio Community** edition is free.
 
-2. Docker Desktop needs to be **installed on *your "test" machine*** to support the Dapr container and others as well.  Docker is free for individuals and small organizations.
+2. **Docker Desktop** needs to be **installed on *your "test" machine*** to support the Dapr container and others as well.  Docker is free for individuals and small organizations.
 
 3. **Dapr** needs to be **installed on *your "test" machine*** that will run the services in the code sample. The code sample will work with any version of Dapr that is compatible with v1.9.2 Dapr runtime and v1.9.0 Dapr CLI.  Dapr is free of charge.
 
