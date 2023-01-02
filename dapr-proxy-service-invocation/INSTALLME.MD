@@ -49,7 +49,7 @@ Now that you have all the prerequisites installed you need to obtain and setup t
     * cd **LocalRepoPath**\dapr-proxy-service-invocation\Services\ServiceA
     * cd **LocalRepoPath**\dapr-proxy-service-invocation\Services\ServiceB  
 
-    * For example, on an imaginary test system the full path name should look like cd C:\SoftwareDev\DaprExamples\DiscoverDapr\dapr-proxy-service-invocation\Services\ServiceA where the LocalRepoPath is C:\SoftwareDev\DaprExamples\DiscoverDapr.  But DO NOT USE the preceeding LocalRepoPath on your system.  You need to use a LocalRepoPath that is relevant to your system, and not just something snatched out of the air for this example.
+    * For example, on an imaginary test system the full path name should look like cd C:\SoftwareDev\DaprExamples\DiscoverDapr\dapr-proxy-service-invocation\Services\ServiceA where the LocalRepoPath is C:\SoftwareDev\DaprExamples\DiscoverDapr.  But DO NOT USE the preceeding LocalRepoPath on your system!  You need to use a LocalRepoPath that is relevant to your system, and not just something snatched out of the air for this particular example.
   * When you are done with the string replacement be sure to do a manual test to make sure the above cd commands actually work in a Command Prompt window, as follows:
     *  Open a Command Prompt window.  
       * Using the Windows Terminal Command Prompt is much, much easier to deal with so install Windows Terminal if you do not already have it!  Here is the link to install Windows Terminal for free: https://www.microsoft.com/en-us/p/windows-terminal/9n0dx20hk701?activetab=pivot:overviewtab
