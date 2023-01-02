@@ -9,12 +9,12 @@ You need to fulfill 3 prerequisites to use this code sample.
 
 3. **Dapr** needs to be **installed on *your "test" machine*** that will run the services in the code sample. The code sample will work with any version of Dapr that is compatible with v1.9.2 Dapr runtime and v1.9.0 Dapr CLI.  Dapr is free of charge.
 
-**Visual Studio Community** -- Get the free Visual Studio Community IDE at this link:  https://visualstudio.microsoft.com/free-developer-offers/
+**Install Visual Studio Community** -- Get the free Visual Studio Community IDE at this link:  https://visualstudio.microsoft.com/free-developer-offers/
 * Note that you must **get Visual Studio Community and NOT Visual Studio Code**.  It takes a substantial amount of work to get the code sample to run using Visual Studio Code.  Don't bother now. Rather save VS Code for later if you want to use it.
 
-**Docker Desktop** --  Install the free version of Docker, including Docker Desktop, on **your "test" machine** that runs the services in the code sample.  Just follow the instructions at https://docs.docker.com/get-docker/
+**Install Docker Desktop** --  Install the free version of Docker, including Docker Desktop, on **your "test" machine** that runs the services in the code sample.  Just follow the instructions at https://docs.docker.com/get-docker/
 
-**Dapr** -- Install Dapr on **your "test" machine** that runs the services in the code sample by following the instructions at this link: https://docs.dapr.io/getting-started/
+**Install Dapr** -- Install Dapr on **your "test" machine** that runs the services in the code sample by following the instructions at this link: https://docs.dapr.io/getting-started/
 * You will only need to do the first 2 steps, i.e. 1. Install the Cli and 2. Initialize Dapr.  
 * The code sample requires that Docker be installed.  Therefore DO NOT use the command **dapr init --slim**, rather **use the standard dapr init command instead**.  
     
