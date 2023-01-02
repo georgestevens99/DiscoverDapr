@@ -1,7 +1,7 @@
 ## How to Run the Code
 Completed 1/2/23.
 
-You will need to run all 3 of the process at once to use this demo.  That is WebAPI1, ServiceA, and the QuickTestClient.  Thus you will need a Command Window for each of the 2 services (WebAPI1 and ServiceA) in order to run them in the appropriate directory using the Dapr Run command that supplies a Dapr sidecar to the service being run.  On the other hand, the Quick Test Client supplies its own Command Window when it is started since it is a Console App.
+You will need to run all 3 of the process concurrently to use this demo.  That is WebAPI1, ServiceA, and the QuickTestClient.  Thus you will need a Command Window for each of the 2 services (WebAPI1 and ServiceA) in order to run them in the appropriate directory using the Dapr Run command that supplies a Dapr sidecar to the service being run.  On the other hand, the Quick Test Client supplies its own Command Window when it is started since it is a Console App.
 
 Please see the document StartAndRunServices.txt in the RunSelfHosted solution folder for instructions on how to start each of the above services. This text file contains the text for the Command Window commands required to change to the proper directory for a service's code, and then run the service via Dapr Run.  Just copy the command text from StartAndRunServices.txt, paste it into the appropriate service's Command Window, and press ENTER.  Its that easy!
 
