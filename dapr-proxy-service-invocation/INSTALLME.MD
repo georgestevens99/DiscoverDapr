@@ -17,7 +17,7 @@ You need to fulfill 3 prerequisites to use this code sample.
 
 **Install Dapr** -- Install Dapr on **your "test" machine** that runs the services in the code sample by following the instructions at this link: https://docs.dapr.io/getting-started/
 * You will only need to do the first 2 steps, i.e. 1. Install the Cli and 2. Initialize Dapr.  
-* The code sample requires that Docker be installed.  Therefore DO NOT use the command **dapr init --slim**, rather **use the standard dapr init command instead**.  
+* The code sample requires that Docker be installed.  Therefore DO NOT use the command **dapr init --slim**, rather use the standard **dapr init** command instead.  
     
 Dapr Install Process:
 1. Install the Dapr Cli (command language interface):  https://docs.dapr.io/getting-started/install-dapr-cli/
