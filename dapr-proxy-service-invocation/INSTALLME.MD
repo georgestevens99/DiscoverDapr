@@ -1,11 +1,11 @@
 # dapr-proxy-service-invocation Installation Instructions
-Completed Saturday 12/31/22.
+Completed Monday 1/2/23.
 
 ## Prerequisites
 You need to fulfill 3 prerequisites to use this code sample.
 1. Microsoft Visual Studio IDE (integrated development environment) needs to be **installed on *your "test" machine*** that will run the services in the code sample.  The Microsoft **Visual Studio Community** edition is free.
 
-2. Docker Desktop needs to be **installed on *your "test" machine*** to support the Dapr container and others as well.
+2. Docker Desktop needs to be **installed on *your "test" machine*** to support the Dapr container and others as well.  Docker is free for individuals and small organizations.
 
 3. **Dapr** needs to be **installed on *your "test" machine*** that will run the services in the code sample. The code sample will work with any version of Dapr that is compatible with v1.9.2 Dapr runtime and v1.9.0 Dapr CLI.  Dapr is free of charge.
 
@@ -20,8 +20,7 @@ You need to fulfill 3 prerequisites to use this code sample.
     
 To install Dapr:
 1. Install the Dapr Cli (command language interface):  https://docs.dapr.io/getting-started/install-dapr-cli/
-2. Install the Dapr Runtime (i.e. the executable) as follows.  Please **make a note of the full pathname of the directory** on your local machine where Dapr is installed.  This is known as the **DaprRuntimePathPrefix** in this document.  It may be used later in this document, and perhaps in other documents as well. 
-
+2. Install the Dapr Runtime (i.e. the executable) as follows.
     * Initialize Dapr for use WITH Docker (the normal configuration):  https://docs.dapr.io/getting-started/install-dapr-selfhost/
     * If you are using Windows for your "test" system I recommend installing WSL2 Backend (from Microsoft) that really smooths the process of using Docker.  WSL means Windows System for Linux.  It emulates a Linux machine to make Docker work smoother.  See the Docker Desktop for Windows documentation at https://docs.docker.com/docker-for-windows/install/ for links on how to install WSL2. With WSL2 you **do not** need to install a Linux distro in order to run services using Dapr!  Having only WSL2 and Docker is all you need.
 
@@ -54,6 +53,7 @@ Now that you have all the prerequisites installed you need to obtain and setup t
     *  Copy the above string containing the full path name into the Command Prompt window and press enter.  
       *  If it does not execute the "cd" command you will have to figure out why and fix it.  This "cd" command MUST work in ordder to run the services.
   *  When both of the newly adjusted "cd" commands in the StartRunServices.txt file have been proven to work without a doubt, SAVE the file.
+  *  NOTE -- This technique of using copy/paste to transfer command strings from the text file into a Command Window is used throughout RUNME.MD to avoid manually typing long command strings into the Command Window and the inveitable errors.
  
 You are done with the GitHub Repo Assets step!
 
