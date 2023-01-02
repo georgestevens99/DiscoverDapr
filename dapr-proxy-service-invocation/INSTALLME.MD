@@ -45,8 +45,8 @@ Now that you have all the prerequisites installed you need to obtain and setup t
 2. **Update the LocalRepoPath path names in the StartRunServices.txt file** in Visual Studio.  Commands in this file are used when you actually manually run services whose code is in the VS solution via Command Prompt windows.
   * You can see **StartRunServices.txt** under the **RunSelfHosted folder** in the VS Solution Explorer. Open StartRunServices.txt in Visual Studio.
   * In StartRunServices.txt replace the string "LocalRepoPath" shown below with the actual full local repo path string you saved above when cloning the Git repo to your system.  This replacement must happen in the 2 lines in StartRunServices.txt shown below:
-    * cd **LocalRepoPath**\dapr-proxy-service-invocation\Services\ServiceA
-    * cd **LocalRepoPath**\dapr-proxy-service-invocation\Services\ServiceB  
+    * cd **LocalRepoPath**\dapr-proxy-service-invocation\Services\WebAPI1
+    * cd **LocalRepoPath**\dapr-proxy-service-invocation\Services\ServiceA  
 
     * For example, on an imaginary test system the full path name for the ServiceA source code should look like cd C:\SoftwareDev\DaprExamples\DiscoverDapr\dapr-proxy-service-invocation\Services\ServiceA where the LocalRepoPath is C:\SoftwareDev\DaprExamples\DiscoverDapr.  But DO NOT USE the preceeding LocalRepoPath on your system!  You need to use a LocalRepoPath that is relevant to your system, and not just something snatched out of the air for this particular example.
   * When you are done with the string replacement be sure to do a manual test to make sure the above cd commands actually work in a Command Prompt window, as follows:
