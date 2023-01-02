@@ -1,5 +1,5 @@
 # dapr-proxy-service-invocation Installation Instructions
-Completed Monday 1/2/23.
+Completed 1/2/23.
 
 ## Prerequisites
 You need to fulfill 3 prerequisites to use this code sample.
