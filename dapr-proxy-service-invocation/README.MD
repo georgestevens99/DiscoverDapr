@@ -36,7 +36,7 @@ Here is the supporting documentation:
 
 INSTALLME.MD  -- This is almost ready to use.
 
-RUNME.MD -- This is almost ready to use, with most of that sort of info being in the file StartAndRunServices.txt in the RunSelfHosted folder of the Visual Studio solution.
+RUNME.MD -- This is almost ready to use, with most of the key info being in the file StartAndRunServices.txt in the RunSelfHosted folder of the Visual Studio solution, which is complete and stable.
 
 The PowerPoint slide deck "Using the Dapr Proxy for Service Invocation.pptx" -- This is located in the top level dapr-proxy-service-invocation directory.  **It has several diagrams of how the services interact and the various ports they, and their Dapr Sidecars, use**.  This really helps understanding the dapr run commands used to start the services and their side cars in Self Hosted mode, plus understanding how Dapr produces its magic.  **Viewing the slide deck first is STRONGLY SUGGESTED so as to get you oriented in a useful way**.  The slide deck also contains additional links to useful info sources to aid you in understanding Dapr and its Service Invocation.  
 I hope this helps. 1/2/23.
