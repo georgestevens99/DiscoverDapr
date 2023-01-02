@@ -8,7 +8,7 @@ This code example shows how to use Dapr-as-a-proxy to do gRPC based Service Invo
 
 A Service Invocation request example: `http://localhost:50001/v1.0/invoke/ServiceA/method/EchoMessage`  As you can see, the request syntax is straight forward.
 
-The Dapr Proxy approach is mainly of use when using languages which have no Dapr SDK.  However, the Dapr Proxy approach is also an excellent way to learn about how Service Invocation works specifically, and more generally how the Dapr Proxy approach applies in the same general way to the other Dapr Building Blocks.  This is the main goal of this code sample.
+The Dapr Proxy approach is mainly of use when using languages which have no Dapr SDK.  However, the Dapr Proxy approach is also an excellent way to learn about how Service Invocation works specifically, and more generally how the Dapr Proxy approach applies in the same general way to the other Dapr Building Blocks.  This is the main goal of this code sample, including explicitly showing how the port numbers used in the Dapr Run command (and Kubernetes Dapr annotations) work via diagrams in a PowerPoint slide deck in this folder.  I suggest you view the PowerPoint diagrams as soon as you finish reading this README.MD.
 
 But first, a little more about Dapr Service Invocation to show the value it produces beyond just allowing one service to invoke methods on another service.  The use of Dapr Service Invocation also provides the following capabilities, built into Dapr and its implementation of Service Invocation:
 1. Service Discovery, using Dapr's [mDNS](https://docs.dapr.io/reference/components-reference/supported-name-resolution/nr-mdns/).
