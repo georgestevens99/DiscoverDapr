@@ -20,7 +20,7 @@ You need to fulfill 3 prerequisites to use this code sample.
     
 To install Dapr:
 1. Install the Dapr Cli (command language interface):  https://docs.dapr.io/getting-started/install-dapr-cli/
-2. Install the Dapr Runtime (i.e. the executable) as follows.
+2. Install the Dapr Runtime (i.e. the executable) as follows:
     * Initialize Dapr for use WITH Docker (the normal configuration):  https://docs.dapr.io/getting-started/install-dapr-selfhost/
     * If you are using Windows for your "test" system I recommend installing WSL2 Backend (from Microsoft) that really smooths the process of using Docker.  WSL means Windows System for Linux.  It emulates a Linux machine to make Docker work smoother.  See the Docker Desktop for Windows documentation at https://docs.docker.com/docker-for-windows/install/ for links on how to install WSL2. With WSL2 you **do not** need to install a Linux distro in order to run services using Dapr!  Having only WSL2 and Docker is all you need.
 
