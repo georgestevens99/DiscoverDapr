@@ -43,4 +43,4 @@ The PowerPoint slide deck "Using the Dapr Proxy for Service Invocation.pptx" -- 
 I hope this helps. 1/2/23.
 
 Thanks, 
-George Stevens, Software Architect at Solid Value Software
+George Stevens, Software Architect & Senior Software Engineer at Solid Value Software
