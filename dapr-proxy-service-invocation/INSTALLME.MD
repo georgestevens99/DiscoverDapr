@@ -34,7 +34,7 @@ Now that you have all the prerequisites installed you need to obtain and setup t
     * Download the repo, i.e. Clone it from GitHub to your "test" machine.
       * In the Visual Studio start up menu click on the "Clone a repository" selection.  Then fill out the input boxes on the screen as follows.
         * For the "Repository location" input box use https://github.com/georgestevens99/DiscoverDapr.
-        * For the "Path" input box insert the file path on your machine where you want the DiscoverDapr repo to reside. This path is know as the **LocalRepoPathPrefix** in this document so **record it somewhere**.  You will need to use this path name later.
+        * For the "Path" input box insert the file path on your machine where you want the DiscoverDapr repo to reside. This path is know as the **LocalRepoPath** in this document so **record it somewhere**.  You will need to use this path name later.
       * It may take a few minutes for the GitHub repo to be downloaded to your machine.
     * Open the solution and build it.
       * When the download is complete, in Visual Studio (VS) open the dapr-proxy-service-invocation.sln.  Double clicking on the .sln file icon will open the solution.
@@ -44,16 +44,15 @@ Now that you have all the prerequisites installed you need to obtain and setup t
        
 2. **Update the LocalRepoPath path names in the StartRunServices.txt file** in Visual Studio.  Commands in this file are used when you actually manually run services whose code is in the VS solution via Command Prompt windows.
   * You can see **StartRunServices.txt** under the **RunSelfHosted folder** in the VS Solution Explorer. Open StartRunServices.txt in Visual Studio.
-  * Create the "LocalRepoPath" string by concatenating the "LocalRepoPathPrefix" you saved above with the string "DiscoverDapr" and save the entire path in a temporary text file for use below.  This is the full path to the DiscoverDapr repo on your system.
-  * Next, in StartRunServices.txt replace the string "LocalRepoPath"" with the actual full path string you saved above.  Replacement must happen in the 2 lines in StartRunServices.txt shown below:
+  * In StartRunServices.txt replace the string "LocalRepoPath" shown below with the actual full local repo path string you saved above when cloning the Git repo to your system.  This replacement must happen in the 2 lines in StartRunServices.txt shown below:
     * cd **LocalRepoPath**\dapr-proxy-service-invocation\Services\ServiceA
     * cd **LocalRepoPath**\dapr-proxy-service-invocation\Services\ServiceB  
 
-    * For example, on an imaginary test system the full path name should look like cd C:\SoftwareDev\DaprExamples\DiscoverDapr\dapr-proxy-service-invocation\Services\ServiceA where the LocalRepoPath is C:\SoftwareDev\DaprExamples\DiscoverDapr.  But DO NOT USE the preceeding LocalRepoPath on your system!  You need to use a LocalRepoPath that is relevant to your system, and not just something snatched out of the air for this particular example.
+    * For example, on an imaginary test system the full path name for the ServiceA source code should look like cd C:\SoftwareDev\DaprExamples\DiscoverDapr\dapr-proxy-service-invocation\Services\ServiceA where the LocalRepoPath is C:\SoftwareDev\DaprExamples\DiscoverDapr.  But DO NOT USE the preceeding LocalRepoPath on your system!  You need to use a LocalRepoPath that is relevant to your system, and not just something snatched out of the air for this particular example.
   * When you are done with the string replacement be sure to do a manual test to make sure the above cd commands actually work in a Command Prompt window, as follows:
     *  Open a Command Prompt window.  
       * Using the Windows Terminal Command Prompt is much, much easier to deal with so install Windows Terminal if you do not already have it!  Here is the link to install Windows Terminal for free: https://www.microsoft.com/en-us/p/windows-terminal/9n0dx20hk701?activetab=pivot:overviewtab
-    *  Copy the above strings containing the full path name from StartRunServices.txt into the Command Prompt window and press enter.  Do this for each of the two strings.
+    *  One by one, copy each of the above strings containing the "cd" and the full path name from StartRunServices.txt into the Command Prompt window and press enter.  Do this for each of the two strings in 2 different "cd" commands.
       *  If it does not execute the "cd" command you will have to figure out why and fix it.  This "cd" command MUST work in ordder to run the services using the dapr run command.
   *  When both of the newly adjusted "cd" commands in the StartRunServices.txt file have been proven to work without a doubt, SAVE the StartRunServices.txt file.
   *  NOTE -- This technique of using copy/paste to transfer command strings from the text file into a Command Window is used throughout RUNME.MD to avoid manually typing long command strings into the Command Window and the inveitable errors.
